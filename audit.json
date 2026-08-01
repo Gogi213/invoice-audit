@@ -1,0 +1,400 @@
+{
+ "project": "Invoice Maker",
+ "file_key": "lKdFEoJiOwWMaUpjTHBl6N",
+ "excluded": {
+  "block": "AI Estimates",
+  "reason": "заглушка",
+  "screens": 13,
+  "volume": {
+   "radius_off_scale": 172,
+   "stroke_off": 100,
+   "touch_under_44": 5
+  }
+ },
+ "runs": [
+  {
+   "id": "2026-07-24",
+   "source": "figwright",
+   "prototype_data": false
+  },
+  {
+   "id": "2026-08-01T09:16Z",
+   "source": "rest",
+   "prototype_data": true
+  },
+  {
+   "id": "2026-08-01T11:11Z",
+   "source": "rest",
+   "prototype_data": true
+  }
+ ],
+ "declared_tokens": {
+  "source": "Foundations / Audit / 375pt source of truth",
+  "declared_at": "2026-08-01T11:11Z",
+  "master_canvas": 375,
+  "radius": [
+   12,
+   20,
+   28,
+   "full"
+  ],
+  "stroke": 1,
+  "touch_target_min": 44,
+  "type_styles": "7-9"
+ },
+ "trend": {
+  "radius_off_scale": [
+   522,
+   481,
+   484
+  ],
+  "radius_fractional": [
+   515,
+   446,
+   447
+  ],
+  "integer_grid_share_pct": [
+   1.3,
+   27.8,
+   28.3
+  ],
+  "stroke_not_1pt": [
+   209,
+   172,
+   172
+  ],
+  "colors_off_palette": [
+   52,
+   60,
+   63
+  ],
+  "type_pairs": [
+   83,
+   124,
+   130
+  ],
+  "cta_off_screen": [
+   null,
+   4,
+   2
+  ],
+  "cta_widths_at_390": [
+   null,
+   4,
+   2
+  ],
+  "screens_no_inbound": [
+   null,
+   14,
+   15
+  ]
+ },
+ "open": [
+  {
+   "id": "F-01",
+   "severity": "now",
+   "title": "Компоненты шире объявленного мастера",
+   "evidence": {
+    "master": 375,
+    "button": 378,
+    "provider_auth": 382,
+    "selector": 390
+   },
+   "blocks": [
+    "F-02",
+    "F-03",
+    "F-04",
+    "F-05"
+   ]
+  },
+  {
+   "id": "F-02",
+   "severity": "now",
+   "title": "Эталонный блок не мигрирован",
+   "evidence": {
+    "fractional_radii": 214,
+    "integer_radii": 0,
+    "derived_button": "329.7x59.3 r17.4"
+   }
+  },
+  {
+   "id": "F-03",
+   "severity": "now",
+   "title": "Радиус-шкала не соблюдается",
+   "evidence": {
+    "values": [
+     522,
+     481,
+     484
+    ],
+    "top_off_scale": {
+     "17.4": 193,
+     "20.9": null
+    }
+   }
+  },
+  {
+   "id": "F-04",
+   "severity": "now",
+   "title": "Миграции нет, экраны добавляются",
+   "evidence": {
+    "fractional_before": 618,
+    "fractional_after": 620,
+    "r17_4_before": 191,
+    "r17_4_after": 193
+   }
+  },
+  {
+   "id": "F-05",
+   "severity": "now",
+   "title": "Состояния отправки не подключены",
+   "evidence": {
+    "02.3E": {
+     "in": 0,
+     "out": 0
+    },
+    "02.3D": {
+     "in": 7,
+     "out": 0
+    }
+   }
+  },
+  {
+   "id": "F-06",
+   "severity": "soon",
+   "title": "Эталон нарушает собственные шкалы",
+   "evidence": {
+    "radius_values": 17,
+    "declared": 4,
+    "forbidden_present": 24
+   }
+  },
+  {
+   "id": "F-07",
+   "severity": "soon",
+   "title": "Два полноширинных примитива в эталоне",
+   "evidence": {
+    "widths": [
+     378,
+     382
+    ]
+   }
+  },
+  {
+   "id": "F-08",
+   "severity": "soon",
+   "title": "Цели нажатия ниже 44 pt",
+   "evidence": {
+    "count": [
+     46,
+     29,
+     26
+    ],
+    "worst": {
+     "Change logo": 20.9,
+     "Toggle": 26.2,
+     "Due chip": 28.0
+    }
+   }
+  },
+  {
+   "id": "F-09",
+   "severity": "soon",
+   "title": "Тексты ниже WCAG AA",
+   "evidence": {
+    "count": [
+     133,
+     133,
+     121
+    ],
+    "dominant_pair": {
+     "fg": "#747875",
+     "bg": "#FFFFFF",
+     "ratio": 4.48,
+     "need": 4.5,
+     "nodes": 96
+    }
+   }
+  },
+  {
+   "id": "F-10",
+   "severity": "soon",
+   "title": "CTA за нижним краем экрана",
+   "evidence": {
+    "count": [
+     null,
+     4,
+     2
+    ],
+    "remaining": [
+     "01 Welcome / iPhone 8·SE",
+     "02 ATT permission / iPhone 8·SE"
+    ],
+    "offset": -14.0
+   }
+  },
+  {
+   "id": "F-11",
+   "severity": "soon",
+   "title": "Разные ширины CTA на одном устройстве",
+   "evidence": {
+    "device": 390,
+    "widths": {
+     "344.7": 7,
+     "329.7": 3
+    }
+   }
+  },
+  {
+   "id": "F-12",
+   "severity": "soon",
+   "title": "Главный экран без акцентного действия",
+   "evidence": {
+    "screens": [
+     "02.1",
+     "02.1B",
+     "02.1C"
+    ],
+    "accent_actions": 0
+   }
+  },
+  {
+   "id": "F-13",
+   "severity": "soon",
+   "title": "Два акцентных действия на одном экране",
+   "evidence": {
+    "screen": "02.2D",
+    "elements": [
+     "Action / Save",
+     "CTA / Preview changes"
+    ]
+   }
+  },
+  {
+   "id": "F-14",
+   "severity": "soon",
+   "status": "reopened",
+   "title": "Точка входа онбординга не задана",
+   "evidence": {
+    "flow_starting_points": 0,
+    "renamed_hint": true
+   }
+  },
+  {
+   "id": "F-15",
+   "severity": "later",
+   "title": "Поля ввода не инстанцируются из эталона",
+   "evidence": {
+    "instances": 0,
+    "local_radii": [
+     13.1,
+     14.0,
+     10.5
+    ]
+   }
+  },
+  {
+   "id": "F-16",
+   "severity": "later",
+   "title": "Почти-дубли цветов, палитра растёт",
+   "evidence": {
+    "off_palette": [
+     52,
+     60,
+     63
+    ],
+    "pairs": [
+     [
+      "#101211",
+      "#0F120F",
+      1
+     ],
+     [
+      "#C7F36B",
+      "#C7F26B",
+      1
+     ],
+     [
+      "#EEF0EB",
+      "#F0F2ED",
+      2
+     ]
+    ]
+   }
+  },
+  {
+   "id": "F-17",
+   "severity": "later",
+   "title": "Типографика без шкалы",
+   "evidence": {
+    "pairs": [
+     83,
+     124,
+     130
+    ],
+    "declared_styles": "7-9"
+   }
+  },
+  {
+   "id": "F-18",
+   "severity": "later",
+   "title": "Экраны без входящих переходов",
+   "evidence": {
+    "count": [
+     null,
+     14,
+     15
+    ],
+    "gallery_share": 12
+   }
+  },
+  {
+   "id": "F-19",
+   "severity": "later",
+   "title": "Нет запаса на длинные данные",
+   "evidence": {
+    "tight_texts": 64,
+    "by_block": {
+     "Overview": 28,
+     "Clients": 18,
+     "Alternative": 9
+    }
+   }
+  }
+ ],
+ "closed": [
+  {
+   "id": "F-20",
+   "title": "Шкалы и холст не объявлены",
+   "closed_by": "Audit / 375pt source of truth"
+  },
+  {
+   "id": "F-21",
+   "title": "Нет состояний ошибки",
+   "closed_by": "02.3E — Invoice send failed",
+   "note": "породила F-05"
+  },
+  {
+   "id": "F-22",
+   "title": "Отправка без подтверждения",
+   "closed_by": "02.3D — Invoice sent confirmation"
+  },
+  {
+   "id": "F-23",
+   "title": "Вход в аккаунт никуда не приводит",
+   "closed_by": "02.1E -> 02.1F"
+  },
+  {
+   "id": "F-24",
+   "title": "Коллизии кодов экранов",
+   "status": "reopened",
+   "note": "4 из 7 закрыты префиксами; 02.3D и 02.3E столкнулись с превью шаблонов"
+  },
+  {
+   "id": "F-25",
+   "title": "Мастер и инстанс разошлись",
+   "status": "withdrawn",
+   "note": "проверка неисполнима по доступным данным"
+  }
+ ]
+}
