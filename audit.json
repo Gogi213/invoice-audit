@@ -26,6 +26,11 @@
    "id": "2026-08-01T11:11Z",
    "source": "rest",
    "prototype_data": true
+  },
+  {
+   "id": "2026-08-01T19:02Z",
+   "source": "rest",
+   "prototype_data": true
   }
  ],
  "declared_tokens": {
@@ -46,46 +51,55 @@
   "radius_off_scale": [
    522,
    481,
-   484
+   484,
+   477
   ],
   "radius_fractional": [
    515,
    446,
-   447
+   447,
+   440
   ],
   "integer_grid_share_pct": [
    1.3,
    27.8,
-   28.3
+   28.3,
+   29.4
   ],
   "stroke_not_1pt": [
    209,
+   172,
    172,
    172
   ],
   "colors_off_palette": [
    52,
    60,
+   63,
    63
   ],
   "type_pairs": [
    83,
    124,
+   130,
    130
   ],
   "cta_off_screen": [
    null,
    4,
+   2,
    2
   ],
   "cta_widths_at_390": [
    null,
    4,
-   2
+   2,
+   3
   ],
   "screens_no_inbound": [
    null,
    14,
+   15,
    15
   ]
  },
@@ -125,7 +139,8 @@
     "values": [
      522,
      481,
-     484
+     484,
+     477
     ],
     "top_off_scale": {
      "17.4": 193,
@@ -142,21 +157,6 @@
     "fractional_after": 620,
     "r17_4_before": 191,
     "r17_4_after": 193
-   }
-  },
-  {
-   "id": "F-05",
-   "severity": "now",
-   "title": "Состояния отправки не подключены",
-   "evidence": {
-    "02.3E": {
-     "in": 0,
-     "out": 0
-    },
-    "02.3D": {
-     "in": 7,
-     "out": 0
-    }
    }
   },
   {
@@ -188,6 +188,7 @@
     "count": [
      46,
      29,
+     26,
      26
     ],
     "worst": {
@@ -205,6 +206,7 @@
     "count": [
      133,
      133,
+     121,
      121
     ],
     "dominant_pair": {
@@ -224,6 +226,7 @@
     "count": [
      null,
      4,
+     2,
      2
     ],
     "remaining": [
@@ -241,7 +244,8 @@
     "device": 390,
     "widths": {
      "344.7": 7,
-     "329.7": 3
+     "344.6": 1,
+     "329.7": 2
     }
    }
   },
@@ -271,16 +275,6 @@
    }
   },
   {
-   "id": "F-14",
-   "severity": "soon",
-   "status": "reopened",
-   "title": "Точка входа онбординга не задана",
-   "evidence": {
-    "flow_starting_points": 0,
-    "renamed_hint": true
-   }
-  },
-  {
    "id": "F-15",
    "severity": "later",
    "title": "Поля ввода не инстанцируются из эталона",
@@ -301,6 +295,7 @@
     "off_palette": [
      52,
      60,
+     63,
      63
     ],
     "pairs": [
@@ -330,6 +325,7 @@
     "pairs": [
      83,
      124,
+     130,
      130
     ],
     "declared_styles": "7-9"
@@ -343,6 +339,7 @@
     "count": [
      null,
      14,
+     15,
      15
     ],
     "gallery_share": 12
@@ -387,14 +384,27 @@
   {
    "id": "F-24",
    "title": "Коллизии кодов экранов",
-   "status": "reopened",
-   "note": "4 из 7 закрыты префиксами; 02.3D и 02.3E столкнулись с превью шаблонов"
+   "status": "closed",
+   "note": "превью шаблонов переименованы в TEMPLATE — …; осталось 02.1C и 02.3B",
+   "closed_at": "2026-08-01T19:02Z"
   },
   {
    "id": "F-25",
    "title": "Мастер и инстанс разошлись",
    "status": "withdrawn",
    "note": "проверка неисполнима по доступным данным"
+  },
+  {
+   "id": "F-05",
+   "title": "Состояния отправки не подключены",
+   "closed_by": "переходы 02.3E и 02.3D",
+   "closed_at": "2026-08-01T19:02Z"
+  },
+  {
+   "id": "F-14",
+   "title": "Точка входа онбординга не задана",
+   "closed_by": "flowStartingPoints = Onboarding · 01 Welcome",
+   "closed_at": "2026-08-01T19:02Z"
   }
  ]
 }
