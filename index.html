@@ -121,7 +121,7 @@
       <div class="eyebrow">Живой документ · дописывается каждым прогоном</div>
       <h1>Реестр находок по макету</h1>
     </div>
-    <p class="lede"><b>Прогон 1 августа, 19:02.</b> Закрыто три находки, одна ухудшилась.
+    <p class="lede"><b>Прогон 1 августа, 19:02.</b> Закрыто четыре находки, одна ухудшилась.
       Правки точечные: 18 радиусов, 2 размера, 4 переименования, 1 переход — структура файла
       не менялась.<br><br>Одна строка — одна находка с постоянным номером. Номер живёт, пока находка
       не закрыта, поэтому «стало лучше» видно, а не декларируется. Секция AI Estimates
@@ -185,7 +185,7 @@
         <tr><td>24 июля</td><td class="n">4</td><td class="n">9</td><td class="n">7</td><td class="n">20</td><td class="n">0</td></tr>
         <tr><td>1 авг · 09:16</td><td class="n">5</td><td class="n">7</td><td class="n">6</td><td class="n">18</td><td class="n">0</td></tr>
         <tr><td>1 авг · 11:11</td><td class="n">5</td><td class="n">8</td><td class="n">5</td><td class="n">18</td><td class="n">5</td></tr>
-        <tr><td><b>1 авг · 19:02</b></td><td class="n">4</td><td class="n">6</td><td class="n">5</td><td class="n"><b>15</b></td><td class="n">8</td></tr>
+        <tr><td><b>1 авг · 19:02</b></td><td class="n">4</td><td class="n">5</td><td class="n">5</td><td class="n"><b>14</b></td><td class="n">9</td></tr>
       </tbody>
     </table></div>
     </div>
@@ -215,7 +215,7 @@
         <tr><td class="id">F-10</td><td><details class="f"><summary>CTA за нижним краем экрана на QA-доске</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · QA outputs, экраны iPhone 8/SE.</span><span class="ev">01 Welcome −14,0 · 02 ATT permission −14,0. На iPhone 13 исправлено</span><span><b>Чинить.</b> Перекомпоновать два фрейма: композиция с высокого экрана перенесена на 667 pt без перестановки.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">4</td><td class="n">2</td><td class="n">2</td><td>iPhone 13 починен, iPhone 8/SE нет</td></tr>
         <tr><td class="id">F-11</td><td><details class="f"><summary>Разные ширины CTA на одном устройстве</summary><div class="det"><span><b>Где смотреть.</b> QA outputs, устройство 390 pt.</span><span class="ev">две ширины: 344,7 (7 экранов, поля симметричны) и 329,7 (3 экрана, справа 37,6)</span><span><b>Чинить.</b> Растянуть кнопку на трёх оставшихся экранах до ширины устройства минус поля.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">4</td><td class="n">2</td><td class="n">3</td><td>Осталось 329,7 против 344,7 на 390</td></tr>
         <tr><td class="id">F-12</td><td><details class="f"><summary>Главный экран продукта без акцентного действия</summary><div class="det"><span><b>Где смотреть.</b> <code>02.1</code>, <code>02.1B</code>, <code>02.1C</code>.</span><span class="ev">ни одного элемента с акцентной заливкой и переходом. Для сравнения: на экранах формы и отправки акцентное действие ровно одно</span><span><b>Чинить.</b> Решить, что на главном экране главное действие, и выделить его акцентом. Сейчас быстрые действия визуально равны остальному содержимому.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">—</td><td class="n">—</td><td class="n">3 экрана</td><td>Все три <code>Overview</code></td></tr>
-        <tr><td class="id">F-13</td><td><details class="f"><summary>Два акцентных действия на экране редактирования черновика</summary><div class="det"><span><b>Где смотреть.</b> <code>02.2D — Edit draft invoice</code>.</span><span class="ev">два элемента с акцентной заливкой и переходом: «Save» в шапке и «Preview changes» внизу</span><span><b>Чинить.</b> Оставить акцент одному. Сейчас пользователь выбирает между двумя одинаково выделенными выходами, причём один необратимо сохраняет.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">—</td><td class="n">—</td><td class="n">02.2D</td><td class="n">3 экрана</td><td class="n">02.2D</td><td>«Save» и «Preview changes»</td></tr>
+        
         
 
         <tr><td class="id">F-15</td><td><details class="f"><summary>Product не инстанцирует поля ввода из эталона</summary><div class="det"><span><b>Где смотреть.</b> Поля ввода в продуктовых секциях против компонента Text Field.</span><span class="ev">инстансов Text Field в Product — 0. Локальные поля дают три радиуса на одну сущность: 13,1 в листах, 14,0 в опциях оплаты, 10,5 в настройках</span><span><b>Чинить.</b> Заменить локальные <code>Input / …</code> на инстансы. Уберёт два лишних радиуса и сделает состояние фокуса одинаковым.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">0 инст.</td><td class="n">0</td><td class="n">0</td><td class="n">1</td><td class="n">0</td><td>Три разных радиуса у одной сущности</td></tr>
@@ -230,7 +230,7 @@
   <section>
     <h2>Закрытые и переоткрытые</h2>
     <details>
-      <summary>Показать · 8 закрыто</summary>
+      <summary>Показать · 9 закрыто</summary>
       <div class="scroller"><table>
         <thead><tr><th class="n">№</th><th>Находка</th><th class="n">Статус</th><th>Чем закрыта</th></tr></thead>
         <tbody>
@@ -239,6 +239,7 @@
           <tr class="done"><td class="id">F-22</td><td>Отправка без подтверждения</td><td class="n"><span class="chip st-done">закрыта</span></td><td><code>02.3D — Invoice sent confirmation</code></td></tr>
           <tr class="done"><td class="id">F-23</td><td>Вход в аккаунт никуда не приводит</td><td class="n"><span class="chip st-done">закрыта</span></td><td><code>02.1E</code> → <code>02.1F</code> связан, состояние «вошёл» достижимо</td></tr>
           <tr class="done"><td>Коллизии кодов экранов</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — превью шаблонов переименованы в <code>TEMPLATE — …</code>, конфликт с 02.3D и 02.3E снят. Осталось два столкновения: <code>02.1C</code> и <code>02.3B</code></td></tr>
+          <tr class="done"><td class="id">F-13</td><td>Два акцентных действия на экране редактирования черновика</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — заливка <code>Action / Save</code> на <code>02.2D</code> сменилась с лаймовой на серую. Осталось одно акцентное действие</td></tr>
           <tr class="done"><td class="id">F-05</td><td>Состояния отправки не подключены к прототипу</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — <code>02.3E</code> получил входящий переход и два исходящих, <code>02.3D</code> — исходящий. Оба состояния теперь достижимы и из них есть выход</td></tr>
           <tr class="done"><td class="id">F-14</td><td>Точка входа онбординга не задана</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — <code>flowStartingPoints</code> = «Onboarding · 01 Welcome». Прототип запускается</td></tr>
           <tr class="done"><td class="id">F-24</td><td>Мастер и инстанс разошлись</td><td class="n"><span class="chip st-na">снята</span></td><td>Проверка неисполнима по доступным данным, из регламента удалена</td></tr>
@@ -518,18 +519,6 @@
    }
   },
   {
-   "id": "F-13",
-   "severity": "soon",
-   "title": "Два акцентных действия на одном экране",
-   "evidence": {
-    "screen": "02.2D",
-    "elements": [
-     "Action / Save",
-     "CTA / Preview changes"
-    ]
-   }
-  },
-  {
    "id": "F-15",
    "severity": "later",
    "title": "Поля ввода не инстанцируются из эталона",
@@ -659,6 +648,12 @@
    "id": "F-14",
    "title": "Точка входа онбординга не задана",
    "closed_by": "flowStartingPoints = Onboarding · 01 Welcome",
+   "closed_at": "2026-08-01T19:02Z"
+  },
+  {
+   "id": "F-13",
+   "title": "Два акцентных действия на одном экране",
+   "closed_by": "заливка Action / Save на 02.2D: #C7F36B -> #EEF0EB",
    "closed_at": "2026-08-01T19:02Z"
   }
  ]

@@ -263,18 +263,6 @@
    }
   },
   {
-   "id": "F-13",
-   "severity": "soon",
-   "title": "Два акцентных действия на одном экране",
-   "evidence": {
-    "screen": "02.2D",
-    "elements": [
-     "Action / Save",
-     "CTA / Preview changes"
-    ]
-   }
-  },
-  {
    "id": "F-15",
    "severity": "later",
    "title": "Поля ввода не инстанцируются из эталона",
@@ -404,6 +392,12 @@
    "id": "F-14",
    "title": "Точка входа онбординга не задана",
    "closed_by": "flowStartingPoints = Onboarding · 01 Welcome",
+   "closed_at": "2026-08-01T19:02Z"
+  },
+  {
+   "id": "F-13",
+   "title": "Два акцентных действия на одном экране",
+   "closed_by": "заливка Action / Save на 02.2D: #C7F36B -> #EEF0EB",
    "closed_at": "2026-08-01T19:02Z"
   }
  ]
