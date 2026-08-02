@@ -400,5 +400,23 @@
    "closed_by": "заливка Action / Save на 02.2D: #C7F36B -> #EEF0EB",
    "closed_at": "2026-08-01T19:02Z"
   }
+ ],
+ "burndown": [
+  {
+   "run": "2026-08-01T11:11Z",
+   "now": 5,
+   "soon": 10,
+   "later": 5,
+   "open": 20,
+   "closed_total": 5
+  },
+  {
+   "run": "2026-08-01T19:02Z",
+   "now": 4,
+   "soon": 7,
+   "later": 5,
+   "open": 16,
+   "closed_total": 9
+  }
  ]
 }
