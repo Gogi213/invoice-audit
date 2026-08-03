@@ -6,9 +6,9 @@
   "reason": "заглушка",
   "screens": 13,
   "volume": {
-   "radius_off_scale": 172,
-   "stroke_off": 100,
-   "touch_under_44": 5
+   "radius_off_scale": 0,
+   "stroke_off": 77,
+   "touch_under_44": 0
   }
  },
  "runs": [
@@ -31,6 +31,13 @@
    "id": "2026-08-01T19:02Z",
    "source": "rest",
    "prototype_data": true
+  },
+  {
+   "id": "2026-08-03T13:07Z",
+   "source": "rest",
+   "prototype_data": true,
+   "file_version": "2383487596576305773",
+   "note": "сборщик пересобран и сверен по историческим версиям файла: 24 из 27 опубликованных ячеек воспроизведены точно"
   }
  ],
  "declared_tokens": {
@@ -52,41 +59,48 @@
    522,
    481,
    484,
-   477
+   477,
+   0
   ],
   "radius_fractional": [
    515,
    446,
    447,
-   440
+   440,
+   0
   ],
   "integer_grid_share_pct": [
    1.3,
    27.8,
    28.3,
-   29.4
+   29.4,
+   100.0
   ],
   "stroke_not_1pt": [
    209,
    172,
    172,
-   172
+   172,
+   0
   ],
   "colors_off_palette": [
    52,
    60,
    63,
-   63
+   63,
+   54
   ],
   "type_pairs": [
    83,
    124,
    130,
-   130
+   130,
+   129
   ],
   "cta_off_screen": [
    null,
    4,
+   2,
    2,
    2
   ],
@@ -94,25 +108,43 @@
    null,
    4,
    2,
-   3
+   3,
+   2
   ],
   "screens_no_inbound": [
    null,
    14,
    15,
-   15
+   15,
+   3
   ]
  },
  "open": [
   {
-   "id": "F-01",
+   "id": "F-26",
    "severity": "now",
+   "title": "Онбординг вне охвата метрик",
+   "evidence": {
+    "radius_off_scale": 457,
+    "stroke_off": 155,
+    "worst_board": "Responsive QA outputs · iPhone 8/SE + iPhone 13",
+    "worst_board_radii": 424,
+    "note": "тренд всегда считался по секциям страницы Product. Пока Product был грязным, это было незаметно; теперь он чист, и весь остаток нарушений оказался в невидимой для метрики части файла"
+   }
+  },
+  {
+   "id": "F-01",
+   "severity": "soon",
    "title": "Компоненты шире объявленного мастера",
    "evidence": {
     "master": 375,
-    "button": 378,
-    "provider_auth": 382,
-    "selector": 390
+    "variants_over_375": 5,
+    "was": 41,
+    "remaining": {
+     "Choice Row": "378×58 ×2",
+     "Paywall Benefit Row": "378×42 ×3"
+    },
+    "note": "Provider Auth 382 и Invoice Template Selector 390 сведены к 375; больше ничего не блокирует"
    },
    "blocks": [
     "F-02",
@@ -123,40 +155,12 @@
   },
   {
    "id": "F-02",
-   "severity": "now",
+   "severity": "soon",
    "title": "Эталонный блок не мигрирован",
    "evidence": {
-    "fractional_radii": 214,
-    "integer_radii": 0,
-    "derived_button": "329.7x59.3 r17.4"
-   }
-  },
-  {
-   "id": "F-03",
-   "severity": "now",
-   "title": "Радиус-шкала не соблюдается",
-   "evidence": {
-    "values": [
-     522,
-     481,
-     484,
-     477
-    ],
-    "top_off_scale": {
-     "17.4": 193,
-     "20.9": null
-    }
-   }
-  },
-  {
-   "id": "F-04",
-   "severity": "now",
-   "title": "Миграции нет, экраны добавляются",
-   "evidence": {
-    "fractional_before": 618,
-    "fractional_after": 620,
-    "r17_4_before": 191,
-    "r17_4_after": 193
+    "fractional_radii": 14,
+    "was": 214,
+    "radius_nodes": 156
    }
   },
   {
@@ -164,9 +168,16 @@
    "severity": "soon",
    "title": "Эталон нарушает собственные шкалы",
    "evidence": {
-    "radius_values": 17,
-    "declared": 4,
-    "forbidden_present": 24
+    "radius_off_scale": 8,
+    "values": {
+     "16": 4,
+     "18": 3,
+     "24": 1
+    },
+    "strokes_off": {
+     "2.0": 14
+    },
+    "note": "радиусы эталона не тронуты; обводки сведены с девяти значений к двум"
    }
   },
   {
@@ -175,27 +186,16 @@
    "title": "Два полноширинных примитива в эталоне",
    "evidence": {
     "widths": [
+     378
+    ],
+    "was": [
      378,
      382
-    ]
-   }
-  },
-  {
-   "id": "F-08",
-   "severity": "soon",
-   "title": "Цели нажатия ниже 44 pt",
-   "evidence": {
-    "count": [
-     46,
-     29,
-     26,
-     26
     ],
-    "worst": {
-     "Change logo": 20.9,
-     "Toggle": 26.2,
-     "Due chip": 28.0
-    }
+    "remaining": [
+     "Choice Row",
+     "Paywall Benefit Row"
+    ]
    }
   },
   {
@@ -207,15 +207,10 @@
      133,
      133,
      121,
-     121
+     121,
+     22
     ],
-    "dominant_pair": {
-     "fg": "#747875",
-     "bg": "#FFFFFF",
-     "ratio": 4.48,
-     "need": 4.5,
-     "nodes": 96
-    }
+    "note": "пара #747875 на белом (107 узлов) устранена; из оставшихся 22 четыре — текст на заливке того же цвета в галерее шаблонов"
    }
   },
   {
@@ -227,13 +222,15 @@
      null,
      4,
      2,
+     2,
      2
     ],
     "remaining": [
      "01 Welcome / iPhone 8·SE",
      "02 ATT permission / iPhone 8·SE"
     ],
-    "offset": -14.0
+    "overflow_pt": 9.0,
+    "note": "не тронуто четвёртый прогон подряд"
    }
   },
   {
@@ -241,25 +238,24 @@
    "severity": "soon",
    "title": "Разные ширины CTA на одном устройстве",
    "evidence": {
-    "device": 390,
-    "widths": {
+    "device_390": {
      "344.7": 7,
-     "344.6": 1,
-     "329.7": 2
-    }
+     "344.6": 3
+    },
+    "device_375": {
+     "329.6": 6,
+     "329.7": 4
+    },
+    "note": "на 390 ширин стало две вместо трёх, но на 375 появился собственный разнобой в одну десятую"
    }
   },
   {
-   "id": "F-12",
+   "id": "F-27",
    "severity": "soon",
-   "title": "Главный экран без акцентного действия",
+   "title": "Экран вне секций не попадает в аудит",
    "evidence": {
-    "screens": [
-     "02.1",
-     "02.1B",
-     "02.1C"
-    ],
-    "accent_actions": 0
+    "screen": "02.3E — Invoice send failed",
+    "note": "лежит на странице Product сам по себе, вне всех блоков-секций, поэтому его узлы никогда не измерялись. Перенести в секцию — числа корректно вырастут"
    }
   },
   {
@@ -269,10 +265,14 @@
    "evidence": {
     "instances": 0,
     "local_radii": [
+     12.0
+    ],
+    "was": [
      13.1,
      14.0,
      10.5
-    ]
+    ],
+    "note": "радиусы сведены к 12, но поля по-прежнему рисуются локально"
    }
   },
   {
@@ -284,25 +284,32 @@
      52,
      60,
      63,
-     63
+     63,
+     54
     ],
     "pairs": [
-     [
-      "#101211",
-      "#0F120F",
-      1
-     ],
      [
       "#C7F36B",
       "#C7F26B",
       1
      ],
      [
+      "#C9CEC8",
+      "#C9CFC7",
+      1
+     ],
+     [
       "#EEF0EB",
-      "#F0F2ED",
-      2
+      "#EFF0EC",
+      1
+     ],
+     [
+      "#F5F6F1",
+      "#F5F7F2",
+      1
      ]
-    ]
+    ],
+    "note": "#C7F26B — 41 применение на один пункт разницы с лаймом палитры"
    }
   },
   {
@@ -314,7 +321,8 @@
      83,
      124,
      130,
-     130
+     130,
+     129
     ],
     "declared_styles": "7-9"
    }
@@ -328,9 +336,15 @@
      null,
      14,
      15,
-     15
+     15,
+     3
     ],
-    "gallery_share": 12
+    "remaining": [
+     "02.3C — Send invoice actions",
+     "02.3E — Invoice send failed",
+     "02 — Product (обложка)"
+    ],
+    "note": "галерея шаблонов подключена, осталось три"
    }
   },
   {
@@ -338,12 +352,8 @@
    "severity": "later",
    "title": "Нет запаса на длинные данные",
    "evidence": {
-    "tight_texts": 64,
-    "by_block": {
-     "Overview": 28,
-     "Clients": 18,
-     "Alternative": 9
-    }
+    "tight_texts": null,
+    "note": "н/д за этот прогон: исходное правило не воспроизводится. «текст ≥90 % ширины родителя» даёт поблочно Overview 28 и Clients 18 — ровно как опубликовано, — но в сумме 97 против 64. Строку считать заново после того, как правило объявят явно"
    }
   }
  ],
@@ -399,6 +409,30 @@
    "title": "Два акцентных действия на одном экране",
    "closed_by": "заливка Action / Save на 02.2D: #C7F36B -> #EEF0EB",
    "closed_at": "2026-08-01T19:02Z"
+  },
+  {
+   "id": "F-03",
+   "title": "Радиус-шкала не соблюдается",
+   "closed_by": "477 → 0: в секциях Product остались ровно 12 / 20 / 28 / 999",
+   "closed_at": "2026-08-03T13:07Z"
+  },
+  {
+   "id": "F-04",
+   "title": "Миграции нет, экраны добавляются",
+   "closed_by": "legacy мигрирован: дробных радиусов в охвате 440 → 0",
+   "closed_at": "2026-08-03T13:07Z"
+  },
+  {
+   "id": "F-08",
+   "title": "Цели нажатия ниже 44 pt",
+   "closed_by": "26 → 0",
+   "closed_at": "2026-08-03T13:07Z"
+  },
+  {
+   "id": "F-12",
+   "title": "Главный экран без акцентного действия",
+   "closed_by": "на 02.1 / 02.1B / 02.1C появилось акцентное Quick action / New invoice",
+   "closed_at": "2026-08-03T13:07Z"
   }
  ],
  "burndown": [
@@ -417,6 +451,28 @@
    "later": 5,
    "open": 16,
    "closed_total": 9
+  },
+  {
+   "run": "2026-08-03T13:07Z",
+   "now": 1,
+   "soon": 8,
+   "later": 5,
+   "open": 14,
+   "closed_total": 13
   }
- ]
+ ],
+ "out_of_scope": {
+  "block": "01 — Onboarding",
+  "reason": "тренд всегда считался по секциям страницы Product; онбординг в него не входил",
+  "screens": 45,
+  "volume": {
+   "radius_off_scale": 457,
+   "stroke_off": 155,
+   "touch_under_44": 0
+  },
+  "worst_board": {
+   "name": "Responsive QA outputs · iPhone 8/SE + iPhone 13",
+   "radius_off_scale": 424
+  }
+ }
 }

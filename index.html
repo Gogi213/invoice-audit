@@ -121,11 +121,15 @@
       <div class="eyebrow">Живой документ · дописывается каждым прогоном</div>
       <h1>Реестр находок по макету</h1>
     </div>
-    <p class="lede"><b>Прогон 1 августа, 19:02.</b> Открытых 20 → 16: закрыто четыре, новых нет. Одна метрика ухудшилась.
-      Правки точечные: 18 радиусов, 2 размера, 4 переименования, 1 переход — структура файла
-      не менялась.<br><br>Одна строка — одна находка с постоянным номером. Номер живёт, пока находка
-      не закрыта, поэтому «стало лучше» видно, а не декларируется. Секция AI Estimates
-      исключена из всех чисел как заглушка.</p>
+    <p class="lede"><b>Прогон 3 августа, 13:07.</b> Открытых 16 → 14: закрыто четыре, открыто две.
+      Геометрия в охвате закрыта целиком — радиусов вне шкалы 477 → 0, обводок ≠ 1 pt 172 → 0,
+      мелких целей нажатия 26 → 0, доля целой сетки 29,4 % → 100 %.<br><br>
+      Ровно поэтому открыта <b>F-26</b>. Тренд всегда считался по секциям страницы Product.
+      Пока Product был грязным, это не мешало; теперь он чист, а 457 радиусов вне шкалы
+      просто стоят в онбординге, куда метрика никогда не смотрела. Достижение реально,
+      но оно уже́е, чем выглядит по таблице.<br><br>Одна строка — одна находка с постоянным
+      номером. Номер живёт, пока находка не закрыта, поэтому «стало лучше» видно, а не
+      декларируется. Секция AI Estimates исключена из всех чисел как заглушка.</p>
   </header>
 
   <section style="border-top:0;margin-top:24px;padding-top:0">
@@ -134,9 +138,10 @@
       <tbody>
         <tr><td style="width:190px"><b>Что проверяется</b></td><td>Макет мобильного приложения в Figma: три страницы, шестнадцать блоков, около сорока пяти продуктовых экранов вне заглушки.</td></tr>
         <tr><td><b>По каким правилам</b></td><td>Три среза с разными эталонами. <b>Консистентность</b> — против токенов, объявленных на странице Foundations. <b>Дизайн</b> — против порогов платформы: Apple HIG и WCAG 2.1 AA. <b>Путь пользователя</b> — против связей прототипа.</td></tr>
-        <tr><td><b>Откуда числа</b></td><td>Полный обход дерева файла через REST, по свойствам узлов. По скриншотам не измеряется ничего.</td></tr>
+        <tr><td><b>Откуда числа</b></td><td>Полный обход дерева файла через REST, по свойствам узлов. По скриншотам не измеряется ничего. Сборщик прогона 3 августа сверен против исторических версий файла: из 27 опубликованных ячеек прошлых прогонов он воспроизводит 24 точно.</td></tr>
         <tr><td><b>Срочность</b></td><td><span class="chip st-now">сейчас</span> сломанный артефакт либо цена растёт каждый день · <span class="chip st-soon">скоро</span> чинится дёшево и один раз · <span class="chip st-later">потом</span> гигиена файла</td></tr>
-        <tr><td><b>Заглушка</b></td><td>Секция AI Estimates, 13 экранов, из метрик исключена. Её объём: 172 радиуса вне шкалы, 100 обводок ≠ 1, 5 мелких целей нажатия.</td></tr>
+        <tr><td><b>Заглушка</b></td><td>Секция AI Estimates, 13 экранов, из метрик исключена. Её объём на 3 августа: 0 радиусов вне шкалы, 77 обводок ≠ 1, 0 мелких целей нажатия — было 172 / 100 / 5.</td></tr>
+        <tr><td><b>Вне охвата</b></td><td>Страница Onboarding, 45 экранов, в тренд не входила ни разу. Её объём: <b>457 радиусов вне шкалы</b>, 155 обводок ≠ 1. Из них 424 радиуса — на доске <code>Responsive QA outputs</code>. Это находка F-26, а не примечание.</td></tr>
       </tbody>
     </table></div>
     <p><small>Каждую находку в реестре можно развернуть: внутри — где смотреть, доказательство числами и что делать.</small></p>
@@ -149,31 +154,42 @@
     <div class="scroller"><table class="trend">
       <thead><tr>
         <th>Метрика</th><th class="n">24 июля</th><th class="n">1 авг · 09:16</th>
-        <th class="n">1 авг · 11:11</th><th class="n">1 авг · 19:02</th><th>Итого</th>
+        <th class="n">1 авг · 11:11</th><th class="n">1 авг · 19:02</th><th class="n">3 авг · 13:07</th><th>Итого</th>
       </tr></thead>
       <tbody>
         <tr><td>Радиусов вне объявленной шкалы</td><td class="n">522</td><td class="n">481</td>
-            <td class="n">484 <span class="arrow up">▲3</span></td><td class="n">477 <span class="arrow down">▼7</span></td><td>чинится</td></tr>
+            <td class="n">484 <span class="arrow up">▲3</span></td><td class="n">477 <span class="arrow down">▼7</span></td>
+            <td class="n"><b>0</b> <span class="arrow down">▼477</span></td><td>закрыто в охвате</td></tr>
         <tr><td>Дробных радиусов</td><td class="n">515</td><td class="n">446</td>
-            <td class="n">447 <span class="arrow up">▲1</span></td><td class="n">440 <span class="arrow down">▼7</span></td><td>чинится</td></tr>
+            <td class="n">447 <span class="arrow up">▲1</span></td><td class="n">440 <span class="arrow down">▼7</span></td>
+            <td class="n"><b>0</b> <span class="arrow down">▼440</span></td><td>закрыто в охвате</td></tr>
         <tr><td>Доля целой сетки</td><td class="n">1,3 %</td><td class="n">27,8 %</td>
-            <td class="n">28,3 % <span class="arrow down">▲0,5</span></td><td class="n">29,4 % <span class="arrow down">▲1,1</span></td><td>растёт</td></tr>
+            <td class="n">28,3 % <span class="arrow down">▲0,5</span></td><td class="n">29,4 % <span class="arrow down">▲1,1</span></td>
+            <td class="n"><b>100 %</b> <span class="arrow down">▲70,6</span></td><td>закрыто в охвате</td></tr>
         <tr><td>Обводок ≠ 1 pt</td><td class="n">209</td><td class="n">172</td>
-            <td class="n">172 <span class="arrow flat">—</span></td><td class="n">172 <span class="arrow flat">—</span></td><td>стоит</td></tr>
+            <td class="n">172 <span class="arrow flat">—</span></td><td class="n">172 <span class="arrow flat">—</span></td>
+            <td class="n"><b>0</b> <span class="arrow down">▼172</span></td><td>закрыто в охвате</td></tr>
         <tr><td>Цветов вне палитры</td><td class="n">52</td><td class="n">60</td>
-            <td class="n">63 <span class="arrow up">▲3</span></td><td class="n">63 <span class="arrow flat">—</span></td><td>остановился</td></tr>
+            <td class="n">63 <span class="arrow up">▲3</span></td><td class="n">63 <span class="arrow flat">—</span></td>
+            <td class="n">54 <span class="arrow down">▼9</span></td><td>ниже старта впервые</td></tr>
         <tr><td>Пар размер×начертание</td><td class="n">83</td><td class="n">124</td>
-            <td class="n">130 <span class="arrow up">▲6</span></td><td class="n">130 <span class="arrow flat">—</span></td><td>остановился</td></tr>
+            <td class="n">130 <span class="arrow up">▲6</span></td><td class="n">130 <span class="arrow flat">—</span></td>
+            <td class="n">129 <span class="arrow down">▼1</span></td><td>с 24 июля хуже в полтора раза</td></tr>
         <tr><td>CTA за краем экрана</td><td class="n">н/д</td><td class="n">4</td>
-            <td class="n">2 <span class="arrow down">▼2</span></td><td class="n">2 <span class="arrow flat">—</span></td><td>iPhone 8/SE не тронут</td></tr>
+            <td class="n">2 <span class="arrow down">▼2</span></td><td class="n">2 <span class="arrow flat">—</span></td>
+            <td class="n">2 <span class="arrow flat">—</span></td><td>iPhone 8/SE не тронут четвёртый прогон</td></tr>
         <tr><td>Ширин CTA на 390 pt</td><td class="n">н/д</td><td class="n">4</td>
-            <td class="n">2 <span class="arrow down">▼2</span></td><td class="n">3 <span class="arrow up">▲1</span></td><td>стало хуже</td></tr>
+            <td class="n">2 <span class="arrow down">▼2</span></td><td class="n">3 <span class="arrow up">▲1</span></td>
+            <td class="n">2 <span class="arrow down">▼1</span></td><td>зато разнобой переехал на 375</td></tr>
         <tr><td>Экранов без входящих</td><td class="n">н/д</td><td class="n">14</td>
-            <td class="n">15 <span class="arrow up">▲1</span></td><td class="n">15 <span class="arrow flat">—</span></td><td>стоит</td></tr>
+            <td class="n">15 <span class="arrow up">▲1</span></td><td class="n">15 <span class="arrow flat">—</span></td>
+            <td class="n">3 <span class="arrow down">▼12</span></td><td>галерея подключена</td></tr>
       </tbody>
     </table></div>
     <p><small>«н/д» — выгрузка от 24 июля сделана через плагин и не содержит связей прототипа,
-      поэтому метрики сценария за тот прогон недоступны.</small></p>
+      поэтому метрики сценария за тот прогон недоступны.<br>
+      «Закрыто в охвате» — не «закрыто в файле». Охват тренда — секции страницы Product;
+      в онбординге те же нарушения стоят нетронутыми, см. F-26.</small></p>
   </section>
 
   <section>
@@ -185,17 +201,20 @@
         <tr><td>24 июля</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
         <tr><td>1 авг · 09:16</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
         <tr><td>1 авг · 11:11</td><td class="n">5</td><td class="n">10</td><td class="n">5</td><td class="n">20</td><td class="n">5</td></tr>
-        <tr><td><b>1 авг · 19:02</b></td><td class="n">4</td><td class="n">7</td><td class="n">5</td><td class="n"><b>16</b></td><td class="n">9</td></tr>
+        <tr><td>1 авг · 19:02</td><td class="n">4</td><td class="n">7</td><td class="n">5</td><td class="n">16</td><td class="n">9</td></tr>
+        <tr><td><b>3 авг · 13:07</b></td><td class="n">1</td><td class="n">8</td><td class="n">5</td><td class="n"><b>14</b></td><td class="n">13</td></tr>
       </tbody>
     </table></div>
     <p><small>Прочерки за 24 июля и 09:16 — реестр с постоянными номерами появился только
       на прогоне 11:11. Раньше находки переименовывались от отчёта к отчёту, и восстановить
       счёт по срочности задним числом нельзя без подгонки. Тренд метрик выше за те прогоны
       считается по данным файла и приведён полностью.</small></p>
-    </div>
-    <p>Первое реальное падение: <strong>20 → 16</strong>. Закрыты четыре находки,
-      новых не открыто. В категории «сейчас» ушла одна из пяти — состояния отправки
-      подключены; оставшиеся четыре упираются в F-01.</p>
+    <p>Второе падение подряд: <strong>16 → 14</strong>. Закрыты четыре — F-03, F-04, F-08, F-12,
+      все по факту, а не по формулировке. Открыты две: F-26 и F-27.</p>
+    <p>В категории «сейчас» осталась одна находка, и это не остаток прежних, а новая.
+      Четыре прежних блокера ушли: компоненты сведены к 375, эталонный блок мигрирован,
+      радиус-шкала соблюдена, миграция сделана. Их место заняла <b>F-26</b> — не потому,
+      что стало хуже, а потому, что теперь видно: метрика смотрела не на весь файл.</p>
   </section>
 
   <section>
@@ -203,30 +222,26 @@
     <div class="scroller"><table>
       <thead><tr>
         <th class="n">№</th><th>Находка</th><th class="n">Статус</th>
-        <th class="n">24 июл</th><th class="n">09:16</th><th class="n">11:11</th><th class="n">19:02</th><th>Комментарий</th>
+        <th class="n">24 июл</th><th class="n">09:16</th><th class="n">11:11</th><th class="n">19:02</th><th class="n">3 авг</th><th>Комментарий</th>
       </tr></thead>
       <tbody>
-        <tr><td class="id">F-01</td><td><details class="f"><summary><strong>Компоненты шире объявленного мастера</strong> — политика 375, <code>Button</code> 378, <code>Provider Auth</code> 382, селектор 390</summary><div class="det"><span><b>Где смотреть.</b> Foundations, фрейм <code>Audit / 375pt source of truth</code> — и рядом наборы компонентов.</span><span class="ev">Button 378×68/58/44 · Text Field 378×66 · Choice Row 378×58 · Upload Card 378×274 · Paywall Plan 378×90 · Provider Auth 382×58 · Invoice Template Selector 390×92</span><span><b>Чинить.</b> Пересобрать компоненты под 375: ширина 375 минус два поля. Это условие, без которого остальные четыре пункта «сейчас» неисполнимы технически.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td>Блокирует F-02, F-03, F-04, F-05</td></tr>
-        <tr><td class="id">F-02</td><td><details class="f"><summary>Эталонный блок не мигрирован — выведенные нормы тянут старую сетку</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · Main flow — блок, из которого выводятся нормы поля, зазора и кнопки.</span><span class="ev">214 дробных радиусов, 0 целых · мода кнопки 329,7 × 59,3 r 17,4 — значение, запрещённое политикой</span><span><b>Чинить.</b> Мигрировать этот блок первым после компонентов. До тех пор выведенные нормы не применять — на прогоне 11:11 они исключены.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">—</td><td class="n">—</td><td class="n">214 дробных</td><td class="n">214 дробных</td><td>Открыта на этом прогоне</td></tr>
-        <tr><td class="id">F-03</td><td><details class="f"><summary>Радиус-шкала не соблюдается</summary><div class="det"><span><b>Где смотреть.</b> Все продуктовые секции.</span><span class="ev">Объявлено 12 / 20 / 28 / full. Чаще всего вне шкалы: 17,4 (193 узла), 20,9, 15,7, 13,1, 2,6</span><span><b>Чинить.</b> После F-01 половина схлопнется сама. Отдельного решения требует 20,9 — это незадокументированный пятый токен, а не ошибка.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">522</td><td class="n">481</td><td class="n">484</td><td class="n">477</td><td>С 11:11 — нарушение объявленного, а не мнения</td></tr>
-        <tr><td class="id">F-04</td><td><details class="f"><summary>Миграции нет, при этом добавляются новые экраны</summary><div class="det"><span><b>Где смотреть.</b> Сравнение выгрузок 09:16 и 11:11.</span><span class="ev">дробных радиусов 618 → 620 · из них 17,4: 191 → 193 · доля целой сетки 23,8 % → 24,5 %</span><span><b>Чинить.</b> Политика прямо требует мигрировать legacy до добавления новых экранов. Либо мигрировать, либо снять это требование из политики.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">—</td><td class="n">—</td><td class="n">+2 к 17,4</td><td class="n">−7</td><td>Политика прямо это запрещает</td></tr>
-        
+        <tr><td class="id">F-26</td><td><details class="f" open><summary><strong>Онбординг вне охвата метрик</strong> — 457 радиусов вне шкалы никогда не попадали в тренд</summary><div class="det"><span><b>Где смотреть.</b> Страница <code>01 — Onboarding</code>, 45 экранов. Особенно доска <code>Responsive QA outputs · iPhone 8/SE + iPhone 13</code>.</span><span class="ev">457 радиусов вне шкалы (424 из них на доске QA), 155 обводок ≠ 1 pt. Чаще всего: 3,5×66 · 6,1×64 · 17,4×30 · 7,0×29 · 15,7×28 · 40,1×26</span><span><b>Чинить.</b> Сначала решить, входит ли онбординг в предмет аудита. Если да — расширить охват и принять, что числа тренда разово вырастут; это не регресс, а конец слепой зоны. Если нет — объявить страницу черновой, как объявлена заглушка, и не считать её экраны продуктовыми.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">457</td><td>Открыта на этом прогоне</td></tr>
 
-        <tr><td class="id">F-06</td><td><details class="f"><summary>Эталон нарушает собственные шкалы — 17 радиусов при четырёх объявленных</summary><div class="det"><span><b>Где смотреть.</b> Сам эталон против собственного примечания.</span><span class="ev">17 значений радиуса: по шкале 12×43, 20×45, 28×4, 999×13; вне — 16×16, 5×12, 6×9, 8×6, 10×4, 4×3, 14×3, 18×3, 24×1. Обводки: 1,0×33 и рядом 1,5 · 1,7 · 1,8 · 1,83 · 2,0 · 2,33 · 2,57 · 4,5</span><span><b>Чинить.</b> Либо расширить объявленную шкалу до реально нужной, либо свести значения к четырём. Сейчас примечание «no ad-hoc 24» нарушается в том же файле, где написано.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/п</td><td class="n">н/п</td><td class="n">17</td><td class="n">17</td><td>Раньше шкалы не были объявлены</td></tr>
-        <tr><td class="id">F-07</td><td><details class="f"><summary>Два полноширинных примитива в эталоне — 378 и 382</summary><div class="det"><span><b>Где смотреть.</b> Наборы компонентов Button и Provider Auth Button.</span><span class="ev">378 против 382 — разница 4 pt по ширине и 2 pt по полю</span><span><b>Чинить.</b> Свести к одному примитиву либо задокументировать 382 как отдельную роль с правилом применения.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td>Часть F-01</td></tr>
-        <tr><td class="id">F-08</td><td><details class="f"><summary>Цели нажатия ниже 44 pt</summary><div class="det"><span><b>Где смотреть.</b> Узлы с непустым <code>interactions</code> и высотой ниже 44.</span><span class="ev">26 узлов. Худшие: Change logo 20,9 · Toggle 26,2 · Due chip 28,0 · Save 34,9 · Back 38,4</span><span><b>Чинить.</b> 44 как жёсткий минимум области нажатия. Визуальный размер можно оставить — увеличивать надо зону.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">46</td><td class="n">29</td><td class="n">26</td><td>Считается по <code>interactions</code></td></tr>
-        <tr><td class="id">F-09</td><td><details class="f"><summary>Тексты ниже WCAG AA</summary><div class="det"><span><b>Где смотреть.</b> Продуктовые секции, фон берётся по порядку отрисовки.</span><span class="ev">121 текст. Из них 96 — #747875 на белом при 4,48 против нужных 4,5. Реально нечитаемые: #919791 на #F5F6F2 при 2,75</span><span><b>Чинить.</b> Притемнить #747875 на пару пунктов — закроет большую часть одним движением. Отдельно заменить #919791.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">133</td><td class="n">133</td><td class="n">121</td><td class="n">26</td><td class="n">121</td><td>96 из них — один цвет с недобором 0,02</td></tr>
-        <tr><td class="id">F-10</td><td><details class="f"><summary>CTA за нижним краем экрана на QA-доске</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · QA outputs, экраны iPhone 8/SE.</span><span class="ev">01 Welcome −14,0 · 02 ATT permission −14,0. На iPhone 13 исправлено</span><span><b>Чинить.</b> Перекомпоновать два фрейма: композиция с высокого экрана перенесена на 667 pt без перестановки.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">4</td><td class="n">2</td><td class="n">2</td><td>iPhone 13 починен, iPhone 8/SE нет</td></tr>
-        <tr><td class="id">F-11</td><td><details class="f"><summary>Разные ширины CTA на одном устройстве</summary><div class="det"><span><b>Где смотреть.</b> QA outputs, устройство 390 pt.</span><span class="ev">две ширины: 344,7 (7 экранов, поля симметричны) и 329,7 (3 экрана, справа 37,6)</span><span><b>Чинить.</b> Растянуть кнопку на трёх оставшихся экранах до ширины устройства минус поля.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">4</td><td class="n">2</td><td class="n">3</td><td>Осталось 329,7 против 344,7 на 390</td></tr>
-        <tr><td class="id">F-12</td><td><details class="f"><summary>Главный экран продукта без акцентного действия</summary><div class="det"><span><b>Где смотреть.</b> <code>02.1</code>, <code>02.1B</code>, <code>02.1C</code>.</span><span class="ev">ни одного элемента с акцентной заливкой и переходом. Для сравнения: на экранах формы и отправки акцентное действие ровно одно</span><span><b>Чинить.</b> Решить, что на главном экране главное действие, и выделить его акцентом. Сейчас быстрые действия визуально равны остальному содержимому.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">—</td><td class="n">—</td><td class="n">3 экрана</td><td>Все три <code>Overview</code></td></tr>
-        
-        
+        <tr><td class="id">F-01</td><td><details class="f"><summary>Компоненты шире объявленного мастера — осталось два набора из семи</summary><div class="det"><span><b>Где смотреть.</b> Foundations, наборы компонентов.</span><span class="ev">было 41 вариант шире 375, стало 5: <code>Choice Row</code> 378×58 ×2 и <code>Paywall Benefit Row</code> 378×42 ×3. Сведены к 375: Button, Text Field, Upload Card, Paywall Plan Card, Provider Auth (был 382), Invoice Template Selector (был 390)</span><span><b>Чинить.</b> Те же 3 pt снять с двух оставшихся наборов. Блокирующая роль исчерпана — F-02, F-03, F-04 закрыты.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td class="n">41</td><td class="n">5</td><td>Больше ничего не блокирует</td></tr>
+        <tr><td class="id">F-02</td><td><details class="f"><summary>Эталонный блок не мигрирован — осталось 14 узлов из 214</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · Main flow — блок, из которого выводятся нормы поля, зазора и кнопки.</span><span class="ev">дробных радиусов 214 → 14 при 156 узлах с радиусом. Мода кнопки 329,7 × 59,3 r 17,4 больше не доминирует</span><span><b>Чинить.</b> Добить оставшиеся 14. После этого выведенные из блока нормы снова можно применять.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">—</td><td class="n">—</td><td class="n">214</td><td class="n">214</td><td class="n">14</td><td>Мигрирован на 93 %</td></tr>
 
-        <tr><td class="id">F-15</td><td><details class="f"><summary>Product не инстанцирует поля ввода из эталона</summary><div class="det"><span><b>Где смотреть.</b> Поля ввода в продуктовых секциях против компонента Text Field.</span><span class="ev">инстансов Text Field в Product — 0. Локальные поля дают три радиуса на одну сущность: 13,1 в листах, 14,0 в опциях оплаты, 10,5 в настройках</span><span><b>Чинить.</b> Заменить локальные <code>Input / …</code> на инстансы. Уберёт два лишних радиуса и сделает состояние фокуса одинаковым.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">0 инст.</td><td class="n">0</td><td class="n">0</td><td class="n">1</td><td class="n">0</td><td>Три разных радиуса у одной сущности</td></tr>
-        <tr><td class="id">F-16</td><td><details class="f"><summary>Почти-дубли цветов и рост палитры</summary><div class="det"><span><b>Где смотреть.</b> Перепись заливок по всем секциям.</span><span class="ev">63 цвета вне палитры из шести токенов. Неразличимые пары: #101211 против #0F120F (разница 1 из 255), #C7F36B против #C7F26B, #EEF0EB против #F0F2ED</span><span><b>Чинить.</b> Поиск-замена по парам. Приоритет — #0F120F: сотни применений на один невидимый пункт разницы.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">52</td><td class="n">60</td><td class="n">63</td><td class="n">63</td><td>Растёт каждый прогон</td></tr>
-        <tr><td class="id">F-17</td><td><details class="f"><summary>Типографика без шкалы</summary><div class="det"><span><b>Где смотреть.</b> Все текстовые узлы продуктовых секций.</span><span class="ev">130 пар размер×начертание. Политика требует 7–9 именованных стилей. Начертание Semibold записано двумя способами</span><span><b>Чинить.</b> Завести текстовые стили и привязать. Осмысленно после того, как состав экранов устаканится.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">83</td><td class="n">124</td><td class="n">130</td><td class="n">130</td><td>Политика требует 7–9 стилей</td></tr>
-        <tr><td class="id">F-18</td><td><details class="f"><summary>Экраны без входящих переходов</summary><div class="det"><span><b>Где смотреть.</b> Граф прототипа продуктовой страницы.</span><span class="ev">15 экранов без входящих. 12 — галерея шаблонов (варианты, не шаги пути), плюс 02.3C, 02.3E и обложка</span><span><b>Чинить.</b> Галерею вывести из счёта отдельным типом блока; 02.3C и 02.3E подключить или удалить.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">н/д</td><td class="n">14</td><td class="n">15</td><td class="n">15</td><td>12 из них — галерея шаблонов</td></tr>
-        <tr><td class="id">F-19</td><td><details class="f"><summary>Нет запаса на длинные данные</summary><div class="det"><span><b>Где смотреть.</b> Однострочный текст в контейнерах фиксированной ширины.</span><span class="ev">64 места на ≥ 90 % ширины контейнера. Больше всего в Overview (28) и Clients (18)</span><span><b>Чинить.</b> Проверить на предельных данных: длинное имя клиента, сумма максимальной разрядности, длинное название работы. Вариантов с такими данными в макете нет ни на одном экране.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">64</td><td class="n">64</td><td>Однострочный текст на ≥ 90 % ширины</td></tr>
+        <tr><td class="id">F-06</td><td><details class="f"><summary>Эталон нарушает собственные шкалы — радиусы не тронуты, обводки почти сведены</summary><div class="det"><span><b>Где смотреть.</b> Сам эталон против собственного примечания.</span><span class="ev">вне шкалы 8 узлов: 16×4, 18×3, 24×1 — примечание «no ad-hoc 24» по-прежнему нарушается в том же файле, где написано. Обводки: было девять значений (1,5 · 1,7 · 1,8 · 1,83 · 2,0 · 2,33 · 2,57 · 4,5), осталось одно — 2,0×14</span><span><b>Чинить.</b> Либо расширить объявленную шкалу до реально нужной, либо свести восемь оставшихся узлов к четырём значениям. Пока эталон нарушает себя, ссылаться на него в спорах нельзя.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/п</td><td class="n">н/п</td><td class="n">17</td><td class="n">17</td><td class="n">8</td><td>Обводки почти закрыты, радиусы стоят</td></tr>
+        <tr><td class="id">F-07</td><td><details class="f"><summary>Полноширинный примитив всё ещё не один — 382 ушёл, 378 остался</summary><div class="det"><span><b>Где смотреть.</b> Наборы компонентов Choice Row и Paywall Benefit Row.</span><span class="ev">382 сведён к 375 (Provider Auth Button). 378 остался у двух наборов из семи</span><span><b>Чинить.</b> Свести к одному примитиву. Это те же пять вариантов, что и в F-01 — одна правка закрывает обе.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td class="n">378, 382</td><td class="n">378</td><td>Одна правка закроет вместе с F-01</td></tr>
+        <tr><td class="id">F-09</td><td><details class="f"><summary>Тексты ниже WCAG AA — доминирующая пара устранена</summary><div class="det"><span><b>Где смотреть.</b> Продуктовые секции, фон берётся по порядку отрисовки.</span><span class="ev">121 → 22. Пара #747875 на белом (96 узлов) и #747875 на #F5F6F1 (11 узлов) исчезла целиком. Из оставшихся 22 четыре — текст #101211 на заливке того же цвета в галерее шаблонов</span><span><b>Чинить.</b> Разобрать остаток поимённо: это уже не один цвет, а разрозненные случаи. Начать с четырёх, где текст и фон совпадают — там читаемость нулевая, а не пограничная.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">133</td><td class="n">133</td><td class="n">121</td><td class="n">121</td><td class="n">22</td><td>Один цвет закрыл 107 узлов</td></tr>
+        <tr><td class="id">F-10</td><td><details class="f"><summary>CTA за нижним краем экрана на QA-доске — не тронуто четвёртый прогон</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · QA outputs, экраны iPhone 8/SE.</span><span class="ev">01 Welcome и 02 ATT permission: кнопка выходит за низ фрейма на 9,0 pt. На iPhone 13 исправлено ещё на прогоне 11:11</span><span><b>Чинить.</b> Перекомпоновать два фрейма: композиция с высокого экрана перенесена на 667 pt без перестановки. Правка на два экрана, висит с 1 августа.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">4</td><td class="n">2</td><td class="n">2</td><td class="n">2</td><td>Три прогона без движения</td></tr>
+        <tr><td class="id">F-11</td><td><details class="f"><summary>Разные ширины CTA на одном устройстве — на 390 стало лучше, на 375 хуже</summary><div class="det"><span><b>Где смотреть.</b> QA outputs, оба устройства.</span><span class="ev">390 pt: 344,7 (7 экранов) и 344,6 (3) — было три ширины, стало две. 375 pt: 329,6 (6 экранов) и 329,7 (4) — разнобой в одну десятую там, где раньше была одна ширина</span><span><b>Чинить.</b> Одна ширина на устройство, заданная как «ширина минус поля», а не проставленная руками. Разница в 0,1 pt невидима глазом и именно поэтому воспроизводится бесконечно.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">4</td><td class="n">2</td><td class="n">3</td><td class="n">2</td><td>Разнобой переехал с 390 на 375</td></tr>
+        <tr><td class="id">F-27</td><td><details class="f"><summary>Экран вне секций не попадает в аудит</summary><div class="det"><span><b>Где смотреть.</b> <code>02.3E — Invoice send failed</code> — лежит на странице Product сам по себе, вне всех блоков-секций.</span><span class="ev">метрики консистентности считаются по секциям страницы. Узлы этого экрана не измерялись ни разу с момента его создания</span><span><b>Чинить.</b> Перенести экран в <code>Section / Invoice sharing</code>. Числа при этом корректно вырастут — это не регресс, а появление экрана в поле зрения.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">1 экран</td><td>Открыта на этом прогоне</td></tr>
+
+        <tr><td class="id">F-15</td><td><details class="f"><summary>Product не инстанцирует поля ввода из эталона</summary><div class="det"><span><b>Где смотреть.</b> Поля ввода в продуктовых секциях против компонента Text Field.</span><span class="ev">инстансов Text Field в Product по-прежнему 0. Радиусы локальных полей сведены к одному значению — 12,0; было три на одну сущность: 13,1 в листах, 14,0 в опциях оплаты, 10,5 в настройках</span><span><b>Чинить.</b> Заменить локальные <code>Input / …</code> на инстансы. Симптом (разные радиусы) вылечен вручную, причина осталась: следующее поле снова нарисуют локально.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">0 инст.</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td>Радиусы сведены, инстансов нет</td></tr>
+        <tr><td class="id">F-16</td><td><details class="f"><summary>Почти-дубли цветов — палитра впервые сократилась</summary><div class="det"><span><b>Где смотреть.</b> Перепись заливок по всем секциям.</span><span class="ev">54 цвета вне палитры из шести токенов — впервые ниже старта (было 52 на 24 июля, пик 63). Неразличимые пары никуда не делись: #C7F36B против #C7F26B (41 применение), #C9CEC8 против #C9CFC7, #EEF0EB против #EFF0EC, #F5F6F1 против #F5F7F2</span><span><b>Чинить.</b> Поиск-замена по парам. Приоритет — #C7F26B: 41 применение на один пункт разницы с лаймом палитры.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">52</td><td class="n">60</td><td class="n">63</td><td class="n">63</td><td class="n">54</td><td>Впервые падение</td></tr>
+        <tr><td class="id">F-17</td><td><details class="f"><summary>Типографика без шкалы — за десять дней хуже в полтора раза</summary><div class="det"><span><b>Где смотреть.</b> Все текстовые узлы продуктовых секций.</span><span class="ev">129 пар размер×начертание при 7–9 объявленных. На 24 июля было 83 — то есть с начала аудита метрика выросла на 55 %, а не упала</span><span><b>Чинить.</b> Завести текстовые стили и привязать. Единственная метрика, которая за всё время ни разу не улучшилась содержательно.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">83</td><td class="n">124</td><td class="n">130</td><td class="n">130</td><td class="n">129</td><td>Хуже, чем на старте аудита</td></tr>
+        <tr><td class="id">F-18</td><td><details class="f"><summary>Экраны без входящих переходов — осталось три</summary><div class="det"><span><b>Где смотреть.</b> Граф прототипа продуктовой страницы.</span><span class="ev">15 → 3. Галерея шаблонов подключена. Осталось: <code>02.3C — Send invoice actions</code>, <code>02.3E — Invoice send failed</code> и обложка страницы</span><span><b>Чинить.</b> 02.3C и 02.3E подключить или удалить. Обложка — не экран, её честнее вывести из счёта отдельным типом блока.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">н/д</td><td class="n">14</td><td class="n">15</td><td class="n">15</td><td class="n">3</td><td>Галерея подключена</td></tr>
+        <tr><td class="id">F-19</td><td><details class="f"><summary>Нет запаса на длинные данные — за этот прогон не считалась</summary><div class="det"><span><b>Где смотреть.</b> Однострочный текст в контейнерах фиксированной ширины.</span><span class="ev">н/д. Исходное правило не воспроизводится: «текст на ≥ 90 % ширины родителя» даёт поблочно Overview 28 и Clients 18 — ровно как опубликовано, — но в сумме 97 против 64. Значит в прежнем счёте были исключения, которые не записали</span><span><b>Чинить.</b> Сначала объявить правило явно (какие блоки входят, что считать контейнером), затем пересчитать строку с нуля. Подгонять число под 64 нельзя — это ровно тот случай, когда молча переопределённая метрика хуже отсутствующей.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">64</td><td class="n">64</td><td class="n">н/д</td><td>Правило не воспроизводится</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -234,19 +249,23 @@
   <section>
     <h2>Закрытые и переоткрытые</h2>
     <details>
-      <summary>Показать · 9 закрыто</summary>
+      <summary>Показать · 13 закрыто</summary>
       <div class="scroller"><table>
         <thead><tr><th class="n">№</th><th>Находка</th><th class="n">Статус</th><th>Чем закрыта</th></tr></thead>
         <tbody>
+          <tr class="done"><td class="id">F-03</td><td>Радиус-шкала не соблюдается</td><td class="n"><span class="chip st-done">закрыта</span></td><td>3 авг — 477 → 0. В секциях Product остались ровно четыре объявленных значения: 12×110, 20×255, 28×4, 999×184. Значения 17,4 · 20,9 · 15,7 · 13,1 · 2,6 исчезли полностью</td></tr>
+          <tr class="done"><td class="id">F-04</td><td>Миграции нет, при этом добавляются новые экраны</td><td class="n"><span class="chip st-done">закрыта</span></td><td>3 авг — legacy мигрирован: дробных радиусов в охвате 440 → 0, доля целой сетки 29,4 % → 100 %</td></tr>
+          <tr class="done"><td class="id">F-08</td><td>Цели нажатия ниже 44 pt</td><td class="n"><span class="chip st-done">закрыта</span></td><td>3 авг — 26 → 0. Change logo, Toggle, Due chip, Save и Back доведены до 44</td></tr>
+          <tr class="done"><td class="id">F-12</td><td>Главный экран продукта без акцентного действия</td><td class="n"><span class="chip st-done">закрыта</span></td><td>3 авг — на <code>02.1</code>, <code>02.1B</code>, <code>02.1C</code> появилось акцентное <code>Quick action / New invoice</code> с переходом</td></tr>
           <tr class="done"><td class="id">F-20</td><td>Шкалы и холст не объявлены — сверять не с чем</td><td class="n"><span class="chip st-done">закрыта</span></td><td>Фрейм <code>Audit / 375pt source of truth</code> в эталоне</td></tr>
           <tr class="done"><td class="id">F-21</td><td>Ни одного состояния ошибки во всём файле</td><td class="n"><span class="chip st-done">закрыта</span></td><td><code>02.3E — Invoice send failed</code>, текст проверку проходит. Открыта F-05: не подключена</td></tr>
           <tr class="done"><td class="id">F-22</td><td>Отправка без подтверждения</td><td class="n"><span class="chip st-done">закрыта</span></td><td><code>02.3D — Invoice sent confirmation</code></td></tr>
           <tr class="done"><td class="id">F-23</td><td>Вход в аккаунт никуда не приводит</td><td class="n"><span class="chip st-done">закрыта</span></td><td><code>02.1E</code> → <code>02.1F</code> связан, состояние «вошёл» достижимо</td></tr>
-          <tr class="done"><td>Коллизии кодов экранов</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — превью шаблонов переименованы в <code>TEMPLATE — …</code>, конфликт с 02.3D и 02.3E снят. Осталось два столкновения: <code>02.1C</code> и <code>02.3B</code></td></tr>
+          <tr class="done"><td class="id">F-24</td><td>Коллизии кодов экранов</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — превью шаблонов переименованы в <code>TEMPLATE — …</code>, конфликт с 02.3D и 02.3E снят. Осталось два столкновения: <code>02.1C</code> и <code>02.3B</code></td></tr>
           <tr class="done"><td class="id">F-13</td><td>Два акцентных действия на экране редактирования черновика</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — заливка <code>Action / Save</code> на <code>02.2D</code> сменилась с лаймовой на серую. Осталось одно акцентное действие</td></tr>
           <tr class="done"><td class="id">F-05</td><td>Состояния отправки не подключены к прототипу</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — <code>02.3E</code> получил входящий переход и два исходящих, <code>02.3D</code> — исходящий. Оба состояния теперь достижимы и из них есть выход</td></tr>
           <tr class="done"><td class="id">F-14</td><td>Точка входа онбординга не задана</td><td class="n"><span class="chip st-done">закрыта</span></td><td>19:02 — <code>flowStartingPoints</code> = «Onboarding · 01 Welcome». Прототип запускается</td></tr>
-          <tr class="done"><td class="id">F-24</td><td>Мастер и инстанс разошлись</td><td class="n"><span class="chip st-na">снята</span></td><td>Проверка неисполнима по доступным данным, из регламента удалена</td></tr>
+          <tr class="done"><td class="id">F-25</td><td>Мастер и инстанс разошлись</td><td class="n"><span class="chip st-na">снята</span></td><td>Проверка неисполнима по доступным данным, из регламента удалена</td></tr>
         </tbody>
       </table></div>
     </details>
@@ -266,9 +285,9 @@
   "reason": "заглушка",
   "screens": 13,
   "volume": {
-   "radius_off_scale": 172,
-   "stroke_off": 100,
-   "touch_under_44": 5
+   "radius_off_scale": 0,
+   "stroke_off": 77,
+   "touch_under_44": 0
   }
  },
  "runs": [
@@ -291,6 +310,13 @@
    "id": "2026-08-01T19:02Z",
    "source": "rest",
    "prototype_data": true
+  },
+  {
+   "id": "2026-08-03T13:07Z",
+   "source": "rest",
+   "prototype_data": true,
+   "file_version": "2383487596576305773",
+   "note": "сборщик пересобран и сверен по историческим версиям файла: 24 из 27 опубликованных ячеек воспроизведены точно"
   }
  ],
  "declared_tokens": {
@@ -312,41 +338,48 @@
    522,
    481,
    484,
-   477
+   477,
+   0
   ],
   "radius_fractional": [
    515,
    446,
    447,
-   440
+   440,
+   0
   ],
   "integer_grid_share_pct": [
    1.3,
    27.8,
    28.3,
-   29.4
+   29.4,
+   100.0
   ],
   "stroke_not_1pt": [
    209,
    172,
    172,
-   172
+   172,
+   0
   ],
   "colors_off_palette": [
    52,
    60,
    63,
-   63
+   63,
+   54
   ],
   "type_pairs": [
    83,
    124,
    130,
-   130
+   130,
+   129
   ],
   "cta_off_screen": [
    null,
    4,
+   2,
    2,
    2
   ],
@@ -354,25 +387,43 @@
    null,
    4,
    2,
-   3
+   3,
+   2
   ],
   "screens_no_inbound": [
    null,
    14,
    15,
-   15
+   15,
+   3
   ]
  },
  "open": [
   {
-   "id": "F-01",
+   "id": "F-26",
    "severity": "now",
+   "title": "Онбординг вне охвата метрик",
+   "evidence": {
+    "radius_off_scale": 457,
+    "stroke_off": 155,
+    "worst_board": "Responsive QA outputs · iPhone 8/SE + iPhone 13",
+    "worst_board_radii": 424,
+    "note": "тренд всегда считался по секциям страницы Product. Пока Product был грязным, это было незаметно; теперь он чист, и весь остаток нарушений оказался в невидимой для метрики части файла"
+   }
+  },
+  {
+   "id": "F-01",
+   "severity": "soon",
    "title": "Компоненты шире объявленного мастера",
    "evidence": {
     "master": 375,
-    "button": 378,
-    "provider_auth": 382,
-    "selector": 390
+    "variants_over_375": 5,
+    "was": 41,
+    "remaining": {
+     "Choice Row": "378×58 ×2",
+     "Paywall Benefit Row": "378×42 ×3"
+    },
+    "note": "Provider Auth 382 и Invoice Template Selector 390 сведены к 375; больше ничего не блокирует"
    },
    "blocks": [
     "F-02",
@@ -383,40 +434,12 @@
   },
   {
    "id": "F-02",
-   "severity": "now",
+   "severity": "soon",
    "title": "Эталонный блок не мигрирован",
    "evidence": {
-    "fractional_radii": 214,
-    "integer_radii": 0,
-    "derived_button": "329.7x59.3 r17.4"
-   }
-  },
-  {
-   "id": "F-03",
-   "severity": "now",
-   "title": "Радиус-шкала не соблюдается",
-   "evidence": {
-    "values": [
-     522,
-     481,
-     484,
-     477
-    ],
-    "top_off_scale": {
-     "17.4": 193,
-     "20.9": null
-    }
-   }
-  },
-  {
-   "id": "F-04",
-   "severity": "now",
-   "title": "Миграции нет, экраны добавляются",
-   "evidence": {
-    "fractional_before": 618,
-    "fractional_after": 620,
-    "r17_4_before": 191,
-    "r17_4_after": 193
+    "fractional_radii": 14,
+    "was": 214,
+    "radius_nodes": 156
    }
   },
   {
@@ -424,9 +447,16 @@
    "severity": "soon",
    "title": "Эталон нарушает собственные шкалы",
    "evidence": {
-    "radius_values": 17,
-    "declared": 4,
-    "forbidden_present": 24
+    "radius_off_scale": 8,
+    "values": {
+     "16": 4,
+     "18": 3,
+     "24": 1
+    },
+    "strokes_off": {
+     "2.0": 14
+    },
+    "note": "радиусы эталона не тронуты; обводки сведены с девяти значений к двум"
    }
   },
   {
@@ -435,27 +465,16 @@
    "title": "Два полноширинных примитива в эталоне",
    "evidence": {
     "widths": [
+     378
+    ],
+    "was": [
      378,
      382
-    ]
-   }
-  },
-  {
-   "id": "F-08",
-   "severity": "soon",
-   "title": "Цели нажатия ниже 44 pt",
-   "evidence": {
-    "count": [
-     46,
-     29,
-     26,
-     26
     ],
-    "worst": {
-     "Change logo": 20.9,
-     "Toggle": 26.2,
-     "Due chip": 28.0
-    }
+    "remaining": [
+     "Choice Row",
+     "Paywall Benefit Row"
+    ]
    }
   },
   {
@@ -467,15 +486,10 @@
      133,
      133,
      121,
-     121
+     121,
+     22
     ],
-    "dominant_pair": {
-     "fg": "#747875",
-     "bg": "#FFFFFF",
-     "ratio": 4.48,
-     "need": 4.5,
-     "nodes": 96
-    }
+    "note": "пара #747875 на белом (107 узлов) устранена; из оставшихся 22 четыре — текст на заливке того же цвета в галерее шаблонов"
    }
   },
   {
@@ -487,13 +501,15 @@
      null,
      4,
      2,
+     2,
      2
     ],
     "remaining": [
      "01 Welcome / iPhone 8·SE",
      "02 ATT permission / iPhone 8·SE"
     ],
-    "offset": -14.0
+    "overflow_pt": 9.0,
+    "note": "не тронуто четвёртый прогон подряд"
    }
   },
   {
@@ -501,25 +517,24 @@
    "severity": "soon",
    "title": "Разные ширины CTA на одном устройстве",
    "evidence": {
-    "device": 390,
-    "widths": {
+    "device_390": {
      "344.7": 7,
-     "344.6": 1,
-     "329.7": 2
-    }
+     "344.6": 3
+    },
+    "device_375": {
+     "329.6": 6,
+     "329.7": 4
+    },
+    "note": "на 390 ширин стало две вместо трёх, но на 375 появился собственный разнобой в одну десятую"
    }
   },
   {
-   "id": "F-12",
+   "id": "F-27",
    "severity": "soon",
-   "title": "Главный экран без акцентного действия",
+   "title": "Экран вне секций не попадает в аудит",
    "evidence": {
-    "screens": [
-     "02.1",
-     "02.1B",
-     "02.1C"
-    ],
-    "accent_actions": 0
+    "screen": "02.3E — Invoice send failed",
+    "note": "лежит на странице Product сам по себе, вне всех блоков-секций, поэтому его узлы никогда не измерялись. Перенести в секцию — числа корректно вырастут"
    }
   },
   {
@@ -529,10 +544,14 @@
    "evidence": {
     "instances": 0,
     "local_radii": [
+     12.0
+    ],
+    "was": [
      13.1,
      14.0,
      10.5
-    ]
+    ],
+    "note": "радиусы сведены к 12, но поля по-прежнему рисуются локально"
    }
   },
   {
@@ -544,25 +563,32 @@
      52,
      60,
      63,
-     63
+     63,
+     54
     ],
     "pairs": [
-     [
-      "#101211",
-      "#0F120F",
-      1
-     ],
      [
       "#C7F36B",
       "#C7F26B",
       1
      ],
      [
+      "#C9CEC8",
+      "#C9CFC7",
+      1
+     ],
+     [
       "#EEF0EB",
-      "#F0F2ED",
-      2
+      "#EFF0EC",
+      1
+     ],
+     [
+      "#F5F6F1",
+      "#F5F7F2",
+      1
      ]
-    ]
+    ],
+    "note": "#C7F26B — 41 применение на один пункт разницы с лаймом палитры"
    }
   },
   {
@@ -574,7 +600,8 @@
      83,
      124,
      130,
-     130
+     130,
+     129
     ],
     "declared_styles": "7-9"
    }
@@ -588,9 +615,15 @@
      null,
      14,
      15,
-     15
+     15,
+     3
     ],
-    "gallery_share": 12
+    "remaining": [
+     "02.3C — Send invoice actions",
+     "02.3E — Invoice send failed",
+     "02 — Product (обложка)"
+    ],
+    "note": "галерея шаблонов подключена, осталось три"
    }
   },
   {
@@ -598,12 +631,8 @@
    "severity": "later",
    "title": "Нет запаса на длинные данные",
    "evidence": {
-    "tight_texts": 64,
-    "by_block": {
-     "Overview": 28,
-     "Clients": 18,
-     "Alternative": 9
-    }
+    "tight_texts": null,
+    "note": "н/д за этот прогон: исходное правило не воспроизводится. «текст ≥90 % ширины родителя» даёт поблочно Overview 28 и Clients 18 — ровно как опубликовано, — но в сумме 97 против 64. Строку считать заново после того, как правило объявят явно"
    }
   }
  ],
@@ -659,6 +688,30 @@
    "title": "Два акцентных действия на одном экране",
    "closed_by": "заливка Action / Save на 02.2D: #C7F36B -> #EEF0EB",
    "closed_at": "2026-08-01T19:02Z"
+  },
+  {
+   "id": "F-03",
+   "title": "Радиус-шкала не соблюдается",
+   "closed_by": "477 → 0: в секциях Product остались ровно 12 / 20 / 28 / 999",
+   "closed_at": "2026-08-03T13:07Z"
+  },
+  {
+   "id": "F-04",
+   "title": "Миграции нет, экраны добавляются",
+   "closed_by": "legacy мигрирован: дробных радиусов в охвате 440 → 0",
+   "closed_at": "2026-08-03T13:07Z"
+  },
+  {
+   "id": "F-08",
+   "title": "Цели нажатия ниже 44 pt",
+   "closed_by": "26 → 0",
+   "closed_at": "2026-08-03T13:07Z"
+  },
+  {
+   "id": "F-12",
+   "title": "Главный экран без акцентного действия",
+   "closed_by": "на 02.1 / 02.1B / 02.1C появилось акцентное Quick action / New invoice",
+   "closed_at": "2026-08-03T13:07Z"
   }
  ],
  "burndown": [
@@ -677,10 +730,32 @@
    "later": 5,
    "open": 16,
    "closed_total": 9
+  },
+  {
+   "run": "2026-08-03T13:07Z",
+   "now": 1,
+   "soon": 8,
+   "later": 5,
+   "open": 14,
+   "closed_total": 13
   }
- ]
+ ],
+ "out_of_scope": {
+  "block": "01 — Onboarding",
+  "reason": "тренд всегда считался по секциям страницы Product; онбординг в него не входил",
+  "screens": 45,
+  "volume": {
+   "radius_off_scale": 457,
+   "stroke_off": 155,
+   "touch_under_44": 0
+  },
+  "worst_board": {
+   "name": "Responsive QA outputs · iPhone 8/SE + iPhone 13",
+   "radius_off_scale": 424
+  }
+ }
 }
-    </script>
+</script>
   </section>
 
   <section>
@@ -694,10 +769,18 @@
         522 → 481 → 484 не требует обсуждения.</p>
       <p><strong>Переоткрытая заметнее закрытой.</strong> F-24 закрыли переименованием
         и тут же сломали новыми экранами — в снимке такое теряется, в реестре нет.</p>
+      <p><strong>Ноль в метрике не значит ноль в файле.</strong> Прогон 3 августа обнулил
+        четыре метрики сразу — и тем самым показал границу собственного охвата.
+        457 радиусов вне шкалы никуда не делись, они в онбординге, куда метрика
+        не смотрела ни разу. Отсюда F-26: находка не про макет, а про сам аудит.</p>
     </div>
-    <p class="footnote">Прогоны: 24 июля (плагин figwright), 1 августа 09:16 и 11:11 (REST).
-      Метрики считаются по продуктовым секциям без заглушки, полным обходом дерева.
-      Следующий прогон дописывает колонку, а не создаёт новый документ.</p>
+    <p class="footnote">Прогоны: 24 июля (плагин figwright), 1 августа 09:16 · 11:11 · 19:02
+      и 3 августа 13:07 (REST). Метрики считаются по секциям страницы Product без заглушки,
+      полным обходом дерева. Сборщик прогона 3 августа пересобран с нуля и сверен против
+      исторических версий файла Figma: из 27 опубликованных ячеек прошлых прогонов он
+      воспроизводит 24 точно, включая объём заглушки 172 / 100 / 5. Три расхождения — на
+      выгрузке 09:16, где блоки назывались иначе. Следующий прогон дописывает колонку,
+      а не создаёт новый документ.</p>
   </section>
 
 </div>
