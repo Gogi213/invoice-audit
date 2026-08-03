@@ -1,6 +1,6 @@
 {
  "schema_version": "2.0",
- "generated_at": "2026-08-03T17:17Z",
+ "generated_at": "2026-08-03T17:25Z",
  "run": "2026-08-03T12-00Z",
  "audience": "agent",
  "human_document": "https://gogi213.github.io/invoice-audit/",
@@ -117,11 +117,11 @@
   "findings": 10,
   "directly_actionable": 5,
   "edits_safe_to_apply": 152,
-  "total_edits_including_blocked": 1920,
+  "total_edits_including_blocked": 1940,
   "blocked_on_decision": [
    {
     "id": "F-26",
-    "edits_withheld": 457,
+    "edits_withheld": 477,
     "why": "Решить, входит ли Onboarding в предмет аудита. Если да — расширить охват и принять разовый рост чисел. Если нет — объявить страницу черновой, как объявлена заглушка. Правки применять только после этого решения."
    },
    {
@@ -227,14 +227,14 @@
     "observed_values": {
      "3.49": 66,
      "6.1": 64,
-     "17.44": 30,
+     "24.42": 34,
+     "17.44": 34,
      "15.7": 28,
      "40.12": 26,
      "1.74": 26,
      "4.36": 26,
      "6.98": 24,
      "11.34": 22,
-     "24.42": 20,
      "871.22": 18,
      "22.67": 18,
      "19.19": 14,
@@ -249,10 +249,11 @@
      "10.47": 4,
      "13.95": 4,
      "40.99": 4,
+     "26.16": 2,
      "76.74": 2,
      "2.62": 2
     },
-    "node_count": 457
+    "node_count": 477
    },
    "converge_to": {
     "radius": [
@@ -266,7 +267,7 @@
    "action": {
     "op": "decide_then_set",
     "property": "cornerRadius",
-    "edit_count": 457,
+    "edit_count": 477,
     "edits": [
      {
       "node_id": "36:9",
@@ -301,6 +302,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-14"
      },
      {
+      "node_id": "36:23",
+      "node_name": "Worksite photo message",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-23"
+     },
+     {
       "node_id": "36:25",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -315,6 +324,14 @@
       "from": 3.49,
       "to": 12.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-26"
+     },
+     {
+      "node_id": "36:29",
+      "node_name": "Estimate request message",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-29"
      },
      {
       "node_id": "36:56",
@@ -413,6 +430,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-27"
      },
      {
+      "node_id": "28:41",
+      "node_name": "Worksite photo message",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-41"
+     },
+     {
       "node_id": "28:43",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -427,6 +452,14 @@
       "from": 3.49,
       "to": 12.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-44"
+     },
+     {
+      "node_id": "28:47",
+      "node_name": "Estimate request message",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-47"
      },
      {
       "node_id": "28:83",
@@ -757,6 +790,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-322"
      },
      {
+      "node_id": "404:325",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-325"
+     },
+     {
       "node_id": "404:327",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -787,6 +828,14 @@
       "from": 17.44,
       "to": 20.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-337"
+     },
+     {
+      "node_id": "404:338",
+      "node_name": "iOS keyboard",
+      "property": "cornerRadius",
+      "from": 26.16,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-338"
      },
      {
       "node_id": "404:340",
@@ -1085,6 +1134,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-423"
      },
      {
+      "node_id": "404:426",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-426"
+     },
+     {
       "node_id": "404:428",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -1115,6 +1172,14 @@
       "from": 17.44,
       "to": 20.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-438"
+     },
+     {
+      "node_id": "404:439",
+      "node_name": "iOS keyboard",
+      "property": "cornerRadius",
+      "from": 26.16,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-439"
      },
      {
       "node_id": "404:441",
@@ -1413,6 +1478,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-524"
      },
      {
+      "node_id": "404:527",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-527"
+     },
+     {
       "node_id": "404:529",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -1659,6 +1732,14 @@
       "from": 19.19,
       "to": 20.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-601"
+     },
+     {
+      "node_id": "404:604",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-604"
      },
      {
       "node_id": "404:606",
@@ -1909,6 +1990,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-678"
      },
      {
+      "node_id": "404:681",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-681"
+     },
+     {
       "node_id": "404:683",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -1997,6 +2086,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-706"
      },
      {
+      "node_id": "404:709",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-709"
+     },
+     {
       "node_id": "404:711",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -2075,6 +2172,14 @@
       "from": 1.74,
       "to": 12.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-733"
+     },
+     {
+      "node_id": "404:734",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-734"
      },
      {
       "node_id": "404:736",
@@ -2165,6 +2270,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-770"
      },
      {
+      "node_id": "404:771",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-771"
+     },
+     {
       "node_id": "404:773",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -2253,6 +2366,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-807"
      },
      {
+      "node_id": "404:808",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-808"
+     },
+     {
       "node_id": "404:810",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -2331,6 +2452,14 @@
       "from": 1.74,
       "to": 12.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-846"
+     },
+     {
+      "node_id": "404:847",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-847"
      },
      {
       "node_id": "404:849",
@@ -2421,6 +2550,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-882"
      },
      {
+      "node_id": "404:891",
+      "node_name": "Worksite photo message",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-891"
+     },
+     {
       "node_id": "404:893",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -2435,6 +2572,14 @@
       "from": 3.49,
       "to": 12.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-894"
+     },
+     {
+      "node_id": "404:897",
+      "node_name": "Estimate request message",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-897"
      },
      {
       "node_id": "404:899",
@@ -2525,6 +2670,14 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-984"
      },
      {
+      "node_id": "404:993",
+      "node_name": "Worksite photo message",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-993"
+     },
+     {
       "node_id": "404:995",
       "node_name": "Container",
       "property": "cornerRadius",
@@ -2539,6 +2692,14 @@
       "from": 3.49,
       "to": 12.0,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-996"
+     },
+     {
+      "node_id": "404:999",
+      "node_name": "Estimate request message",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-999"
      },
      {
       "node_id": "404:1001",
