@@ -188,8 +188,9 @@
         <tr><td>Текстов без запаса по ширине</td><td><small>однострочных текстов на ≥90 % ширины контейнера</small></td><td class="n">139</td><td class="n">171 <span class="arrow up">▲32</span></td><td class="n">171 <span class="arrow flat">—</span></td><td class="n">171 <span class="arrow flat">—</span></td><td class="n"><b>171</b> <span class="arrow flat">—</span></td><td><small><b>правило объявлено заново · не улучшалось ни разу</b></small></td></tr>
         <tr><td>Цветов вне палитры</td><td><small>различных цветов сверх шести токенов</small></td><td class="n">52</td><td class="n">60 <span class="arrow up">▲8</span></td><td class="n">63 <span class="arrow up">▲3</span></td><td class="n">63 <span class="arrow flat">—</span></td><td class="n"><b>54</b> <span class="arrow down">▼9</span></td><td><small></small></td></tr>
         <tr><td>Пар размер×начертание</td><td><small>различных сочетаний кегля и насыщенности. Политика требует 7–9</small></td><td class="n">72</td><td class="n">113 <span class="arrow up">▲41</span></td><td class="n">118 <span class="arrow up">▲5</span></td><td class="n">118 <span class="arrow flat">—</span></td><td class="n"><b>117</b> <span class="arrow down">▼1</span></td><td><small></small></td></tr>
-        <tr><td>Текстов ниже WCAG AA</td><td><small>текстов, не добирающих контраста к своему фону</small></td><td class="n">120</td><td class="n">121 <span class="arrow up">▲1</span></td><td class="n">121 <span class="arrow flat">—</span></td><td class="n">121 <span class="arrow flat">—</span></td><td class="n"><b>14</b> <span class="arrow down">▼107</span></td><td><small></small></td></tr>
-        <tr><td>Целей нажатия < 44 pt</td><td><small>интерактивных узлов ниже минимума Apple HIG</small></td><td class="n">25</td><td class="n">30 <span class="arrow up">▲5</span></td><td class="n">26 <span class="arrow down">▼4</span></td><td class="n">26 <span class="arrow flat">—</span></td><td class="n"><b>0</b> <span class="arrow down">▼26</span></td><td><small></small></td></tr>
+        <tr><td>Текстов ниже WCAG AA</td><td><small>читаемых текстов, не добирающих контраста к фону</small></td><td class="n">109</td><td class="n">110 <span class="arrow up">▲1</span></td><td class="n">110 <span class="arrow flat">—</span></td><td class="n">110 <span class="arrow flat">—</span></td><td class="n"><b>3</b> <span class="arrow down">▼107</span></td><td><small>порог 4,5 · глифы вынесены в строку ниже</small></td></tr>
+        <tr><td>Глифов ниже порога 3:1</td><td><small>иконок и разделителей, нарисованных текстом — WCAG 1.4.11</small></td><td class="n">5</td><td class="n">5 <span class="arrow flat">—</span></td><td class="n">5 <span class="arrow flat">—</span></td><td class="n">5 <span class="arrow flat">—</span></td><td class="n"><b>5</b> <span class="arrow flat">—</span></td><td><small>держать их к текстовому порогу было неверно</small></td></tr>
+        <tr><td>Целей нажатия &lt; 44 pt</td><td><small>интерактивных узлов ниже минимума Apple HIG</small></td><td class="n">25</td><td class="n">30 <span class="arrow up">▲5</span></td><td class="n">26 <span class="arrow down">▼4</span></td><td class="n">26 <span class="arrow flat">—</span></td><td class="n"><b>0</b> <span class="arrow down">▼26</span></td><td><small></small></td></tr>
         <tr><td>CTA за краем экрана</td><td><small>экранов, где кнопка не помещается по высоте устройства</small></td><td class="n">0</td><td class="n">4 <span class="arrow up">▲4</span></td><td class="n">2 <span class="arrow down">▼2</span></td><td class="n">2 <span class="arrow flat">—</span></td><td class="n"><b>2</b> <span class="arrow flat">—</span></td><td><small></small></td></tr>
         <tr><td>Ширин CTA на 390 pt</td><td><small>сколько разных ширин у кнопки на одном устройстве. Норма — одна</small></td><td class="n">0</td><td class="n">3 <span class="arrow up">▲3</span></td><td class="n">2 <span class="arrow down">▼1</span></td><td class="n">3 <span class="arrow up">▲1</span></td><td class="n"><b>2</b> <span class="arrow down">▼1</span></td><td><small></small></td></tr>
         <tr><td>Экранов без входящих</td><td><small>экранов, на которые в прототипе нельзя попасть</small></td><td class="n">14</td><td class="n">15 <span class="arrow up">▲1</span></td><td class="n">15 <span class="arrow flat">—</span></td><td class="n">15 <span class="arrow flat">—</span></td><td class="n"><b>3</b> <span class="arrow down">▼12</span></td><td><small></small></td></tr>
@@ -264,7 +265,7 @@
 
         <tr><td class="id">F-06</td><td><details class="f"><summary>Эталон нарушает собственные шкалы — радиусы не тронуты, обводки почти сведены</summary><div class="det"><span><b>Где смотреть.</b> Сам эталон против собственного примечания.</span><span class="ev">вне шкалы 8 узлов: 16×4, 18×3, 24×1 — примечание «no ad-hoc 24» по-прежнему нарушается в том же файле, где написано. Обводки: было девять значений (1,5 · 1,7 · 1,8 · 1,83 · 2,0 · 2,33 · 2,57 · 4,5), осталось одно — 2,0×14</span><span><b>Чинить.</b> Либо расширить объявленную шкалу до реально нужной, либо свести восемь оставшихся узлов к четырём значениям. Пока эталон нарушает себя, ссылаться на него в спорах нельзя.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">45</td><td class="n">45</td><td class="n">65</td><td class="n">58</td><td class="n">8</td><td>Обводки почти закрыты, радиусы стоят</td></tr>
         <tr><td class="id">F-07</td><td><details class="f"><summary>Полноширинный примитив всё ещё не один — 382 ушёл, 378 остался</summary><div class="det"><span><b>Где смотреть.</b> Наборы компонентов Choice Row и Paywall Benefit Row.</span><span class="ev">382 сведён к 375 (Provider Auth Button). 378 остался у двух наборов из семи</span><span><b>Чинить.</b> Свести к одному примитиву. Это те же пять вариантов, что и в F-01 — одна правка закрывает обе.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td class="n">378, 382</td><td class="n">378</td><td>Одна правка закроет вместе с F-01</td></tr>
-        <tr><td class="id">F-09</td><td><details class="f"><summary>Тексты ниже WCAG AA — доминирующая пара устранена</summary><div class="det"><span><b>Где смотреть.</b> Продуктовые секции, фон берётся по порядку отрисовки.</span><span class="ev">121 → 14. Пара #747875 на белом (96 узлов) и #747875 на #F5F6F1 (11 узлов) исчезла целиком. Прежде публиковалось 22 — шесть из них были ложными: за фон принимался текстовый узел, чья рамка накрывает мелкий текст, и коэффициент выходил 1,0</span><span><b>Чинить.</b> Разобрать остаток поимённо: это уже не один цвет, а разрозненные случаи. Начать с четырёх, где текст и фон совпадают — там читаемость нулевая, а не пограничная.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">120</td><td class="n">121</td><td class="n">121</td><td class="n">121</td><td class="n">14</td><td>Один цвет закрыл 107 узлов</td></tr>
+        <tr><td class="id">F-09</td><td><details class="f" open><summary>Тексты ниже WCAG AA — осталось три, из них два реально нечитаемы</summary><div class="det"><span><b>Где смотреть.</b> <code>Action / Download</code> и <code>Action / Print</code> на экране Invoice sharing.</span><span class="ev">#FFFFFF на #EEF0EB при 1,15 — белая подпись на светло-сером фоне кнопки. Кнопку перекрасили, подпись оставили белой. Третье: #747875 на #F5F6F1 при 4,13 в превью шаблонов</span><span><b>Почему число менялось.</b> 121 → 22 → 14 → 3. Из 121 ушли 107 после того, как притемнили #747875. Из оставшихся шесть оказались ложными — за фон принимался текстовый узел, чья рамка накрывает мелкий текст. Ещё пять — глифы: разделитель, галочка, значки валюты и монограмма логотипа. Это TEXT-узлы, но не текст для чтения, и к ним применяется нетекстовый порог 3:1 — они теперь в отдельной строке тренда.</span><span><b>Чинить.</b> Две подписи кнопок — на карбон. Это две правки.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">109</td><td class="n">110</td><td class="n">110</td><td class="n">110</td><td class="n">3</td><td>Осталось три, две правки закрывают два</td></tr>
         <tr><td class="id">F-10</td><td><details class="f"><summary>CTA за нижним краем экрана на QA-доске — не тронуто четвёртый прогон</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · QA outputs, экраны iPhone 8/SE.</span><span class="ev">01 Welcome и 02 ATT permission: кнопка выходит за низ фрейма на 9,0 pt. На iPhone 13 исправлено ещё на прогоне 11:11</span><span><b>Чинить.</b> Перекомпоновать два фрейма: композиция с высокого экрана перенесена на 667 pt без перестановки. Правка на два экрана, висит с 1 августа.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">0</td><td class="n">4</td><td class="n">2</td><td class="n">2</td><td class="n">2</td><td>Три прогона без движения</td></tr>
         <tr><td class="id">F-11</td><td><details class="f"><summary>Разные ширины CTA на одном устройстве — на 390 стало лучше, на 375 хуже</summary><div class="det"><span><b>Где смотреть.</b> QA outputs, оба устройства.</span><span class="ev">390 pt: 344,7 (7 экранов) и 344,6 (3) — было три ширины, стало две. 375 pt: 329,6 (6 экранов) и 329,7 (4) — разнобой в одну десятую там, где раньше была одна ширина</span><span><b>Чинить.</b> Одна ширина на устройство, заданная как «ширина минус поля», а не проставленная руками. Разница в 0,1 pt невидима глазом и именно поэтому воспроизводится бесконечно.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">0</td><td class="n">3</td><td class="n">2</td><td class="n">3</td><td class="n">2</td><td>Разнобой переехал с 390 на 375</td></tr>
         <tr><td class="id">F-27</td><td><details class="f"><summary>Экран вне секций не попадает в аудит</summary><div class="det"><span><b>Где смотреть.</b> <code>02.3E — Invoice send failed</code> — лежит на странице Product сам по себе, вне всех блоков-секций.</span><span class="ev">метрики консистентности считаются по секциям страницы. Узлы этого экрана не измерялись ни разу с момента его создания</span><span><b>Чинить.</b> Перенести экран в <code>Section / Invoice sharing</code>. Числа при этом корректно вырастут — это не регресс, а появление экрана в поле зрения.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">1 экран</td><td>Открыта на этом прогоне</td></tr>
@@ -491,11 +492,18 @@
    0
   ],
   "text_below_aa": [
-   120,
-   121,
-   121,
-   121,
-   14
+   109,
+   110,
+   110,
+   110,
+   3
+  ],
+  "glyphs_below_non_text_threshold": [
+   5,
+   5,
+   5,
+   5,
+   5
   ],
   "spacing_off_scale": [
    64,
@@ -681,14 +689,40 @@
    "title": "Тексты ниже WCAG AA",
    "evidence": {
     "count": [
-     120,
-     121,
-     121,
-     121,
-     14
+     109,
+     110,
+     110,
+     110,
+     3
     ],
-    "correction": "прежде публиковалось 22; 6 из них были ложными — за фон принимался текстовый узел, чья рамка накрывает мелкий текст",
-    "note": "пара #747875 на белом (107 узлов) устранена полностью"
+    "glyphs_separate": [
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    "remaining": [
+     {
+      "node": "Download / Label",
+      "fg": "#FFFFFF",
+      "bg": "#EEF0EB",
+      "ratio": 1.15
+     },
+     {
+      "node": "Print / Label",
+      "fg": "#FFFFFF",
+      "bg": "#EEF0EB",
+      "ratio": 1.15
+     },
+     {
+      "node": "Account / IBAN",
+      "fg": "#747875",
+      "bg": "#F5F6F1",
+      "ratio": 4.13
+     }
+    ],
+    "correction": "публиковалось 121, затем 22, затем 14, теперь 3. Разница — ложные срабатывания и глифы, которые держали к текстовому порогу"
    }
   },
   {
@@ -1029,7 +1063,9 @@
    "радиусы: покорнерные rectangleCornerRadii теперь считаются — прежняя методика их не видела, узел с четырьмя выставленными руками углами был для аудита невидим. Стоит +6 узлов на каждой исторической колонке и ноль на текущей",
    "F-19: правило объявлено явно вместо унаследованного. Прежнее не воспроизводится — «≥90 % ширины родителя» совпадает с их поблочными числами Overview 28 и Clients 18, но даёт 97 против их 64. Ряд начат заново",
    "текст вне экранов (подписи дизайнера на холсте) исключён из типографики — это не интерфейс",
-   "порог капсулы ужесточён до точной половины короткой стороны"
+   "порог капсулы ужесточён до точной половины короткой стороны",
+   "контраст разделён на текст (порог 4,5 / 3,0) и глифы-иконки (порог 3,0, WCAG 1.4.11): разделитель из символов, галочка, значки валюты и монограмма логотипа — это TEXT-узлы, но не текст для чтения",
+   "правки адресуются мастер-компоненту: узел вида I404:690;24:3 починить нельзя, правка на нём создаёт оверрайд одного инстанса, остальные копии остаются сломанными"
   ]
  },
  "trend_as_published": {
