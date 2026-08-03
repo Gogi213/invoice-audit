@@ -149,47 +149,95 @@
 
   <section>
     <h2>Тренд</h2>
-    <p><small>Метрики по продуктовым секциям, без заглушки. Стрелка — направление
-      относительно прошлого прогона.</small></p>
+
+    <div class="note">
+      <h3>Как читать эту таблицу</h3>
+      <p><b>Что считается.</b> Узлы девяти секций страницы <code>02 — Product</code>.
+        Это ~44 экрана. Секция AI Estimates (заглушка) исключена, страница Onboarding
+        никогда не входила, Foundations считается отдельно как эталон.</p>
+      <p><b>Что значит число.</b> У первых шести метрик это количество нарушений:
+        <b>меньше — лучше, ноль — норма соблюдена</b>. Исключение — «доля целой сетки»:
+        там наоборот, 100 % это норма.</p>
+      <p><b>Что значит ноль.</b> Ноль нарушений <b>в этом охвате</b>, а не в файле.
+        Те же нарушения могут стоять в онбординге — и стоят, см. таблицу ниже и F-26.</p>
+      <p><b>Стрелка</b> — изменение к прошлому прогону:
+        <span class="arrow down">▼</span> стало лучше,
+        <span class="arrow up">▲</span> стало хуже,
+        <span class="arrow flat">—</span> без движения.</p>
+    </div>
     <div class="scroller"><table class="trend">
       <thead><tr>
-        <th>Метрика</th><th class="n">24 июля</th><th class="n">1 авг · 09:16</th>
-        <th class="n">1 авг · 11:11</th><th class="n">1 авг · 19:02</th><th class="n">3 авг · 13:07</th><th>Итого</th>
+        <th>Метрика</th><th>Что за число</th><th class="n">24 июля</th><th class="n">1 авг · 09:16</th>
+        <th class="n">1 авг · 11:11</th><th class="n">1 авг · 19:02</th><th class="n">3 авг · 13:07</th><th class="n">с 24 июля</th>
       </tr></thead>
       <tbody>
-        <tr><td>Радиусов вне объявленной шкалы</td><td class="n">522</td><td class="n">481</td>
+        <tr><td>Радиусов вне объявленной шкалы</td>
+            <td><small>узлов, у которых радиус не 12, 20, 28 или капсула</small></td>
+            <td class="n">522</td><td class="n">481</td>
             <td class="n">484 <span class="arrow up">▲3</span></td><td class="n">477 <span class="arrow down">▼7</span></td>
-            <td class="n"><b>0</b> <span class="arrow down">▼477</span></td><td>закрыто в охвате</td></tr>
-        <tr><td>Дробных радиусов</td><td class="n">515</td><td class="n">446</td>
+            <td class="n"><b>0</b> <span class="arrow down">▼477</span></td><td class="n"><span class="arrow down">−522 · −100 %</span></td></tr>
+        <tr><td>Дробных радиусов</td>
+            <td><small>узлов с нецелым радиусом вроде 17,4 — след масштабирования руками</small></td>
+            <td class="n">515</td><td class="n">446</td>
             <td class="n">447 <span class="arrow up">▲1</span></td><td class="n">440 <span class="arrow down">▼7</span></td>
-            <td class="n"><b>0</b> <span class="arrow down">▼440</span></td><td>закрыто в охвате</td></tr>
-        <tr><td>Доля целой сетки</td><td class="n">1,3 %</td><td class="n">27,8 %</td>
+            <td class="n"><b>0</b> <span class="arrow down">▼440</span></td><td class="n"><span class="arrow down">−515 · −100 %</span></td></tr>
+        <tr><td>Доля целой сетки</td>
+            <td><small>доля узлов с целым радиусом. <b>Здесь больше — лучше</b>, норма 100 %</small></td>
+            <td class="n">1,3 %</td><td class="n">27,8 %</td>
             <td class="n">28,3 % <span class="arrow down">▲0,5</span></td><td class="n">29,4 % <span class="arrow down">▲1,1</span></td>
-            <td class="n"><b>100 %</b> <span class="arrow down">▲70,6</span></td><td>закрыто в охвате</td></tr>
-        <tr><td>Обводок ≠ 1 pt</td><td class="n">209</td><td class="n">172</td>
+            <td class="n"><b>100 %</b> <span class="arrow down">▲70,6</span></td><td class="n"><span class="arrow down">+98,7 п.п.</span></td></tr>
+        <tr><td>Обводок ≠ 1 pt</td>
+            <td><small>узлов с обводкой другой толщины: 0,87 · 1,31 · 2,0 и прочие</small></td>
+            <td class="n">209</td><td class="n">172</td>
             <td class="n">172 <span class="arrow flat">—</span></td><td class="n">172 <span class="arrow flat">—</span></td>
-            <td class="n"><b>0</b> <span class="arrow down">▼172</span></td><td>закрыто в охвате</td></tr>
-        <tr><td>Цветов вне палитры</td><td class="n">52</td><td class="n">60</td>
+            <td class="n"><b>0</b> <span class="arrow down">▼172</span></td><td class="n"><span class="arrow down">−209 · −100 %</span></td></tr>
+        <tr><td>Цветов вне палитры</td>
+            <td><small>различных цветов сверх шести объявленных токенов</small></td>
+            <td class="n">52</td><td class="n">60</td>
             <td class="n">63 <span class="arrow up">▲3</span></td><td class="n">63 <span class="arrow flat">—</span></td>
-            <td class="n">54 <span class="arrow down">▼9</span></td><td>ниже старта впервые</td></tr>
-        <tr><td>Пар размер×начертание</td><td class="n">83</td><td class="n">124</td>
+            <td class="n">54 <span class="arrow down">▼9</span></td><td class="n"><span class="arrow up">+2 · хуже старта</span></td></tr>
+        <tr><td>Пар размер×начертание</td>
+            <td><small>различных сочетаний кегля и насыщенности. Политика требует 7–9</small></td>
+            <td class="n">83</td><td class="n">124</td>
             <td class="n">130 <span class="arrow up">▲6</span></td><td class="n">130 <span class="arrow flat">—</span></td>
-            <td class="n">129 <span class="arrow down">▼1</span></td><td>с 24 июля хуже в полтора раза</td></tr>
-        <tr><td>CTA за краем экрана</td><td class="n">н/д</td><td class="n">4</td>
+            <td class="n">129 <span class="arrow down">▼1</span></td><td class="n"><span class="arrow up">+46 · +55 %</span></td></tr>
+        <tr><td>CTA за краем экрана</td>
+            <td><small>экранов, где кнопка не помещается по высоте устройства</small></td>
+            <td class="n">н/д</td><td class="n">4</td>
             <td class="n">2 <span class="arrow down">▼2</span></td><td class="n">2 <span class="arrow flat">—</span></td>
-            <td class="n">2 <span class="arrow flat">—</span></td><td>iPhone 8/SE не тронут четвёртый прогон</td></tr>
-        <tr><td>Ширин CTA на 390 pt</td><td class="n">н/д</td><td class="n">4</td>
+            <td class="n">2 <span class="arrow flat">—</span></td><td class="n"><span class="arrow flat">н/д</span></td></tr>
+        <tr><td>Ширин CTA на 390 pt</td>
+            <td><small>сколько разных ширин у кнопки на одном устройстве. Норма — одна</small></td>
+            <td class="n">н/д</td><td class="n">4</td>
             <td class="n">2 <span class="arrow down">▼2</span></td><td class="n">3 <span class="arrow up">▲1</span></td>
-            <td class="n">2 <span class="arrow down">▼1</span></td><td>зато разнобой переехал на 375</td></tr>
-        <tr><td>Экранов без входящих</td><td class="n">н/д</td><td class="n">14</td>
+            <td class="n">2 <span class="arrow down">▼1</span></td><td class="n"><span class="arrow flat">н/д</span></td></tr>
+        <tr><td>Экранов без входящих</td>
+            <td><small>экранов, на которые в прототипе нельзя попасть ни одним переходом</small></td>
+            <td class="n">н/д</td><td class="n">14</td>
             <td class="n">15 <span class="arrow up">▲1</span></td><td class="n">15 <span class="arrow flat">—</span></td>
-            <td class="n">3 <span class="arrow down">▼12</span></td><td>галерея подключена</td></tr>
+            <td class="n">3 <span class="arrow down">▼12</span></td><td class="n"><span class="arrow flat">н/д</span></td></tr>
       </tbody>
     </table></div>
-    <p><small>«н/д» — выгрузка от 24 июля сделана через плагин и не содержит связей прототипа,
-      поэтому метрики сценария за тот прогон недоступны.<br>
-      «Закрыто в охвате» — не «закрыто в файле». Охват тренда — секции страницы Product;
-      в онбординге те же нарушения стоят нетронутыми, см. F-26.</small></p>
+    <p><small>«н/д» за 24 июля — та выгрузка сделана плагином и не содержит связей прототипа,
+      поэтому метрики сценария за тот прогон посчитать не из чего.</small></p>
+
+    <h3 style="margin-top:14px">Что в тренд не входит</h3>
+    <p><small>Обе части ниже измерены тем же обходом, но в числа таблицы выше не попадают.
+      Их объём приведён, чтобы «ноль» нельзя было прочитать как «в файле чисто».</small></p>
+    <div class="scroller"><table>
+      <thead><tr><th>Часть файла</th><th class="n">Экранов</th><th class="n">Радиусов вне шкалы</th><th class="n">Обводок ≠ 1</th><th>Почему не в тренде</th></tr></thead>
+      <tbody>
+        <tr><td><b>Секции страницы Product</b> — это и есть тренд</td><td class="n">44</td><td class="n"><b>0</b></td><td class="n"><b>0</b></td><td>предмет аудита</td></tr>
+        <tr><td><code>Section / AI Estimates</code></td><td class="n">13</td><td class="n">0</td><td class="n">77</td><td>заглушка, объявлена исключённой с первого прогона</td></tr>
+        <tr><td><code>01 — Onboarding</code></td><td class="n">45</td><td class="n"><b>457</b></td><td class="n">155</td><td>никогда не входила. Это находка <b>F-26</b>, а не правило</td></tr>
+        <tr><td><code>02.3E — Invoice send failed</code></td><td class="n">1</td><td class="n">—</td><td class="n">—</td><td>лежит вне секций, поэтому не измерялся ни разу — <b>F-27</b></td></tr>
+      </tbody>
+    </table></div>
+    <p>Коротко: за десять дней страница Product приведена к объявленным шкалам полностью,
+      и это настоящий результат. Но <b>457 радиусов вне шкалы никуда не делись</b> — они
+      в онбординге, на который метрика не смотрела ни разу. И две метрики за то же время
+      стали хуже, чем были на старте: палитра выросла с 52 цветов до 54, а типографика
+      с 83 пар до 129.</p>
   </section>
 
   <section>
