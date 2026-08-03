@@ -147,7 +147,7 @@
         <tr><td><b>Что проверяется по шкалам</b></td><td>Радиус, обводка, ширина мастера, цель нажатия, контраст, палитра — были с самого начала. <b>Отступы и кегль добавлены на этом прогоне</b>: обе шкалы объявлены в тех же foundations, но не проверялись ни разу.</td></tr>
         <tr><td><b>Срочность</b></td><td><span class="chip st-now">сейчас</span> сломанный артефакт либо цена растёт каждый день · <span class="chip st-soon">скоро</span> чинится дёшево и один раз · <span class="chip st-later">потом</span> гигиена файла</td></tr>
         <tr><td><b>Заглушка</b></td><td>Секция AI Estimates, 13 экранов, из метрик исключена. Её объём на 3 августа: 0 радиусов вне шкалы, 77 обводок ≠ 1, 14 отступов, 263 кегля.</td></tr>
-        <tr><td><b>Вне охвата</b></td><td>Страница Onboarding, 45 экранов, в тренд не входила ни разу. Её объём: <b>291 радиус вне шкалы</b> (457 по строгому счёту, но 166 из них — капсулы, записанные как 871,22 — это <code>radius/full</code>, а не нарушение), 155 обводок ≠ 1, <b>657 отступов</b>, <b>876 кеглей</b>. Это находка F-26, а не примечание.</td></tr>
+        <tr><td><b>Вне охвата</b></td><td>Страница Onboarding, 45 экранов, в тренд не входила ни разу. Её объём: <b>291 радиус вне шкалы</b> (457 по строгому счёту, но 166 из них — капсулы, записанные как 871,22 — это <code>radius/full</code>, а не нарушение), 155 обводок ≠ 1, <b>657 отступов</b> auto-layout, <b>876 кеглей</b>. Это находка F-26, а не примечание.</td></tr>
       </tbody>
     </table></div>
     <p><small>Каждую находку в реестре можно развернуть: внутри — где смотреть, доказательство числами и что делать.</small></p>
@@ -173,8 +173,7 @@
     </div>
     <div class="scroller"><table class="trend">
       <thead><tr>
-        <th>Метрика</th><th>Что за число</th><th class="n">23 июля</th><th class="n">1 авг · 09:16</th>
-        <th class="n">1 авг · 11:11</th><th class="n">1 авг · 19:02</th><th class="n">3 авг · 13:07</th><th>Комментарий</th>
+        <th>Метрика</th><th>Что за число</th><th class="n">23 июля</th><th class="n">1 авг · 09:16</th><th class="n">1 авг · 11:11</th><th class="n">1 авг · 19:02</th><th class="n">3 авг · 13:07</th><th>Комментарий</th>
       </tr></thead>
       <tbody>
         <tr><td>Радиусов вне объявленной шкалы</td><td><small>узлов, у которых радиус не 12, 20, 28 и не капсула</small></td><td class="n">521</td><td class="n">487 <span class="arrow down">▼34</span></td><td class="n">490 <span class="arrow up">▲3</span></td><td class="n">483 <span class="arrow down">▼7</span></td><td class="n"><b>0</b> <span class="arrow down">▼483</span></td><td><small></small></td></tr>
@@ -182,11 +181,12 @@
         <tr><td>Дробных радиусов</td><td><small>узлов с нецелым радиусом вроде 17,4 — след масштабирования руками</small></td><td class="n">521</td><td class="n">452 <span class="arrow down">▼69</span></td><td class="n">453 <span class="arrow up">▲1</span></td><td class="n">446 <span class="arrow down">▼7</span></td><td class="n"><b>0</b> <span class="arrow down">▼446</span></td><td><small></small></td></tr>
         <tr><td>Доля целых радиусов</td><td><small>из узлов, у которых радиус есть. <b>Больше — лучше</b></small></td><td class="n">0 %</td><td class="n">27,7 % <span class="arrow down">▲27,7</span></td><td class="n">28,1 % <span class="arrow down">▲0,4</span></td><td class="n">29,2 % <span class="arrow down">▲1,1</span></td><td class="n"><b>100 %</b> <span class="arrow down">▲70,8</span></td><td><small>прежде называлась «доля целой сетки» — имя обещало всю геометрию</small></td></tr>
         <tr><td>Обводок ≠ 1 pt</td><td><small>узлов с обводкой другой толщины</small></td><td class="n">209</td><td class="n">172 <span class="arrow down">▼37</span></td><td class="n">172 <span class="arrow flat">—</span></td><td class="n">172 <span class="arrow flat">—</span></td><td class="n"><b>0</b> <span class="arrow down">▼172</span></td><td><small></small></td></tr>
-        <tr><td>Отступов вне шкалы</td><td><small>узлов, где padding или gap не 4/8/12/16/24/32/40</small></td><td class="n">64</td><td class="n">70 <span class="arrow up">▲6</span></td><td class="n">70 <span class="arrow flat">—</span></td><td class="n">70 <span class="arrow flat">—</span></td><td class="n"><b>70</b> <span class="arrow flat">—</span></td><td><small><b>измерено впервые · не улучшалось ни разу</b></small></td></tr>
-        <tr><td>Кеглей вне шкалы</td><td><small>текстов, чей размер не из объявленных восьми</small></td><td class="n">994</td><td class="n">1278 <span class="arrow up">▲284</span></td><td class="n">1294 <span class="arrow up">▲16</span></td><td class="n">1294 <span class="arrow flat">—</span></td><td class="n"><b>1294</b> <span class="arrow flat">—</span></td><td><small><b>измерено впервые · выросло на 30 %</b></small></td></tr>
+        <tr><td>Отступов вне шкалы</td><td><small>padding и gap в auto-layout, не из 4/8/12/16/24/32/40</small></td><td class="n">64</td><td class="n">70 <span class="arrow up">▲6</span></td><td class="n">70 <span class="arrow flat">—</span></td><td class="n">70 <span class="arrow flat">—</span></td><td class="n"><b>70</b> <span class="arrow flat">—</span></td><td><small><b>не улучшалось ни разу</b> · это только 124 контейнера из 860</small></td></tr>
+        <tr><td>Ручных зазоров вне шкалы</td><td><small>просветы между вручную расставленными соседями</small></td><td class="n">772</td><td class="n">910 <span class="arrow up">▲138</span></td><td class="n">917 <span class="arrow up">▲7</span></td><td class="n">917 <span class="arrow flat">—</span></td><td class="n"><b>911</b> <span class="arrow down">▼6</span></td><td><small><b>измерено впервые · остальные 736 контейнеров</b></small></td></tr>
+        <tr><td>Кеглей вне шкалы</td><td><small>текстов, чей размер не из объявленных восьми</small></td><td class="n">994</td><td class="n">1278 <span class="arrow up">▲284</span></td><td class="n">1294 <span class="arrow up">▲16</span></td><td class="n">1294 <span class="arrow flat">—</span></td><td class="n"><b>1294</b> <span class="arrow flat">—</span></td><td><small><b>не улучшалось ни разу · выросло на 30 %</b></small></td></tr>
         <tr><td>Покрытие типошкалы</td><td><small>доля текстов, попадающих в объявленную шкалу. <b>Больше — лучше</b></small></td><td class="n">0 %</td><td class="n">9,9 % <span class="arrow down">▲9,9</span></td><td class="n">10,1 % <span class="arrow down">▲0,2</span></td><td class="n">10,1 % <span class="arrow flat">—</span></td><td class="n"><b>10,1 %</b> <span class="arrow flat">—</span></td><td><small><b>объявленная шкала описывает десятую часть продукта</b></small></td></tr>
         <tr><td>Текстов без запаса по ширине</td><td><small>однострочных текстов на ≥90 % ширины контейнера</small></td><td class="n">139</td><td class="n">171 <span class="arrow up">▲32</span></td><td class="n">171 <span class="arrow flat">—</span></td><td class="n">171 <span class="arrow flat">—</span></td><td class="n"><b>171</b> <span class="arrow flat">—</span></td><td><small><b>правило объявлено заново · не улучшалось ни разу</b></small></td></tr>
-        <tr><td>Цветов вне палитры</td><td><small>различных цветов сверх шести токенов</small></td><td class="n">52</td><td class="n">60 <span class="arrow up">▲8</span></td><td class="n">63 <span class="arrow up">▲3</span></td><td class="n">63 <span class="arrow flat">—</span></td><td class="n"><b>54</b> <span class="arrow down">▼9</span></td><td><small></small></td></tr>
+        <tr><td>Цветов вне палитры</td><td><small>различных цветов сверх шести токенов</small></td><td class="n">52</td><td class="n">60 <span class="arrow up">▲8</span></td><td class="n">63 <span class="arrow up">▲3</span></td><td class="n">63 <span class="arrow flat">—</span></td><td class="n"><b>54</b> <span class="arrow down">▼9</span></td><td><small>градиентные заливки метрика не видит</small></td></tr>
         <tr><td>Пар размер×начертание</td><td><small>различных сочетаний кегля и насыщенности. Политика требует 7–9</small></td><td class="n">72</td><td class="n">113 <span class="arrow up">▲41</span></td><td class="n">118 <span class="arrow up">▲5</span></td><td class="n">118 <span class="arrow flat">—</span></td><td class="n"><b>117</b> <span class="arrow down">▼1</span></td><td><small></small></td></tr>
         <tr><td>Текстов ниже WCAG AA</td><td><small>читаемых текстов, не добирающих контраста к фону</small></td><td class="n">109</td><td class="n">110 <span class="arrow up">▲1</span></td><td class="n">110 <span class="arrow flat">—</span></td><td class="n">110 <span class="arrow flat">—</span></td><td class="n"><b>3</b> <span class="arrow down">▼107</span></td><td><small>порог 4,5 · глифы вынесены в строку ниже</small></td></tr>
         <tr><td>Глифов ниже порога 3:1</td><td><small>иконок и разделителей, нарисованных текстом — WCAG 1.4.11</small></td><td class="n">5</td><td class="n">5 <span class="arrow flat">—</span></td><td class="n">5 <span class="arrow flat">—</span></td><td class="n">5 <span class="arrow flat">—</span></td><td class="n"><b>5</b> <span class="arrow flat">—</span></td><td><small>держать их к текстовому порогу было неверно</small></td></tr>
@@ -270,7 +270,7 @@
         <tr><td class="id">F-11</td><td><details class="f"><summary>Разные ширины CTA на одном устройстве — на 390 стало лучше, на 375 хуже</summary><div class="det"><span><b>Где смотреть.</b> QA outputs, оба устройства.</span><span class="ev">390 pt: 344,7 (7 экранов) и 344,6 (3) — было три ширины, стало две. 375 pt: 329,6 (6 экранов) и 329,7 (4) — разнобой в одну десятую там, где раньше была одна ширина</span><span><b>Чинить.</b> Одна ширина на устройство, заданная как «ширина минус поля», а не проставленная руками. Разница в 0,1 pt невидима глазом и именно поэтому воспроизводится бесконечно.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">0</td><td class="n">3</td><td class="n">2</td><td class="n">3</td><td class="n">2</td><td>Разнобой переехал с 390 на 375</td></tr>
         <tr><td class="id">F-27</td><td><details class="f"><summary>Экран вне секций не попадает в аудит</summary><div class="det"><span><b>Где смотреть.</b> <code>02.3E — Invoice send failed</code> — лежит на странице Product сам по себе, вне всех блоков-секций.</span><span class="ev">метрики консистентности считаются по секциям страницы. Узлы этого экрана не измерялись ни разу с момента его создания</span><span><b>Чинить.</b> Перенести экран в <code>Section / Invoice sharing</code>. Числа при этом корректно вырастут — это не регресс, а появление экрана в поле зрения.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">1 экран</td><td>Открыта на этом прогоне</td></tr>
 
-        <tr><td class="id">F-28</td><td><details class="f"><summary>Отступы вне объявленной шкалы — измерено впервые</summary><div class="det"><span><b>Где смотреть.</b> <code>padding</code> и <code>itemSpacing</code> во всех продуктовых секциях.</span><span class="ev">70 узлов, 198 значений вне шкалы, 15 различных. Чаще всего: 8,72×42 · 10,47×30 · 12,21×26 · 4,36×24. Объявлено: 4 · 8 · 12 · 16 · 24 · 32 · 40</span><span><b>Что это значит.</b> Шкала объявлена в тех же foundations, что радиус и обводка, но не проверялась ни одним прогоном. За одиннадцать дней метрика не сдвинулась: 64 → 70 → 70 → 70 → 70. Дробные значения того же происхождения, что и дробные радиусы, — масштабирование композиции руками.</span><span><b>Чинить.</b> Снап к ближайшему шагу шкалы. Ровно та же по форме правка, что уже сделана для радиусов, и на порядок меньший объём.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">64</td><td class="n">70</td><td class="n">70</td><td class="n">70</td><td class="n">70</td><td>Открыта на этом прогоне</td></tr>
+        <tr><td class="id">F-28</td><td><details class="f" open><summary>Отступы вне объявленной шкалы — и это только auto-layout</summary><div class="det"><span><b>Где смотреть.</b> <code>padding</code> и <code>itemSpacing</code> во всех продуктовых секциях — плюс просветы между вручную расставленными слоями.</span><span class="ev">70 узлов auto-layout: 8,72×42 · 10,47×30 · 12,21×26 · 4,36×24. Отдельно 911 ручных зазоров в 235 контейнерах: 6,98×38 · 10,47×28 · 3,0×27 · 10,0×25 · 11,0×24. Объявлено: 4 · 8 · 12 · 16 · 24 · 32 · 40</span><span><b>Почему два числа.</b> Свойство <code>padding</code> есть только у auto-layout — это 124 контейнера из 860. Остальные 736 расставлены руками, и до этого прогона их ритм был для аудита невидим. Числа держатся врозь намеренно: padding правится одной записью значения, а зазор между двумя вручную положенными слоями — это перекомпоновка, и складывать их в один список «готово к применению» было бы враньём.</span><span><b>Чинить.</b> Сначала 70 auto-layout — снап к ближайшему шагу, ровно та же по форме правка, что уже сделана для радиусов. Ручные зазоры — только вместе с переводом контейнеров на auto-layout, иначе они вернутся.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">64</td><td class="n">70</td><td class="n">70</td><td class="n">70</td><td class="n">70</td><td>70 auto-layout + 911 ручных</td></tr>
         <tr><td class="id">F-15</td><td><details class="f"><summary>Product не инстанцирует поля ввода из эталона</summary><div class="det"><span><b>Где смотреть.</b> Поля ввода в продуктовых секциях против компонента Text Field.</span><span class="ev">инстансов Text Field в Product по-прежнему 0. Радиусы локальных полей сведены к одному значению — 12,0; было три на одну сущность: 13,1 в листах, 14,0 в опциях оплаты, 10,5 в настройках</span><span><b>Чинить.</b> Заменить локальные <code>Input / …</code> на инстансы. Симптом (разные радиусы) вылечен вручную, причина осталась: следующее поле снова нарисуют локально.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">0 инст.</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td>Радиусы сведены, инстансов нет</td></tr>
         <tr><td class="id">F-16</td><td><details class="f"><summary>Почти-дубли цветов — палитра впервые сократилась</summary><div class="det"><span><b>Где смотреть.</b> Перепись заливок по всем секциям.</span><span class="ev">54 цвета вне палитры из шести токенов — впервые ниже старта (было 52 на 24 июля, пик 63). Неразличимые пары никуда не делись: #C7F36B против #C7F26B (41 применение), #C9CEC8 против #C9CFC7, #EEF0EB против #EFF0EC, #F5F6F1 против #F5F7F2</span><span><b>Чинить.</b> Поиск-замена по парам. Приоритет — #C7F26B: 41 применение на один пункт разницы с лаймом палитры.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">52</td><td class="n">60</td><td class="n">63</td><td class="n">63</td><td class="n">54</td><td>Впервые падение</td></tr>
         <tr><td class="id">F-17</td><td><details class="f" open><summary><strong>Типографика без шкалы</strong> — объявленная шкала покрывает 10 % текстов продукта</summary><div class="det"><span><b>Где смотреть.</b> Все текстовые узлы продуктовых секций, кроме галереи шаблонов.</span><span class="ev">1294 текста из 1441 вне объявленной шкалы. Чаще всего: 14,0×183 · 11,0×135 · 10,5×79 · 12,0×72. Объявлено: 13 · 15 · 16 · 18 · 19 · 34 · 42 · 54 — из них 54/42/34 живут только в онбординге</span><span><b>Что это значит.</b> Самый частый кегль интерфейса — 14 pt, и его в шкале нет. Шкала описывает не продукт, а заголовки онбординга. Свести 1294 текста к объявленным восьми значениям — значит сломать макет, а метрика при этом покажет ноль.</span><span><b>Чинить.</b> Сначала объявить шкалу заново, из реального употребления: кластеры 10 / 10,5 / 11 / 12 / 13 / 14 / 15,7 — это уже семь значений, ровно требуемые «7–9 стилей». Утвердить, положить в эталон, и только потом сводить.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">994</td><td class="n">1278</td><td class="n">1294</td><td class="n">1294</td><td class="n">1294</td><td>Не улучшалась ни разу, выросла на 30 %</td></tr>
@@ -511,6 +511,13 @@
    70,
    70,
    70
+  ],
+  "manual_gaps_off_scale": [
+   772,
+   910,
+   917,
+   917,
+   911
   ],
   "type_size_off_scale": [
    994,
@@ -789,6 +796,13 @@
      70,
      70
     ],
+    "manual_gaps": [
+     772,
+     910,
+     917,
+     917,
+     911
+    ],
     "declared": [
      4,
      8,
@@ -798,15 +812,22 @@
      32,
      40
     ],
-    "values_off_scale": 198,
-    "distinct": 15,
-    "top": {
+    "containers_auto_layout": 124,
+    "containers_manual": 736,
+    "top_auto": {
      "8.72": 42,
      "10.47": 30,
      "12.21": 26,
      "4.36": 24
     },
-    "note": "шкала объявлена в тех же foundations, что радиус и обводка, но не проверялась ни одним прогоном. За 11 дней не улучшилась ни разу"
+    "top_manual": {
+     "6.98": 38,
+     "10.47": 28,
+     "3.0": 27,
+     "10.0": 25,
+     "11.0": 24
+    },
+    "note": "70 — это только auto-layout, где отступ задан свойством и правится одной операцией. Ещё 911 зазоров стоят между вручную расставленными слоями: там правка — перекомпоновка контейнера, а не запись значения. Ни то ни другое не улучшилось ни разу"
    }
   },
   {
@@ -1065,7 +1086,9 @@
    "текст вне экранов (подписи дизайнера на холсте) исключён из типографики — это не интерфейс",
    "порог капсулы ужесточён до точной половины короткой стороны",
    "контраст разделён на текст (порог 4,5 / 3,0) и глифы-иконки (порог 3,0, WCAG 1.4.11): разделитель из символов, галочка, значки валюты и монограмма логотипа — это TEXT-узлы, но не текст для чтения",
-   "правки адресуются мастер-компоненту: узел вида I404:690;24:3 починить нельзя, правка на нём создаёт оверрайд одного инстанса, остальные копии остаются сломанными"
+   "правки адресуются мастер-компоненту: узел вида I404:690;24:3 починить нельзя, правка на нём создаёт оверрайд одного инстанса, остальные копии остаются сломанными",
+   "отступы: метрика читала только padding и itemSpacing, которые есть лишь у auto-layout — это 124 контейнера из 860. Остальные 736 расставлены руками, и их зазоры были невидимы. Добавлена отдельная метрика ручных зазоров: 911 против 70 у auto-layout",
+   "палитра: градиентные заливки метрика не видит вовсе — их 7, отмечено явно"
   ]
  },
  "trend_as_published": {
