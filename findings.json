@@ -1,0 +1,4902 @@
+{
+ "schema_version": "2.0",
+ "generated_at": "2026-08-03T16:16Z",
+ "run": "2026-08-03T12-00Z",
+ "audience": "agent",
+ "human_document": "https://gogi213.github.io/invoice-audit/",
+ "file": {
+  "key": "lKdFEoJiOwWMaUpjTHBl6N",
+  "name": "Invoice Maker",
+  "version": "2383487596576305773",
+  "last_modified": "2026-08-03T13:07:00Z",
+  "url": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker"
+ },
+ "scope": {
+  "audited": "секции страницы 02 — Product, кроме Section / AI Estimates",
+  "excluded": [
+   {
+    "name": "Section / AI Estimates",
+    "reason": "заглушка"
+   },
+   {
+    "name": "01 — Onboarding",
+    "reason": "не входила в тренд — см. F-26"
+   },
+   {
+    "name": "02.3E — Invoice send failed",
+    "reason": "лежит вне секций — см. F-27"
+   }
+  ]
+ },
+ "rules": {
+  "radius": {
+   "property": "cornerRadius",
+   "allowed": [
+    12,
+    20,
+    28,
+    "full (>=999)"
+   ],
+   "unit": "pt",
+   "declared_in": "Foundations / Audit / 375pt source of truth",
+   "declared_at": "2026-08-01T11:11Z"
+  },
+  "stroke": {
+   "property": "strokeWeight",
+   "allowed": [
+    1
+   ],
+   "unit": "pt"
+  },
+  "master_width": {
+   "property": "width",
+   "allowed": [
+    375
+   ],
+   "unit": "pt",
+   "applies_to": "COMPONENT variants that are full-width primitives"
+  },
+  "touch_target": {
+   "property": "height",
+   "min": 44,
+   "unit": "pt",
+   "applies_to": "nodes with non-empty interactions",
+   "source": "Apple HIG"
+  },
+  "contrast": {
+   "property": "fills",
+   "min_ratio": 4.5,
+   "min_ratio_large_text": 3.0,
+   "source": "WCAG 2.1 AA"
+  },
+  "palette": {
+   "property": "fills",
+   "allowed": [
+    "#101211",
+    "#555A56",
+    "#C7F36B",
+    "#EEF0EB",
+    "#F8F8F4",
+    "#FFFFFF"
+   ]
+  },
+  "type_scale": {
+   "property": "style",
+   "allowed_count": "7-9 named styles"
+  },
+  "prototype": {
+   "property": "interactions",
+   "rule": "every screen has at least one incoming transition"
+  }
+ },
+ "summary": {
+  "findings": 8,
+  "directly_actionable": 4,
+  "total_edits": 564,
+  "blocked_on_decision": [
+   "F-26",
+   "F-09",
+   "F-18",
+   "F-19"
+  ]
+ },
+ "findings": [
+  {
+   "id": "F-01",
+   "status": "open",
+   "severity": "soon",
+   "title": "Компоненты шире объявленного мастера",
+   "problem": "Варианты компонентов шире холста 375 pt, объявленного мастером. Инстансы таких компонентов не помещаются в экран без подгонки, и подгонка руками порождает дробные размеры.",
+   "rule": "master_width",
+   "metric": null,
+   "history": null,
+   "current": null,
+   "inconsistency": {
+    "observed_values": {
+     "378.0": 5
+    },
+    "node_count": 5
+   },
+   "converge_to": 375.0,
+   "requires_decision": null,
+   "action": {
+    "op": "set_property",
+    "property": "width",
+    "edit_count": 5,
+    "edits": [
+     {
+      "node_id": "23:2",
+      "node_name": "State=Default",
+      "property": "width",
+      "from": 378.0,
+      "to": 375.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=23-2"
+     },
+     {
+      "node_id": "23:7",
+      "node_name": "State=Selected",
+      "property": "width",
+      "from": 378.0,
+      "to": 375.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=23-7"
+     },
+     {
+      "node_id": "176:18",
+      "node_name": "Tone=Info",
+      "property": "width",
+      "from": 378.0,
+      "to": 375.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=176-18"
+     },
+     {
+      "node_id": "176:23",
+      "node_name": "Tone=AI",
+      "property": "width",
+      "from": 378.0,
+      "to": 375.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=176-23"
+     },
+     {
+      "node_id": "176:28",
+      "node_name": "Tone=Money",
+      "property": "width",
+      "from": 378.0,
+      "to": 375.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=176-28"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-26",
+   "status": "open",
+   "severity": "now",
+   "title": "Онбординг вне охвата метрик",
+   "problem": "Метрики тренда считаются только по секциям страницы Product. Страница Onboarding не входила в них ни разу, и все нарушения шкал, оставшиеся в файле, находятся именно там.",
+   "rule": "radius",
+   "metric": null,
+   "history": null,
+   "current": null,
+   "inconsistency": {
+    "observed_values": {
+     "3.49": 66,
+     "6.1": 64,
+     "17.44": 30,
+     "15.7": 28,
+     "40.12": 26,
+     "1.74": 26,
+     "4.36": 26,
+     "6.98": 24,
+     "11.34": 22,
+     "24.42": 20,
+     "871.22": 18,
+     "22.67": 18,
+     "19.19": 14,
+     "8.72": 12,
+     "3.05": 8,
+     "12.21": 8,
+     "5.23": 8,
+     "23.54": 6,
+     "7.85": 6,
+     "10.03": 6,
+     "7.0": 5,
+     "10.47": 4,
+     "13.95": 4,
+     "40.99": 4,
+     "76.74": 2,
+     "2.62": 2
+    },
+    "node_count": 457
+   },
+   "converge_to": {
+    "radius": [
+     12,
+     20,
+     28,
+     "full"
+    ]
+   },
+   "requires_decision": "Решить, входит ли Onboarding в предмет аудита. Если да — расширить охват и принять разовый рост чисел. Если нет — объявить страницу черновой, как объявлена заглушка. Правки применять только после этого решения.",
+   "action": {
+    "op": "decide_then_set",
+    "property": "cornerRadius",
+    "edit_count": 457,
+    "edits": [
+     {
+      "node_id": "36:9",
+      "node_name": "08 — AI Estimates · Static",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-9"
+     },
+     {
+      "node_id": "36:10",
+      "node_name": "Back button",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-10"
+     },
+     {
+      "node_id": "36:13",
+      "node_name": "Onboarding progress",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-13"
+     },
+     {
+      "node_id": "36:14",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-14"
+     },
+     {
+      "node_id": "36:25",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-25"
+     },
+     {
+      "node_id": "36:26",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-26"
+     },
+     {
+      "node_id": "36:56",
+      "node_name": "Section - AI estimate result",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-56"
+     },
+     {
+      "node_id": "36:63",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-63"
+     },
+     {
+      "node_id": "36:64",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.05,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-64"
+     },
+     {
+      "node_id": "36:67",
+      "node_name": "Estimate breakdown",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-67"
+     },
+     {
+      "node_id": "36:100",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-100"
+     },
+     {
+      "node_id": "36:101",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-101"
+     },
+     {
+      "node_id": "36:102",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-102"
+     },
+     {
+      "node_id": "36:103",
+      "node_name": "CTA / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=36-103"
+     },
+     {
+      "node_id": "28:22",
+      "node_name": "AI Estimates static onboarding screen",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-22"
+     },
+     {
+      "node_id": "28:23",
+      "node_name": "Back button",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-23"
+     },
+     {
+      "node_id": "28:26",
+      "node_name": "Onboarding progress",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-26"
+     },
+     {
+      "node_id": "28:27",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-27"
+     },
+     {
+      "node_id": "28:43",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-43"
+     },
+     {
+      "node_id": "28:44",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-44"
+     },
+     {
+      "node_id": "28:83",
+      "node_name": "Section - AI estimate result",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-83"
+     },
+     {
+      "node_id": "28:94",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-94"
+     },
+     {
+      "node_id": "28:95",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.05,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-95"
+     },
+     {
+      "node_id": "28:98",
+      "node_name": "Estimate breakdown",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-98"
+     },
+     {
+      "node_id": "28:148",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-148"
+     },
+     {
+      "node_id": "28:149",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-149"
+     },
+     {
+      "node_id": "28:150",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-150"
+     },
+     {
+      "node_id": "31:2",
+      "node_name": "CTA / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=31-2"
+     },
+     {
+      "node_id": "28:167",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 7.0,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-167"
+     },
+     {
+      "node_id": "28:182",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 7.0,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-182"
+     },
+     {
+      "node_id": "28:197",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 7.0,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-197"
+     },
+     {
+      "node_id": "28:212",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 7.0,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-212"
+     },
+     {
+      "node_id": "28:226",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 7.0,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=28-226"
+     },
+     {
+      "node_id": "404:209",
+      "node_name": "Welcome screen · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-209"
+     },
+     {
+      "node_id": "404:217",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-217"
+     },
+     {
+      "node_id": "404:218",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-218"
+     },
+     {
+      "node_id": "404:219",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-219"
+     },
+     {
+      "node_id": "404:227",
+      "node_name": "Button / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-227"
+     },
+     {
+      "node_id": "404:228",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-228"
+     },
+     {
+      "node_id": "404:231",
+      "node_name": "Welcome screen · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-231"
+     },
+     {
+      "node_id": "404:239",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-239"
+     },
+     {
+      "node_id": "404:240",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-240"
+     },
+     {
+      "node_id": "404:241",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-241"
+     },
+     {
+      "node_id": "404:249",
+      "node_name": "Button / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-249"
+     },
+     {
+      "node_id": "404:250",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-250"
+     },
+     {
+      "node_id": "404:253",
+      "node_name": "Welcome screen with ATT permission alert · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-253"
+     },
+     {
+      "node_id": "404:261",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-261"
+     },
+     {
+      "node_id": "404:262",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-262"
+     },
+     {
+      "node_id": "404:268",
+      "node_name": "Button / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-268"
+     },
+     {
+      "node_id": "404:270",
+      "node_name": "App Tracking Transparency alert",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-270"
+     },
+     {
+      "node_id": "404:280",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-280"
+     },
+     {
+      "node_id": "404:283",
+      "node_name": "Welcome screen with ATT permission alert · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-283"
+     },
+     {
+      "node_id": "404:291",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-291"
+     },
+     {
+      "node_id": "404:292",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-292"
+     },
+     {
+      "node_id": "404:298",
+      "node_name": "Button / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-298"
+     },
+     {
+      "node_id": "404:300",
+      "node_name": "App Tracking Transparency alert",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-300"
+     },
+     {
+      "node_id": "404:310",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-310"
+     },
+     {
+      "node_id": "404:313",
+      "node_name": "Business name screen · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-313"
+     },
+     {
+      "node_id": "404:320",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-320"
+     },
+     {
+      "node_id": "404:321",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-321"
+     },
+     {
+      "node_id": "404:322",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-322"
+     },
+     {
+      "node_id": "404:327",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-327"
+     },
+     {
+      "node_id": "404:328",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-328"
+     },
+     {
+      "node_id": "404:334",
+      "node_name": "Text Field / Business Name",
+      "property": "cornerRadius",
+      "from": 10.47,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-334"
+     },
+     {
+      "node_id": "404:337",
+      "node_name": "Button / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-337"
+     },
+     {
+      "node_id": "404:340",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-340"
+     },
+     {
+      "node_id": "404:342",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-342"
+     },
+     {
+      "node_id": "404:344",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-344"
+     },
+     {
+      "node_id": "404:346",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-346"
+     },
+     {
+      "node_id": "404:348",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-348"
+     },
+     {
+      "node_id": "404:350",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-350"
+     },
+     {
+      "node_id": "404:352",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-352"
+     },
+     {
+      "node_id": "404:354",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-354"
+     },
+     {
+      "node_id": "404:356",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-356"
+     },
+     {
+      "node_id": "404:358",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-358"
+     },
+     {
+      "node_id": "404:361",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-361"
+     },
+     {
+      "node_id": "404:363",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-363"
+     },
+     {
+      "node_id": "404:365",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-365"
+     },
+     {
+      "node_id": "404:367",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-367"
+     },
+     {
+      "node_id": "404:369",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-369"
+     },
+     {
+      "node_id": "404:371",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-371"
+     },
+     {
+      "node_id": "404:373",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-373"
+     },
+     {
+      "node_id": "404:375",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-375"
+     },
+     {
+      "node_id": "404:377",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-377"
+     },
+     {
+      "node_id": "404:380",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-380"
+     },
+     {
+      "node_id": "404:382",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-382"
+     },
+     {
+      "node_id": "404:384",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-384"
+     },
+     {
+      "node_id": "404:386",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-386"
+     },
+     {
+      "node_id": "404:388",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-388"
+     },
+     {
+      "node_id": "404:390",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-390"
+     },
+     {
+      "node_id": "404:392",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-392"
+     },
+     {
+      "node_id": "404:394",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-394"
+     },
+     {
+      "node_id": "404:396",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-396"
+     },
+     {
+      "node_id": "404:399",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-399"
+     },
+     {
+      "node_id": "404:401",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-401"
+     },
+     {
+      "node_id": "404:403",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-403"
+     },
+     {
+      "node_id": "404:404",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-404"
+     },
+     {
+      "node_id": "404:410",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-410"
+     },
+     {
+      "node_id": "404:414",
+      "node_name": "Business name screen · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-414"
+     },
+     {
+      "node_id": "404:421",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-421"
+     },
+     {
+      "node_id": "404:422",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-422"
+     },
+     {
+      "node_id": "404:423",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-423"
+     },
+     {
+      "node_id": "404:428",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-428"
+     },
+     {
+      "node_id": "404:429",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-429"
+     },
+     {
+      "node_id": "404:435",
+      "node_name": "Text Field / Business Name",
+      "property": "cornerRadius",
+      "from": 10.47,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-435"
+     },
+     {
+      "node_id": "404:438",
+      "node_name": "Button / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-438"
+     },
+     {
+      "node_id": "404:441",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-441"
+     },
+     {
+      "node_id": "404:443",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-443"
+     },
+     {
+      "node_id": "404:445",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-445"
+     },
+     {
+      "node_id": "404:447",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-447"
+     },
+     {
+      "node_id": "404:449",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-449"
+     },
+     {
+      "node_id": "404:451",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-451"
+     },
+     {
+      "node_id": "404:453",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-453"
+     },
+     {
+      "node_id": "404:455",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-455"
+     },
+     {
+      "node_id": "404:457",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-457"
+     },
+     {
+      "node_id": "404:459",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-459"
+     },
+     {
+      "node_id": "404:462",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-462"
+     },
+     {
+      "node_id": "404:464",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-464"
+     },
+     {
+      "node_id": "404:466",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-466"
+     },
+     {
+      "node_id": "404:468",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-468"
+     },
+     {
+      "node_id": "404:470",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-470"
+     },
+     {
+      "node_id": "404:472",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-472"
+     },
+     {
+      "node_id": "404:474",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-474"
+     },
+     {
+      "node_id": "404:476",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-476"
+     },
+     {
+      "node_id": "404:478",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-478"
+     },
+     {
+      "node_id": "404:481",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-481"
+     },
+     {
+      "node_id": "404:483",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-483"
+     },
+     {
+      "node_id": "404:485",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-485"
+     },
+     {
+      "node_id": "404:487",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-487"
+     },
+     {
+      "node_id": "404:489",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-489"
+     },
+     {
+      "node_id": "404:491",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-491"
+     },
+     {
+      "node_id": "404:493",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-493"
+     },
+     {
+      "node_id": "404:495",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-495"
+     },
+     {
+      "node_id": "404:497",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-497"
+     },
+     {
+      "node_id": "404:500",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-500"
+     },
+     {
+      "node_id": "404:502",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-502"
+     },
+     {
+      "node_id": "404:504",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-504"
+     },
+     {
+      "node_id": "404:505",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.1,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-505"
+     },
+     {
+      "node_id": "404:511",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-511"
+     },
+     {
+      "node_id": "404:515",
+      "node_name": "Industry selection screen · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-515"
+     },
+     {
+      "node_id": "404:522",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-522"
+     },
+     {
+      "node_id": "404:523",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-523"
+     },
+     {
+      "node_id": "404:524",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-524"
+     },
+     {
+      "node_id": "404:529",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-529"
+     },
+     {
+      "node_id": "404:530",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-530"
+     },
+     {
+      "node_id": "404:536",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-536"
+     },
+     {
+      "node_id": "404:543",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-543"
+     },
+     {
+      "node_id": "404:546",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-546"
+     },
+     {
+      "node_id": "404:547",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-547"
+     },
+     {
+      "node_id": "404:550",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-550"
+     },
+     {
+      "node_id": "404:551",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-551"
+     },
+     {
+      "node_id": "404:554",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-554"
+     },
+     {
+      "node_id": "404:555",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-555"
+     },
+     {
+      "node_id": "404:558",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-558"
+     },
+     {
+      "node_id": "404:559",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-559"
+     },
+     {
+      "node_id": "404:562",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-562"
+     },
+     {
+      "node_id": "404:563",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-563"
+     },
+     {
+      "node_id": "404:566",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-566"
+     },
+     {
+      "node_id": "404:567",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-567"
+     },
+     {
+      "node_id": "404:570",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-570"
+     },
+     {
+      "node_id": "404:571",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-571"
+     },
+     {
+      "node_id": "404:574",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-574"
+     },
+     {
+      "node_id": "404:575",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-575"
+     },
+     {
+      "node_id": "404:578",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-578"
+     },
+     {
+      "node_id": "404:579",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-579"
+     },
+     {
+      "node_id": "404:582",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-582"
+     },
+     {
+      "node_id": "404:583",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-583"
+     },
+     {
+      "node_id": "404:586",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-586"
+     },
+     {
+      "node_id": "404:587",
+      "node_name": "Button / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-587"
+     },
+     {
+      "node_id": "404:588",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-588"
+     },
+     {
+      "node_id": "404:592",
+      "node_name": "Industry selection screen · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-592"
+     },
+     {
+      "node_id": "404:599",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-599"
+     },
+     {
+      "node_id": "404:600",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-600"
+     },
+     {
+      "node_id": "404:601",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-601"
+     },
+     {
+      "node_id": "404:606",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-606"
+     },
+     {
+      "node_id": "404:607",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-607"
+     },
+     {
+      "node_id": "404:613",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-613"
+     },
+     {
+      "node_id": "404:620",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-620"
+     },
+     {
+      "node_id": "404:623",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-623"
+     },
+     {
+      "node_id": "404:624",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-624"
+     },
+     {
+      "node_id": "404:627",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-627"
+     },
+     {
+      "node_id": "404:628",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-628"
+     },
+     {
+      "node_id": "404:631",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-631"
+     },
+     {
+      "node_id": "404:632",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-632"
+     },
+     {
+      "node_id": "404:635",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-635"
+     },
+     {
+      "node_id": "404:636",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-636"
+     },
+     {
+      "node_id": "404:639",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-639"
+     },
+     {
+      "node_id": "404:640",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-640"
+     },
+     {
+      "node_id": "404:643",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-643"
+     },
+     {
+      "node_id": "404:644",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-644"
+     },
+     {
+      "node_id": "404:647",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-647"
+     },
+     {
+      "node_id": "404:648",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-648"
+     },
+     {
+      "node_id": "404:651",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-651"
+     },
+     {
+      "node_id": "404:652",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-652"
+     },
+     {
+      "node_id": "404:655",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-655"
+     },
+     {
+      "node_id": "404:656",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-656"
+     },
+     {
+      "node_id": "404:659",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-659"
+     },
+     {
+      "node_id": "404:660",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-660"
+     },
+     {
+      "node_id": "404:663",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 11.34,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-663"
+     },
+     {
+      "node_id": "404:664",
+      "node_name": "Button / Continue",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-664"
+     },
+     {
+      "node_id": "404:665",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-665"
+     },
+     {
+      "node_id": "404:669",
+      "node_name": "Upload logo screen · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-669"
+     },
+     {
+      "node_id": "404:676",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-676"
+     },
+     {
+      "node_id": "404:677",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-677"
+     },
+     {
+      "node_id": "404:678",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-678"
+     },
+     {
+      "node_id": "404:683",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-683"
+     },
+     {
+      "node_id": "404:684",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-684"
+     },
+     {
+      "node_id": "404:690",
+      "node_name": "Upload Card / Default",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-690"
+     },
+     {
+      "node_id": "I404:690;24:3",
+      "node_name": "Preview",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-690;24-3"
+     },
+     {
+      "node_id": "I404:690;24:6",
+      "node_name": "Choose Button",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-690;24-6"
+     },
+     {
+      "node_id": "404:692",
+      "node_name": "Button / Continue without logo",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-692"
+     },
+     {
+      "node_id": "404:693",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-693"
+     },
+     {
+      "node_id": "404:697",
+      "node_name": "Upload logo screen · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-697"
+     },
+     {
+      "node_id": "404:704",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-704"
+     },
+     {
+      "node_id": "404:705",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-705"
+     },
+     {
+      "node_id": "404:706",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-706"
+     },
+     {
+      "node_id": "404:711",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-711"
+     },
+     {
+      "node_id": "404:712",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-712"
+     },
+     {
+      "node_id": "404:718",
+      "node_name": "Upload Card / Default",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-718"
+     },
+     {
+      "node_id": "I404:718;24:3",
+      "node_name": "Preview",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-718;24-3"
+     },
+     {
+      "node_id": "I404:718;24:6",
+      "node_name": "Choose Button",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-718;24-6"
+     },
+     {
+      "node_id": "404:720",
+      "node_name": "Button / Continue without logo",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-720"
+     },
+     {
+      "node_id": "404:721",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-721"
+     },
+     {
+      "node_id": "404:725",
+      "node_name": "Logo source selection bottom sheet · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-725"
+     },
+     {
+      "node_id": "404:732",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-732"
+     },
+     {
+      "node_id": "404:733",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-733"
+     },
+     {
+      "node_id": "404:736",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-736"
+     },
+     {
+      "node_id": "404:737",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-737"
+     },
+     {
+      "node_id": "404:743",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-743"
+     },
+     {
+      "node_id": "404:744",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-744"
+     },
+     {
+      "node_id": "404:746",
+      "node_name": "Button",
+      "property": "cornerRadius",
+      "from": 13.95,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-746"
+     },
+     {
+      "node_id": "404:750",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-750"
+     },
+     {
+      "node_id": "404:757",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-757"
+     },
+     {
+      "node_id": "404:759",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-759"
+     },
+     {
+      "node_id": "404:762",
+      "node_name": "Logo source selection bottom sheet · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-762"
+     },
+     {
+      "node_id": "404:769",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-769"
+     },
+     {
+      "node_id": "404:770",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-770"
+     },
+     {
+      "node_id": "404:773",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-773"
+     },
+     {
+      "node_id": "404:774",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-774"
+     },
+     {
+      "node_id": "404:780",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-780"
+     },
+     {
+      "node_id": "404:781",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-781"
+     },
+     {
+      "node_id": "404:783",
+      "node_name": "Button",
+      "property": "cornerRadius",
+      "from": 13.95,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-783"
+     },
+     {
+      "node_id": "404:787",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-787"
+     },
+     {
+      "node_id": "404:794",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-794"
+     },
+     {
+      "node_id": "404:796",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-796"
+     },
+     {
+      "node_id": "404:799",
+      "node_name": "Photo library permission alert · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-799"
+     },
+     {
+      "node_id": "404:806",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-806"
+     },
+     {
+      "node_id": "404:807",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-807"
+     },
+     {
+      "node_id": "404:810",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-810"
+     },
+     {
+      "node_id": "404:811",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-811"
+     },
+     {
+      "node_id": "404:817",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-817"
+     },
+     {
+      "node_id": "404:818",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-818"
+     },
+     {
+      "node_id": "404:820",
+      "node_name": "Button",
+      "property": "cornerRadius",
+      "from": 13.95,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-820"
+     },
+     {
+      "node_id": "404:823",
+      "node_name": "Photo library permission alert",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-823"
+     },
+     {
+      "node_id": "404:835",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-835"
+     },
+     {
+      "node_id": "404:838",
+      "node_name": "Photo library permission alert · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-838"
+     },
+     {
+      "node_id": "404:845",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-845"
+     },
+     {
+      "node_id": "404:846",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-846"
+     },
+     {
+      "node_id": "404:849",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-849"
+     },
+     {
+      "node_id": "404:850",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-850"
+     },
+     {
+      "node_id": "404:856",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-856"
+     },
+     {
+      "node_id": "404:857",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-857"
+     },
+     {
+      "node_id": "404:859",
+      "node_name": "Button",
+      "property": "cornerRadius",
+      "from": 13.95,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-859"
+     },
+     {
+      "node_id": "404:862",
+      "node_name": "Photo library permission alert",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-862"
+     },
+     {
+      "node_id": "404:874",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-874"
+     },
+     {
+      "node_id": "404:877",
+      "node_name": "08 — AI Estimates · Static · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-877"
+     },
+     {
+      "node_id": "404:878",
+      "node_name": "Back button",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-878"
+     },
+     {
+      "node_id": "404:881",
+      "node_name": "Onboarding progress",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-881"
+     },
+     {
+      "node_id": "404:882",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-882"
+     },
+     {
+      "node_id": "404:893",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-893"
+     },
+     {
+      "node_id": "404:894",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-894"
+     },
+     {
+      "node_id": "404:899",
+      "node_name": "Section - AI estimate result",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-899"
+     },
+     {
+      "node_id": "404:906",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-906"
+     },
+     {
+      "node_id": "404:907",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.05,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-907"
+     },
+     {
+      "node_id": "404:910",
+      "node_name": "Estimate breakdown",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-910"
+     },
+     {
+      "node_id": "404:942",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-942"
+     },
+     {
+      "node_id": "404:943",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-943"
+     },
+     {
+      "node_id": "404:944",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-944"
+     },
+     {
+      "node_id": "404:979",
+      "node_name": "08 — AI Estimates · Static · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-979"
+     },
+     {
+      "node_id": "404:980",
+      "node_name": "Back button",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-980"
+     },
+     {
+      "node_id": "404:983",
+      "node_name": "Onboarding progress",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-983"
+     },
+     {
+      "node_id": "404:984",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-984"
+     },
+     {
+      "node_id": "404:995",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-995"
+     },
+     {
+      "node_id": "404:996",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-996"
+     },
+     {
+      "node_id": "404:1001",
+      "node_name": "Section - AI estimate result",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1001"
+     },
+     {
+      "node_id": "404:1008",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1008"
+     },
+     {
+      "node_id": "404:1009",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.05,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1009"
+     },
+     {
+      "node_id": "404:1012",
+      "node_name": "Estimate breakdown",
+      "property": "cornerRadius",
+      "from": 15.7,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1012"
+     },
+     {
+      "node_id": "404:1044",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1044"
+     },
+     {
+      "node_id": "404:1045",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1045"
+     },
+     {
+      "node_id": "404:1046",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1046"
+     },
+     {
+      "node_id": "404:1081",
+      "node_name": "09 — Reviews · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1081"
+     },
+     {
+      "node_id": "404:1087",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1087"
+     },
+     {
+      "node_id": "404:1088",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1088"
+     },
+     {
+      "node_id": "404:1089",
+      "node_name": "Back button",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1089"
+     },
+     {
+      "node_id": "404:1092",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1092"
+     },
+     {
+      "node_id": "404:1093",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1093"
+     },
+     {
+      "node_id": "404:1104",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 23.54,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1104"
+     },
+     {
+      "node_id": "404:1108",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 23.54,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1108"
+     },
+     {
+      "node_id": "404:1112",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 23.54,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1112"
+     },
+     {
+      "node_id": "404:1125",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1125"
+     },
+     {
+      "node_id": "404:1126",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 12.21,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1126"
+     },
+     {
+      "node_id": "404:1132",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1132"
+     },
+     {
+      "node_id": "404:1133",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 12.21,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1133"
+     },
+     {
+      "node_id": "404:1140",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1140"
+     },
+     {
+      "node_id": "404:1141",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 12.21,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1141"
+     },
+     {
+      "node_id": "404:1148",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.05,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1148"
+     },
+     {
+      "node_id": "404:1149",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 7.85,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1149"
+     },
+     {
+      "node_id": "404:1150",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.05,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1150"
+     },
+     {
+      "node_id": "404:1151",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1151"
+     },
+     {
+      "node_id": "404:1156",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1156"
+     },
+     {
+      "node_id": "404:1161",
+      "node_name": "09 — Reviews · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1161"
+     },
+     {
+      "node_id": "404:1167",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1167"
+     },
+     {
+      "node_id": "404:1168",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1168"
+     },
+     {
+      "node_id": "404:1169",
+      "node_name": "Back button",
+      "property": "cornerRadius",
+      "from": 19.19,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1169"
+     },
+     {
+      "node_id": "404:1172",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1172"
+     },
+     {
+      "node_id": "404:1173",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 8.72,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1173"
+     },
+     {
+      "node_id": "404:1184",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 23.54,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1184"
+     },
+     {
+      "node_id": "404:1188",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 23.54,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1188"
+     },
+     {
+      "node_id": "404:1192",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 23.54,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1192"
+     },
+     {
+      "node_id": "404:1205",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1205"
+     },
+     {
+      "node_id": "404:1206",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 12.21,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1206"
+     },
+     {
+      "node_id": "404:1212",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1212"
+     },
+     {
+      "node_id": "404:1213",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 12.21,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1213"
+     },
+     {
+      "node_id": "404:1220",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1220"
+     },
+     {
+      "node_id": "404:1221",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 12.21,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1221"
+     },
+     {
+      "node_id": "404:1228",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.05,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1228"
+     },
+     {
+      "node_id": "404:1229",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 7.85,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1229"
+     },
+     {
+      "node_id": "404:1230",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.05,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1230"
+     },
+     {
+      "node_id": "404:1231",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1231"
+     },
+     {
+      "node_id": "404:1236",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1236"
+     },
+     {
+      "node_id": "404:1241",
+      "node_name": "10 — Creating account · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1241"
+     },
+     {
+      "node_id": "404:1247",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1247"
+     },
+     {
+      "node_id": "404:1248",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1248"
+     },
+     {
+      "node_id": "404:1252",
+      "node_name": "Loader ring",
+      "property": "cornerRadius",
+      "from": 76.74,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1252"
+     },
+     {
+      "node_id": "404:1253",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 10.47,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1253"
+     },
+     {
+      "node_id": "404:1254",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1254"
+     },
+     {
+      "node_id": "404:1255",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1255"
+     },
+     {
+      "node_id": "404:1256",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1256"
+     },
+     {
+      "node_id": "404:1257",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1257"
+     },
+     {
+      "node_id": "404:1262",
+      "node_name": "Section - Setup checklist",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1262"
+     },
+     {
+      "node_id": "404:1266",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 10.03,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1266"
+     },
+     {
+      "node_id": "404:1271",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 10.03,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1271"
+     },
+     {
+      "node_id": "404:1276",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 10.03,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1276"
+     },
+     {
+      "node_id": "404:1278",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 7.85,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1278"
+     },
+     {
+      "node_id": "404:1279",
+      "node_name": "Setup progress fill",
+      "property": "cornerRadius",
+      "from": 7.85,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1279"
+     },
+     {
+      "node_id": "404:1281",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1281"
+     },
+     {
+      "node_id": "404:1290",
+      "node_name": "10 — Creating account · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1290"
+     },
+     {
+      "node_id": "404:1296",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1296"
+     },
+     {
+      "node_id": "404:1297",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1297"
+     },
+     {
+      "node_id": "404:1301",
+      "node_name": "Loader ring",
+      "property": "cornerRadius",
+      "from": 76.74,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1301"
+     },
+     {
+      "node_id": "404:1302",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 10.47,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1302"
+     },
+     {
+      "node_id": "404:1303",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1303"
+     },
+     {
+      "node_id": "404:1304",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1304"
+     },
+     {
+      "node_id": "404:1305",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1305"
+     },
+     {
+      "node_id": "404:1306",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1306"
+     },
+     {
+      "node_id": "404:1311",
+      "node_name": "Section - Setup checklist",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1311"
+     },
+     {
+      "node_id": "404:1315",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 10.03,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1315"
+     },
+     {
+      "node_id": "404:1320",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 10.03,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1320"
+     },
+     {
+      "node_id": "404:1325",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 10.03,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1325"
+     },
+     {
+      "node_id": "404:1327",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 7.85,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1327"
+     },
+     {
+      "node_id": "404:1328",
+      "node_name": "Setup progress fill",
+      "property": "cornerRadius",
+      "from": 7.85,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1328"
+     },
+     {
+      "node_id": "404:1330",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1330"
+     },
+     {
+      "node_id": "404:1339",
+      "node_name": "11 — Account created · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1339"
+     },
+     {
+      "node_id": "404:1345",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1345"
+     },
+     {
+      "node_id": "404:1346",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1346"
+     },
+     {
+      "node_id": "404:1349",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1349"
+     },
+     {
+      "node_id": "404:1351",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1351"
+     },
+     {
+      "node_id": "404:1358",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 5.23,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1358"
+     },
+     {
+      "node_id": "404:1360",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 5.23,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1360"
+     },
+     {
+      "node_id": "404:1364",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1364"
+     },
+     {
+      "node_id": "404:1365",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1365"
+     },
+     {
+      "node_id": "404:1367",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1367"
+     },
+     {
+      "node_id": "404:1368",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1368"
+     },
+     {
+      "node_id": "404:1370",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1370"
+     },
+     {
+      "node_id": "404:1371",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1371"
+     },
+     {
+      "node_id": "404:1373",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1373"
+     },
+     {
+      "node_id": "404:1374",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1374"
+     },
+     {
+      "node_id": "404:1375",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 40.99,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1375"
+     },
+     {
+      "node_id": "404:1378",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1378"
+     },
+     {
+      "node_id": "404:1388",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1388"
+     },
+     {
+      "node_id": "404:1391",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1391"
+     },
+     {
+      "node_id": "404:1392",
+      "node_name": "CTA / Create first invoice",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1392"
+     },
+     {
+      "node_id": "404:1396",
+      "node_name": "11 — Account created · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1396"
+     },
+     {
+      "node_id": "404:1402",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1402"
+     },
+     {
+      "node_id": "404:1403",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1403"
+     },
+     {
+      "node_id": "404:1406",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1406"
+     },
+     {
+      "node_id": "404:1408",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1408"
+     },
+     {
+      "node_id": "404:1415",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 5.23,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1415"
+     },
+     {
+      "node_id": "404:1417",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 5.23,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1417"
+     },
+     {
+      "node_id": "404:1421",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1421"
+     },
+     {
+      "node_id": "404:1422",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1422"
+     },
+     {
+      "node_id": "404:1424",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1424"
+     },
+     {
+      "node_id": "404:1425",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1425"
+     },
+     {
+      "node_id": "404:1427",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1427"
+     },
+     {
+      "node_id": "404:1428",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1428"
+     },
+     {
+      "node_id": "404:1430",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1430"
+     },
+     {
+      "node_id": "404:1431",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1431"
+     },
+     {
+      "node_id": "404:1432",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 40.99,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1432"
+     },
+     {
+      "node_id": "404:1435",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1435"
+     },
+     {
+      "node_id": "404:1445",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1445"
+     },
+     {
+      "node_id": "404:1448",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1448"
+     },
+     {
+      "node_id": "404:1449",
+      "node_name": "CTA / Create first invoice",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1449"
+     },
+     {
+      "node_id": "404:1453",
+      "node_name": "12 — Push notification permission · iPhone 8/SE",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1453"
+     },
+     {
+      "node_id": "404:1459",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1459"
+     },
+     {
+      "node_id": "404:1460",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1460"
+     },
+     {
+      "node_id": "404:1463",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1463"
+     },
+     {
+      "node_id": "404:1465",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1465"
+     },
+     {
+      "node_id": "404:1472",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 5.23,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1472"
+     },
+     {
+      "node_id": "404:1474",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 5.23,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1474"
+     },
+     {
+      "node_id": "404:1478",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1478"
+     },
+     {
+      "node_id": "404:1479",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1479"
+     },
+     {
+      "node_id": "404:1481",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1481"
+     },
+     {
+      "node_id": "404:1482",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1482"
+     },
+     {
+      "node_id": "404:1484",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1484"
+     },
+     {
+      "node_id": "404:1485",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1485"
+     },
+     {
+      "node_id": "404:1486",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 40.99,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1486"
+     },
+     {
+      "node_id": "404:1489",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1489"
+     },
+     {
+      "node_id": "404:1499",
+      "node_name": "iOS notification permission alert",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1499"
+     },
+     {
+      "node_id": "404:1502",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 12.21,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1502"
+     },
+     {
+      "node_id": "404:1512",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1512"
+     },
+     {
+      "node_id": "404:1513",
+      "node_name": "CTA / Create first invoice",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1513"
+     },
+     {
+      "node_id": "404:1517",
+      "node_name": "12 — Push notification permission · iPhone 13",
+      "property": "cornerRadius",
+      "from": 40.12,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1517"
+     },
+     {
+      "node_id": "404:1523",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1523"
+     },
+     {
+      "node_id": "404:1524",
+      "node_name": "Text",
+      "property": "cornerRadius",
+      "from": 1.74,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1524"
+     },
+     {
+      "node_id": "404:1527",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1527"
+     },
+     {
+      "node_id": "404:1529",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 6.98,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1529"
+     },
+     {
+      "node_id": "404:1536",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 5.23,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1536"
+     },
+     {
+      "node_id": "404:1538",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 5.23,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1538"
+     },
+     {
+      "node_id": "404:1542",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1542"
+     },
+     {
+      "node_id": "404:1543",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1543"
+     },
+     {
+      "node_id": "404:1545",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1545"
+     },
+     {
+      "node_id": "404:1546",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1546"
+     },
+     {
+      "node_id": "404:1548",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1548"
+     },
+     {
+      "node_id": "404:1549",
+      "node_name": "Italic Text",
+      "property": "cornerRadius",
+      "from": 3.49,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1549"
+     },
+     {
+      "node_id": "404:1550",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 40.99,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1550"
+     },
+     {
+      "node_id": "404:1553",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 22.67,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1553"
+     },
+     {
+      "node_id": "404:1563",
+      "node_name": "iOS notification permission alert",
+      "property": "cornerRadius",
+      "from": 24.42,
+      "to": 28.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1563"
+     },
+     {
+      "node_id": "404:1566",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 12.21,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1566"
+     },
+     {
+      "node_id": "404:1576",
+      "node_name": "Container",
+      "property": "cornerRadius",
+      "from": 4.36,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1576"
+     },
+     {
+      "node_id": "404:1577",
+      "node_name": "CTA / Create first invoice",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1577"
+     },
+     {
+      "node_id": "I404:1591;176:15",
+      "node_name": "Benefit / Check",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-1591;176-15"
+     },
+     {
+      "node_id": "I404:1592;176:20",
+      "node_name": "Benefit / Check",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-1592;176-20"
+     },
+     {
+      "node_id": "I404:1593;176:25",
+      "node_name": "Benefit / Check",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-1593;176-25"
+     },
+     {
+      "node_id": "404:1595",
+      "node_name": "Paywall Plan / Annual / Default",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1595"
+     },
+     {
+      "node_id": "I404:1595;175:7",
+      "node_name": "Badge / Best offer",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-1595;175-7"
+     },
+     {
+      "node_id": "404:1596",
+      "node_name": "Paywall Plan / Trial / Selected",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1596"
+     },
+     {
+      "node_id": "404:1598",
+      "node_name": "CTA / Start free trial",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1598"
+     },
+     {
+      "node_id": "404:1601",
+      "node_name": "Home indicator",
+      "property": "cornerRadius",
+      "from": 2.62,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1601"
+     },
+     {
+      "node_id": "I404:1614;176:15",
+      "node_name": "Benefit / Check",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-1614;176-15"
+     },
+     {
+      "node_id": "I404:1615;176:20",
+      "node_name": "Benefit / Check",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-1615;176-20"
+     },
+     {
+      "node_id": "I404:1616;176:25",
+      "node_name": "Benefit / Check",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-1616;176-25"
+     },
+     {
+      "node_id": "404:1618",
+      "node_name": "Paywall Plan / Annual / Default",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1618"
+     },
+     {
+      "node_id": "I404:1618;175:7",
+      "node_name": "Badge / Best offer",
+      "property": "cornerRadius",
+      "from": 871.22,
+      "to": 999.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I404-1618;175-7"
+     },
+     {
+      "node_id": "404:1619",
+      "node_name": "Paywall Plan / Trial / Selected",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1619"
+     },
+     {
+      "node_id": "404:1621",
+      "node_name": "CTA / Start free trial",
+      "property": "cornerRadius",
+      "from": 17.44,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1621"
+     },
+     {
+      "node_id": "404:1624",
+      "node_name": "Home indicator",
+      "property": "cornerRadius",
+      "from": 2.62,
+      "to": 12.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-1624"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-06",
+   "status": "open",
+   "severity": "soon",
+   "title": "Эталон нарушает собственные шкалы",
+   "problem": "Фрейм, объявляющий радиус-шкалу, сам содержит значения вне неё. Пока это так, на эталон нельзя ссылаться при разборе спорных случаев.",
+   "rule": "radius",
+   "metric": null,
+   "history": null,
+   "current": null,
+   "inconsistency": {
+    "observed_values": {
+     "16.0": 4,
+     "18.0": 3,
+     "24.0": 1
+    },
+    "node_count": 8
+   },
+   "converge_to": {
+    "radius": [
+     12,
+     20,
+     28,
+     "full"
+    ]
+   },
+   "requires_decision": null,
+   "action": {
+    "op": "set_property",
+    "property": "cornerRadius",
+    "edit_count": 8,
+    "edits": [
+     {
+      "node_id": "477:2",
+      "node_name": "Audit / 375pt source of truth",
+      "property": "cornerRadius",
+      "from": 24.0,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-2"
+     },
+     {
+      "node_id": "477:5",
+      "node_name": "Policy / 375pt",
+      "property": "cornerRadius",
+      "from": 18.0,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-5"
+     },
+     {
+      "node_id": "477:8",
+      "node_name": "QA outputs",
+      "property": "cornerRadius",
+      "from": 18.0,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-8"
+     },
+     {
+      "node_id": "477:11",
+      "node_name": "QA 13",
+      "property": "cornerRadius",
+      "from": 18.0,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-11"
+     },
+     {
+      "node_id": "477:15",
+      "node_name": "Token card / Touch target",
+      "property": "cornerRadius",
+      "from": 16.0,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-15"
+     },
+     {
+      "node_id": "477:19",
+      "node_name": "Token card / Radius",
+      "property": "cornerRadius",
+      "from": 16.0,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-19"
+     },
+     {
+      "node_id": "477:23",
+      "node_name": "Token card / Border",
+      "property": "cornerRadius",
+      "from": 16.0,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-23"
+     },
+     {
+      "node_id": "477:27",
+      "node_name": "Token card / Type scale",
+      "property": "cornerRadius",
+      "from": 16.0,
+      "to": 20.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-27"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-09",
+   "status": "open",
+   "severity": "soon",
+   "title": "Тексты ниже порога контраста WCAG AA",
+   "problem": "Текстовые узлы не добирают контраста к своему фону. Порог 4.5 для обычного текста и 3.0 для крупного (>=18 pt или >=14 pt полужирный).",
+   "rule": "contrast",
+   "metric": "colors_off_palette",
+   "history": [
+    52,
+    60,
+    63,
+    63,
+    54
+   ],
+   "current": 54,
+   "inconsistency": {
+    "observed_values": {
+     "1.0": 8,
+     "1.15": 2,
+     "1.5": 2,
+     "2.67": 2,
+     "4.03": 2,
+     "4.28": 2,
+     "4.41": 2,
+     "1.11": 1,
+     "4.2": 1
+    },
+    "node_count": 22
+   },
+   "converge_to": {
+    "min_ratio": 4.5,
+    "min_ratio_large_text": 3.0
+   },
+   "requires_decision": "Целевой цвет не выводится автоматически: притемнять текст или осветлять фон — решение дизайнера. Узлы и их текущие коэффициенты перечислены.",
+   "action": {
+    "op": "decide_then_set",
+    "property": "fills",
+    "edit_count": 22,
+    "edits": [
+     {
+      "node_id": "I184:720;212:759",
+      "node_name": "Invoice meta",
+      "property": "fills",
+      "from": 1.0,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-720;212-759"
+     },
+     {
+      "node_id": "I184:846;212:795",
+      "node_name": "Logo monogram",
+      "property": "fills",
+      "from": 1.0,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-846;212-795"
+     },
+     {
+      "node_id": "I184:1089;212:874",
+      "node_name": "Invoice meta",
+      "property": "fills",
+      "from": 1.0,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1089;212-874"
+     },
+     {
+      "node_id": "I213:928;181:7",
+      "node_name": "Invoice meta",
+      "property": "fills",
+      "from": 1.0,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-928;181-7"
+     },
+     {
+      "node_id": "I213:1073;181:43",
+      "node_name": "Logo monogram",
+      "property": "fills",
+      "from": 1.0,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1073;181-43"
+     },
+     {
+      "node_id": "I213:1337;181:122",
+      "node_name": "Invoice meta",
+      "property": "fills",
+      "from": 1.0,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1337;181-122"
+     },
+     {
+      "node_id": "433:932",
+      "node_name": "Summary label",
+      "property": "fills",
+      "from": 1.0,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=433-932"
+     },
+     {
+      "node_id": "438:1075",
+      "node_name": "Summary label",
+      "property": "fills",
+      "from": 1.0,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1075"
+     },
+     {
+      "node_id": "115:224",
+      "node_name": "Switcher option / Clients / Check",
+      "property": "fills",
+      "from": 1.11,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=115-224"
+     },
+     {
+      "node_id": "133:104",
+      "node_name": "Download / Label",
+      "property": "fills",
+      "from": 1.15,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=133-104"
+     },
+     {
+      "node_id": "133:108",
+      "node_name": "Print / Label",
+      "property": "fills",
+      "from": 1.15,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=133-108"
+     },
+     {
+      "node_id": "104:41",
+      "node_name": "Divider left",
+      "property": "fills",
+      "from": 1.5,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=104-41"
+     },
+     {
+      "node_id": "104:43",
+      "node_name": "Divider right",
+      "property": "fills",
+      "from": 1.5,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=104-43"
+     },
+     {
+      "node_id": "433:933",
+      "node_name": "Total label",
+      "property": "fills",
+      "from": 2.67,
+      "to": 3.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=433-933"
+     },
+     {
+      "node_id": "438:1076",
+      "node_name": "Total label",
+      "property": "fills",
+      "from": 2.67,
+      "to": 3.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1076"
+     },
+     {
+      "node_id": "I179:310;176:26",
+      "node_name": "Benefit icon / $",
+      "property": "fills",
+      "from": 4.03,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I179-310;176-26"
+     },
+     {
+      "node_id": "I179:405;176:26",
+      "node_name": "Benefit icon / $",
+      "property": "fills",
+      "from": 4.03,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I179-405;176-26"
+     },
+     {
+      "node_id": "I184:644;212:748",
+      "node_name": "Account / IBAN",
+      "property": "fills",
+      "from": 4.2,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-644;212-748"
+     },
+     {
+      "node_id": "I179:302;176:16",
+      "node_name": "Benefit icon / ▤",
+      "property": "fills",
+      "from": 4.28,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I179-302;176-16"
+     },
+     {
+      "node_id": "I179:397;176:16",
+      "node_name": "Benefit icon / ▤",
+      "property": "fills",
+      "from": 4.28,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I179-397;176-16"
+     },
+     {
+      "node_id": "I179:306;176:21",
+      "node_name": "Benefit icon / ✦",
+      "property": "fills",
+      "from": 4.41,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I179-306;176-21"
+     },
+     {
+      "node_id": "I179:401;176:21",
+      "node_name": "Benefit icon / ✦",
+      "property": "fills",
+      "from": 4.41,
+      "to": 4.5,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I179-401;176-21"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-10",
+   "status": "open",
+   "severity": "soon",
+   "title": "CTA за нижним краем экрана",
+   "problem": "Кнопка выходит за нижнюю границу фрейма устройства: на реальном экране она недоступна.",
+   "rule": "master_width",
+   "metric": "cta_off_screen",
+   "history": [
+    null,
+    4,
+    2,
+    2,
+    2
+   ],
+   "current": 2,
+   "inconsistency": {
+    "observed_values": {
+     "9.0": 2
+    },
+    "node_count": 2
+   },
+   "converge_to": 0.0,
+   "requires_decision": null,
+   "action": {
+    "op": "set_property",
+    "property": "y",
+    "edit_count": 2,
+    "edits": [
+     {
+      "node_id": "404:664",
+      "node_name": "Button / Continue",
+      "property": "y",
+      "from": 9.0,
+      "to": 0.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-664"
+     },
+     {
+      "node_id": "404:664",
+      "node_name": "Button / Continue",
+      "property": "y",
+      "from": 9.0,
+      "to": 0.0,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-664"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-18",
+   "status": "open",
+   "severity": "later",
+   "title": "Экраны без входящих переходов",
+   "problem": "На экран нельзя попасть ни одним переходом прототипа: он недостижим при прохождении сценария.",
+   "rule": "prototype",
+   "metric": "screens_no_inbound",
+   "history": [
+    null,
+    14,
+    15,
+    15,
+    3
+   ],
+   "current": 3,
+   "inconsistency": {
+    "observed_values": {
+     "0": 3
+    },
+    "node_count": 3
+   },
+   "converge_to": 1,
+   "requires_decision": "Для каждого экрана решить: подключить переходом или удалить. Автоматически выбрать нельзя.",
+   "action": {
+    "op": "decide_then_set",
+    "property": "interactions",
+    "edit_count": 3,
+    "edits": [
+     {
+      "node_id": "392:848",
+      "node_name": "02.3C — Send invoice actions",
+      "property": "incoming transitions",
+      "from": 0,
+      "to": 1,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=392-848"
+     },
+     {
+      "node_id": "497:917",
+      "node_name": "02.3E — Invoice send failed",
+      "property": "incoming transitions",
+      "from": 0,
+      "to": 1,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=497-917"
+     },
+     {
+      "node_id": "13:2",
+      "node_name": "02 — Product",
+      "property": "incoming transitions",
+      "from": 0,
+      "to": 1,
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=13-2"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-16",
+   "status": "open",
+   "severity": "later",
+   "title": "Почти-дубли цветов, палитра растёт",
+   "problem": "В файле цвета, отличающиеся от токенов палитры на один-два пункта из 255. Глазом неразличимы, но удваивают палитру и расходятся дальше.",
+   "rule": "palette",
+   "metric": "colors_off_palette",
+   "history": [
+    52,
+    60,
+    63,
+    63,
+    54
+   ],
+   "current": 54,
+   "inconsistency": {
+    "observed_values": {
+     "#C7F26B": 40,
+     "#0F120F": 27
+    },
+    "node_count": 67
+   },
+   "converge_to": null,
+   "requires_decision": null,
+   "action": {
+    "op": "set_property",
+    "property": "fills",
+    "edit_count": 67,
+    "edits": [
+     {
+      "node_id": "I184:392;193:2",
+      "node_name": "Logo / Business",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-392;193-2"
+     },
+     {
+      "node_id": "I189:675;193:2",
+      "node_name": "Logo / Business",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I189-675;193-2"
+     },
+     {
+      "node_id": "I392:857;193:2",
+      "node_name": "Logo / Business",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I392-857;193-2"
+     },
+     {
+      "node_id": "491:901",
+      "node_name": "Success icon",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=491-901"
+     },
+     {
+      "node_id": "I184:644;212:752",
+      "node_name": "Logo / Business",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-644;212-752"
+     },
+     {
+      "node_id": "I184:846;212:793",
+      "node_name": "Brand rail",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-846;212-793"
+     },
+     {
+      "node_id": "I184:846;212:800",
+      "node_name": "Accent dot",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-846;212-800"
+     },
+     {
+      "node_id": "I184:846;212:824",
+      "node_name": "Total block",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-846;212-824"
+     },
+     {
+      "node_id": "I184:970;212:830",
+      "node_name": "Brand chip",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-970;212-830"
+     },
+     {
+      "node_id": "I184:970;212:835",
+      "node_name": "Amount due",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-970;212-835"
+     },
+     {
+      "node_id": "I184:970;212:855",
+      "node_name": "Total block",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-970;212-855"
+     },
+     {
+      "node_id": "I184:1089;212:861",
+      "node_name": "Logo",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1089;212-861"
+     },
+     {
+      "node_id": "I184:1089;212:875",
+      "node_name": "Title accent",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1089;212-875"
+     },
+     {
+      "node_id": "I184:1089;212:889",
+      "node_name": "Total value",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1089;212-889"
+     },
+     {
+      "node_id": "I184:1210;212:927",
+      "node_name": "Payment tag",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1210;212-927"
+     },
+     {
+      "node_id": "I213:769;193:2",
+      "node_name": "Logo / Business",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-769;193-2"
+     },
+     {
+      "node_id": "I213:1073;181:41",
+      "node_name": "Brand rail",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1073;181-41"
+     },
+     {
+      "node_id": "I213:1073;181:48",
+      "node_name": "Accent dot",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1073;181-48"
+     },
+     {
+      "node_id": "I213:1073;181:72",
+      "node_name": "Total block",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1073;181-72"
+     },
+     {
+      "node_id": "I213:1209;181:78",
+      "node_name": "Brand chip",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1209;181-78"
+     },
+     {
+      "node_id": "I213:1209;181:83",
+      "node_name": "Amount due",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1209;181-83"
+     },
+     {
+      "node_id": "I213:1209;181:103",
+      "node_name": "Total block",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1209;181-103"
+     },
+     {
+      "node_id": "I213:1337;181:109",
+      "node_name": "Logo",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1337;181-109"
+     },
+     {
+      "node_id": "I213:1337;181:123",
+      "node_name": "Title accent",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1337;181-123"
+     },
+     {
+      "node_id": "I213:1337;181:137",
+      "node_name": "Total value",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1337;181-137"
+     },
+     {
+      "node_id": "I213:1477;182:37",
+      "node_name": "Payment tag",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1477;182-37"
+     },
+     {
+      "node_id": "430:897",
+      "node_name": "Logo",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=430-897"
+     },
+     {
+      "node_id": "430:903",
+      "node_name": "Selected",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=430-903"
+     },
+     {
+      "node_id": "430:911",
+      "node_name": "Add icon",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=430-911"
+     },
+     {
+      "node_id": "433:896",
+      "node_name": "Company logo",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=433-896"
+     },
+     {
+      "node_id": "433:905",
+      "node_name": "Client add",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=433-905"
+     },
+     {
+      "node_id": "435:906",
+      "node_name": "Add client button",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=435-906"
+     },
+     {
+      "node_id": "435:912",
+      "node_name": "Add item button",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=435-912"
+     },
+     {
+      "node_id": "438:1000",
+      "node_name": "Logo",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1000"
+     },
+     {
+      "node_id": "438:1006",
+      "node_name": "Selected",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1006"
+     },
+     {
+      "node_id": "438:1014",
+      "node_name": "Add icon",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1014"
+     },
+     {
+      "node_id": "438:1039",
+      "node_name": "Company logo",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1039"
+     },
+     {
+      "node_id": "438:1048",
+      "node_name": "Client add",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1048"
+     },
+     {
+      "node_id": "438:1090",
+      "node_name": "Add client button",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1090"
+     },
+     {
+      "node_id": "438:1102",
+      "node_name": "Add item button",
+      "property": "fills",
+      "from": "#C7F26B",
+      "to": "#C7F36B",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=438-1102"
+     },
+     {
+      "node_id": "392:881",
+      "node_name": "Overlay / Dim",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=392-881"
+     },
+     {
+      "node_id": "I184:720;212:757",
+      "node_name": "Rule / Top",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-720;212-757"
+     },
+     {
+      "node_id": "I184:720;212:767",
+      "node_name": "Table header line",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-720;212-767"
+     },
+     {
+      "node_id": "I184:720;212:783",
+      "node_name": "Total top",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-720;212-783"
+     },
+     {
+      "node_id": "I184:720;212:784",
+      "node_name": "Total bottom",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-720;212-784"
+     },
+     {
+      "node_id": "I184:846;212:794",
+      "node_name": "Logo mark",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-846;212-794"
+     },
+     {
+      "node_id": "I184:970;212:829",
+      "node_name": "Hero",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-970;212-829"
+     },
+     {
+      "node_id": "I184:970;212:842",
+      "node_name": "Table header",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-970;212-842"
+     },
+     {
+      "node_id": "I184:1089;212:887",
+      "node_name": "Total",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1089;212-887"
+     },
+     {
+      "node_id": "I184:1210;212:894",
+      "node_name": "Top rule",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1210;212-894"
+     },
+     {
+      "node_id": "I184:1210;212:903",
+      "node_name": "Table top",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1210;212-903"
+     },
+     {
+      "node_id": "I184:1210;212:904",
+      "node_name": "Header bottom",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1210;212-904"
+     },
+     {
+      "node_id": "I184:1210;212:906",
+      "node_name": "Table bottom",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1210;212-906"
+     },
+     {
+      "node_id": "I184:1210;212:924",
+      "node_name": "Total rule",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I184-1210;212-924"
+     },
+     {
+      "node_id": "I213:928;181:5",
+      "node_name": "Rule / Top",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-928;181-5"
+     },
+     {
+      "node_id": "I213:928;181:15",
+      "node_name": "Table header line",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-928;181-15"
+     },
+     {
+      "node_id": "I213:928;181:31",
+      "node_name": "Total top",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-928;181-31"
+     },
+     {
+      "node_id": "I213:928;181:32",
+      "node_name": "Total bottom",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-928;181-32"
+     },
+     {
+      "node_id": "I213:1073;181:42",
+      "node_name": "Logo mark",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1073;181-42"
+     },
+     {
+      "node_id": "I213:1209;181:77",
+      "node_name": "Hero",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1209;181-77"
+     },
+     {
+      "node_id": "I213:1209;181:90",
+      "node_name": "Table header",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1209;181-90"
+     },
+     {
+      "node_id": "I213:1337;181:135",
+      "node_name": "Total",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1337;181-135"
+     },
+     {
+      "node_id": "I213:1477;182:4",
+      "node_name": "Top rule",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1477;182-4"
+     },
+     {
+      "node_id": "I213:1477;182:13",
+      "node_name": "Table top",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1477;182-13"
+     },
+     {
+      "node_id": "I213:1477;182:14",
+      "node_name": "Header bottom",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1477;182-14"
+     },
+     {
+      "node_id": "I213:1477;182:16",
+      "node_name": "Table bottom",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1477;182-16"
+     },
+     {
+      "node_id": "I213:1477;182:34",
+      "node_name": "Total rule",
+      "property": "fills",
+      "from": "#0F120F",
+      "to": "#101211",
+      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=I213-1477;182-34"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-19",
+   "status": "open",
+   "severity": "later",
+   "title": "Нет запаса на длинные данные",
+   "problem": "Однострочный текст занимает почти всю ширину контейнера, поэтому длинное имя клиента или крупная сумма не поместятся.",
+   "rule": null,
+   "metric": null,
+   "history": [
+    null,
+    null,
+    64,
+    64,
+    null
+   ],
+   "current": null,
+   "inconsistency": null,
+   "converge_to": null,
+   "requires_decision": "Правило прежних прогонов не воспроизводится. «Текст на >=90 % ширины родителя» даёт поблочно Overview 28 и Clients 18 — ровно как опубликовано, — но в сумме 97 против 64. Значит в прежнем счёте были исключения, которых не записали. Объявить правило явно, затем считать строку заново. Подгонять число под 64 нельзя.",
+   "action": {
+    "op": "none",
+    "property": null,
+    "edit_count": 0,
+    "edits": []
+   }
+  }
+ ]
+}
