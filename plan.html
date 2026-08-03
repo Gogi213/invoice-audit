@@ -1,0 +1,142 @@
+<title>Что поправить в макете · Invoice Maker</title>
+<style>
+:root{--paper:#FAFAF7;--paper-2:#F1F2ED;--ink:#12150F;--ink-2:#5A625A;--ink-3:#818A7E;
+--rule:#C9CEC8;--rule-soft:#DFE3DB;--ok:#5F8420;--crit:#8C2F2F;--warn:#A4552A;--accent:#6E9425;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--paper:#121410;--paper-2:#191C15;--ink:#E9ECE2;
+--ink-2:#9AA396;--ink-3:#767E72;--rule:#2F342B;--rule-soft:#242820;--ok:#A8CE5C;
+--crit:#DE7676;--warn:#DD9160;--accent:#A8CE5C}}
+:root[data-theme="dark"]{--paper:#121410;--paper-2:#191C15;--ink:#E9ECE2;--ink-2:#9AA396;
+--ink-3:#767E72;--rule:#2F342B;--rule-soft:#242820;--ok:#A8CE5C;--crit:#DE7676;--warn:#DD9160;--accent:#A8CE5C}
+:root[data-theme="light"]{--paper:#FAFAF7;--paper-2:#F1F2ED;--ink:#12150F;--ink-2:#5A625A;
+--ink-3:#818A7E;--rule:#C9CEC8;--rule-soft:#DFE3DB;--ok:#5F8420;--crit:#8C2F2F;--warn:#A4552A;--accent:#6E9425}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+.sheet{max-width:820px;margin:0 auto;padding:44px 24px 96px}
+@media (max-width:640px){.sheet{padding:26px 14px 64px}}
+h1{font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--ink-3);margin:0}
+h3{font-size:18px;margin:0;line-height:1.3;text-wrap:balance}
+p{margin:0;max-width:66ch}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.lede{font-size:17px;color:var(--ink-2);max-width:66ch}
+header{display:flex;flex-direction:column;gap:14px;padding-bottom:26px;border-bottom:2px solid var(--ink)}
+section{display:flex;flex-direction:column;gap:18px;padding-top:32px;margin-top:32px;border-top:1px solid var(--rule)}
+.task{border:1px solid var(--rule);background:var(--paper-2);padding:18px 20px;
+display:flex;flex-direction:column;gap:10px}
+.task.broken{border-left:4px solid var(--crit)}
+.task.quick{border-left:4px solid var(--ok)}
+.task.decide{border-left:4px solid var(--warn)}
+.head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.min{font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap;margin-left:auto}
+.meta{display:flex;gap:8px 20px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.do{border-left:2px solid var(--accent);padding-left:12px;font-size:14.5px}
+.danger{border-left:2px solid var(--crit);padding-left:12px;font-size:14.5px;color:var(--ink-2)}
+a{color:var(--accent)}
+.links{display:flex;flex-wrap:wrap;gap:6px}
+.links a{font-family:var(--mono);font-size:11.5px;border:1px solid var(--rule);
+padding:3px 8px;text-decoration:none;color:var(--ink-2);background:var(--paper)}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+.done{display:grid;grid-template-columns:auto auto 1fr;gap:7px 16px;align-items:baseline;font-size:14.5px}
+.done b{font-family:var(--mono);color:var(--ok);white-space:nowrap}
+.done span:first-child{white-space:nowrap}
+.total{font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.note{border:1px solid var(--rule);border-left:3px solid var(--ink-3);padding:14px 16px;
+background:var(--paper-2);font-size:14.5px;color:var(--ink-2)}
+footer{margin-top:48px;padding-top:22px;border-top:1px solid var(--rule);
+font-size:13px;color:var(--ink-3)}
+</style>
+<div class="sheet"><header>
+<div class="eyebrow">Invoice Maker · по состоянию на 3 августа</div>
+<h1>Что поправить в макете</h1>
+<p class="lede">Семь задач, примерно <b>1 ч 45 мин</b> работы. Две из них ломают продукт прямо сейчас, пять — быстрые. Отдельно четыре вопроса, на которые нужен ответ, а не правка: начинать их до решения нельзя.</p>
+</header>
+<section><h2>Сначала — что уже сделано</h2>
+<div class="done">
+<span>Радиусы</span><b>483 → 0</b><span>в продуктовых секциях остались ровно 12 / 20 / 28 и капсула</span>
+<span>Обводки</span><b>172 → 0</b><span>все толщиной 1 pt</span>
+<span>Цели нажатия</span><b>31 → 0</b><span>ничего мельче 44 × 44</span>
+<span>Контраст</span><b>121 → 3</b><span>пара #747875 на белом закрыла 107 узлов разом</span>
+<span>Компоненты</span><b>41 → 5</b><span>Button, Text Field, Upload Card, Paywall Plan, Provider Auth и селектор шаблонов сведены к 375</span>
+<span>Недостижимые экраны</span><b>15 → 3</b><span>галерея шаблонов подключена</span>
+</div>
+<p class="note">За одиннадцать дней геометрия макета приведена к объявленным шкалам полностью. Ниже — то, что осталось, и оно намного меньше сделанного.</p></section>
+<section><h2>Ломает продукт · 20 мин</h2>
+<div class="task broken">
+<div class="head"><h3>Онбординг нельзя пройти — он обрывается на первом экране</h3><span class="min">≈15 мин</span></div>
+<p>У экранов 01–07 нет ни одного перехода. Прототип стартует на Welcome и дальше не идёт: ни протестировать, ни показать.</p>
+<div class="do"><b>Как:</b> Связать 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08. Шесть связей.</div>
+<div class="meta"><span>Onboarding · Main flow, первые семь экранов слева</span><span>6 переходов</span></div>
+
+</div>
+<div class="task broken">
+<div class="head"><h3>Две кнопки с нечитаемой подписью</h3><span class="min">≈5 мин</span></div>
+<p>Download и Print: белый текст на светло-сером фоне. Контраст 1,15 при норме 4,5 — подпись практически не видна.</p>
+<div class="do"><b>Как:</b> Перекрасить подписи в карбон #101211. Похоже, кнопку перекрасили, а подпись забыли.</div>
+<div class="meta"><span>Invoice sharing → Action / Download и Action / Print</span><span>2 текста</span></div>
+<div class="links"><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=212-795" target="_blank">Logo monogram</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=181-43" target="_blank">Logo monogram</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=115-224" target="_blank">Switcher option / Clients </a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=133-104" target="_blank">Download / Label</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=133-108" target="_blank">Print / Label</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=104-41" target="_blank">Divider left</a><span class="min">и ещё 2</span></div>
+</div>
+</section><section><h2>Быстрые правки · 85 мин</h2>
+<div class="task quick">
+<div class="head"><h3>Два цвета отличаются от палитры на один пункт</h3><span class="min">≈15 мин</span></div>
+<p>#C7F26B стоит рядом с лаймом палитры #C7F36B, #0F120F — рядом с карбоном #101211. Глазом не отличить, но в файле это разные цвета, и дальше они расходятся.</p>
+<div class="do"><b>Как:</b> Выделить всё → Selection colors → заменить оба на токен палитры.</div>
+<div class="meta"><span>по всем продуктовым секциям</span><span>37 + 27 узлов, две замены</span></div>
+<div class="links"><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=193-2" target="_blank">Logo / Business</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=491-901" target="_blank">Success icon</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=212-752" target="_blank">Logo / Business</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=212-793" target="_blank">Brand rail</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=212-800" target="_blank">Accent dot</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=212-824" target="_blank">Total block</a><span class="min">и ещё 58</span></div>
+</div>
+<div class="task quick">
+<div class="head"><h3>Два набора компонентов шире мастера</h3><span class="min">≈10 мин</span></div>
+<p>Choice Row и Paywall Benefit Row остались 378 pt при мастере 375. Остальные семь наборов уже сведены.</p>
+<div class="do"><b>Как:</b> Ширина 375 у пяти вариантов.</div>
+<div class="meta"><span>Foundations → Choice Row (2 варианта), Paywall Benefit Row (3)</span><span>5 вариантов</span></div>
+<div class="links"><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=23-2" target="_blank">State=Default</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=23-7" target="_blank">State=Selected</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=176-18" target="_blank">Tone=Info</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=176-23" target="_blank">Tone=AI</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=176-28" target="_blank">Tone=Money</a></div>
+</div>
+<div class="task quick">
+<div class="head"><h3>Эталон нарушает шкалу, которую сам объявляет</h3><span class="min">≈10 мин</span></div>
+<p>Во фрейме, где написана радиус-шкала 12 / 20 / 28, стоят радиусы 16, 18 и 24. Пока так, на него нельзя ссылаться в спорах.</p>
+<div class="do"><b>Как:</b> 16 → 12 (четыре карточки токенов), 18 → 20 (три), 24 → 20 (одна).</div>
+<div class="meta"><span>Foundations → Audit / 375pt source of truth</span><span>8 узлов</span></div>
+<div class="links"><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-2" target="_blank">Audit / 375pt source of tr</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-5" target="_blank">Policy / 375pt</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-8" target="_blank">QA outputs</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-11" target="_blank">QA 13</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-15" target="_blank">Token card / Touch target</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=477-19" target="_blank">Token card / Radius</a><span class="min">и ещё 2</span></div>
+</div>
+<div class="task quick">
+<div class="head"><h3>Кнопка уезжает за нижний край на iPhone 8/SE</h3><span class="min">≈10 мин</span></div>
+<p>На Welcome и ATT permission кнопка выходит за границу экрана на 9 pt. На iPhone 13 это уже поправлено.</p>
+<div class="do"><b>Как:</b> Поднять на 9 pt. Обе кнопки — один мастер Button / Continue.</div>
+<div class="meta"><span>Onboarding · Responsive QA outputs, колонка iPhone 8/SE</span><span>1 мастер, 2 экрана</span></div>
+<div class="links"><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=404-664" target="_blank">Button / Continue</a></div>
+</div>
+<div class="task quick">
+<div class="head"><h3>Отступы съехали с шага сетки</h3><span class="min">≈40 мин</span></div>
+<p>66 отступов и зазоров вида 8,72 · 4,36 · 10,47 · 7,85 вместо 4 / 8 / 12 / 16 / 24 / 32 / 40. Следы масштабирования руками.</p>
+<div class="do"><b>Как:</b> Округлить к ближайшему шагу: 8,72 → 8, 4,36 → 4, 10,47 → 12, 7,85 → 8.</div>
+<div class="meta"><span>auto-layout контейнеры продуктовых секций</span><span>66 значений, четыре правила</span></div>
+<div class="links"><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=59-2" target="_blank">Invoice / Form body · Vert</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=59-6" target="_blank">Tag / From onboarding</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=60-11" target="_blank">Invoice / Form body · Vert</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=60-15" target="_blank">Tag / From onboarding</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=60-100" target="_blank">Invoice / Form body · Vert</a><a href="https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=60-104" target="_blank">Tag / From onboarding</a><span class="min">и ещё 60</span></div>
+</div>
+</section>
+<section><h2>Нужно решение, а не правка</h2>
+<p><small>Эти четыре вещи нельзя починить, не договорившись. Правки по ним заготовлены, но применять их до ответа — значит зафиксировать в файле неверную цель.</small></p>
+<div class="task decide">
+<div class="head"><h3>Типошкала описывает десятую часть продукта</h3></div>
+<p>Объявлено 13 · 15 · 16 · 18 · 19 · 34 · 42 · 54. В продуктовых экранах живут 14 · 11 · 10,5 · 12 — и покрытие объявленной шкалы 10 %. Самый частый кегль интерфейса 14 pt, его в шкале нет вообще; 54 / 42 / 34 — это заголовки онбординга.</p>
+<div class="do"><b>Вопрос:</b> Объявить шкалу заново из того, что реально используется. Кластеры 10 / 10,5 / 11 / 12 / 13 / 14 / 15,7 — это уже семь значений, ровно требуемые «7–9 стилей».</div>
+<div class="danger"><b>Осторожно:</b> Сводить 1141 текст к нынешней шкале нельзя — это сломает макет, а метрика при этом покажет ноль.</div>
+</div>
+<div class="task decide">
+<div class="head"><h3>Онбординг: продукт или черновик</h3></div>
+<p>Все метрики считались только по странице Product. В онбординге стоят 291 радиус вне шкалы, 155 обводок, 657 отступов — их никто не проверял.</p>
+<div class="do"><b>Вопрос:</b> Если онбординг — продукт, его надо привести к тем же шкалам. Если черновая доска — объявить это, как объявлена заглушка AI Estimates.</div>
+<div class="danger"><b>Осторожно:</b> Пока не решено, любой отчёт по онбордингу выглядит как внезапный провал, хотя ничего не ломалось.</div>
+</div>
+<div class="task decide">
+<div class="head"><h3>1365 зазоров между слоями, расставленными руками</h3></div>
+<p>Отступ можно задать значением только в auto-layout — таких контейнеров 124 из 860. В остальных 736 расстояния выставлены на глаз.</p>
+<div class="do"><b>Вопрос:</b> Переводить контейнеры на auto-layout по мере правок. Точечно выравнивать зазоры бессмысленно — они вернутся при следующем сдвиге.</div>
+</div>
+<div class="task decide">
+<div class="head"><h3>Три экрана без входящих переходов</h3></div>
+<p>02.3C — Send invoice actions, 02.3E — Invoice send failed и обложка страницы. Попасть на них в прототипе нельзя.</p>
+<div class="do"><b>Вопрос:</b> По каждому решить: подключить переходом или удалить.</div>
+</div>
+</section>
+<footer>Ссылки открывают конкретный слой в Figma. Числа взяты обходом файла через API — по скриншотам не измерялось ничего.<br>Полный технический реестр со всеми метриками и историей прогонов: <a href="./">реестр находок</a>. Машинный список правок для агента: <a href="findings.json">findings.json</a>.</footer></div>
