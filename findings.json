@@ -1,6 +1,6 @@
 {
  "schema_version": "2.0",
- "generated_at": "2026-08-03T18:02Z",
+ "generated_at": "2026-08-03T18:41Z",
  "run": "2026-08-03T12-00Z",
  "audience": "agent",
  "human_document": "https://gogi213.github.io/invoice-audit/",
@@ -119,10 +119,10 @@
   }
  },
  "summary": {
-  "findings": 10,
-  "directly_actionable": 5,
-  "edits_safe_to_apply": 144,
-  "total_edits_including_blocked": 1767,
+  "findings": 12,
+  "directly_actionable": 7,
+  "edits_safe_to_apply": 152,
+  "total_edits_including_blocked": 1768,
   "blocked_on_decision": [
    {
     "id": "F-26",
@@ -131,8 +131,8 @@
    },
    {
     "id": "F-09",
-    "edits_withheld": 8,
-    "why": "Целевой цвет не выводится автоматически: притемнять текст или осветлять фон — решение дизайнера. Узлы и их текущие коэффициенты перечислены."
+    "edits_withheld": 1,
+    "why": "Остаток после F-09A: Account / IBAN, #747875 на #F5F6F1, коэффициент 4,13 против нужных 4,5. Недобор 0,37 — притемнять текст или осветлять фон, решает дизайнер. Автоматически цель не выводится."
    },
    {
     "id": "F-18",
@@ -5113,77 +5113,34 @@
    }
   },
   {
-   "id": "F-09",
+   "id": "F-09A",
    "status": "open",
-   "severity": "soon",
-   "title": "Тексты ниже порога контраста WCAG AA",
-   "problem": "Текстовые узлы не добирают контраста к своему фону. Порог 4.5 для обычного текста и 3.0 для крупного (>=18 pt или >=14 pt полужирный).",
+   "severity": null,
+   "title": "Подписи кнопок нечитаемы: белое на светло-сером",
+   "problem": "Download / Label и Print / Label набраны #FFFFFF на #EEF0EB — контраст 1,15 при норме 4,5. Здесь нечего решать: белый текст на светлом фоне не читается ни при какой трактовке порога.",
    "rule": "contrast",
-   "metric": "colors_off_palette",
-   "history": [
-    52,
-    60,
-    63,
-    63,
-    54
-   ],
-   "current": 54,
+   "metric": null,
+   "history": null,
+   "current": null,
    "inconsistency": {
     "observed_values": {
-     "1.0": 2,
-     "1.15": 2,
-     "1.5": 2,
-     "1.11": 1,
-     "4.13": 1
+     "1.15": 2
     },
-    "node_count": 8
+    "node_count": 2
    },
-   "converge_to": {
-    "min_ratio": 4.5,
-    "min_ratio_large_text": 3.0
-   },
-   "requires_decision": "Целевой цвет не выводится автоматически: притемнять текст или осветлять фон — решение дизайнера. Узлы и их текущие коэффициенты перечислены.",
+   "converge_to": "#101211",
+   "requires_decision": null,
    "action": {
-    "op": "decide_then_set",
+    "op": "set_property",
     "property": "fills",
-    "edit_count": 8,
+    "edit_count": 2,
     "edits": [
-     {
-      "node_id": "212:795",
-      "node_name": "Logo monogram",
-      "property": "fills",
-      "from": 1.0,
-      "to": 3.0,
-      "via_instance": "I184:846;212:795",
-      "instances_affected": 1,
-      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=212-795"
-     },
-     {
-      "node_id": "181:43",
-      "node_name": "Logo monogram",
-      "property": "fills",
-      "from": 1.0,
-      "to": 3.0,
-      "via_instance": "I213:1073;181:43",
-      "instances_affected": 1,
-      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=181-43"
-     },
-     {
-      "node_id": "115:224",
-      "node_name": "Switcher option / Clients / Check",
-      "property": "fills",
-      "from": 1.11,
-      "to": 3.0,
-      "via_instance": null,
-      "instances_affected": 1,
-      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=115-224"
-     },
      {
       "node_id": "133:104",
       "node_name": "Download / Label",
       "property": "fills",
       "from": 1.15,
-      "to": 4.5,
+      "to": "#101211",
       "via_instance": null,
       "instances_affected": 1,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=133-104"
@@ -5193,31 +5150,46 @@
       "node_name": "Print / Label",
       "property": "fills",
       "from": 1.15,
-      "to": 4.5,
+      "to": "#101211",
       "via_instance": null,
       "instances_affected": 1,
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=133-108"
-     },
-     {
-      "node_id": "104:41",
-      "node_name": "Divider left",
-      "property": "fills",
-      "from": 1.5,
-      "to": 3.0,
-      "via_instance": null,
-      "instances_affected": 1,
-      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=104-41"
-     },
-     {
-      "node_id": "104:43",
-      "node_name": "Divider right",
-      "property": "fills",
-      "from": 1.5,
-      "to": 3.0,
-      "via_instance": null,
-      "instances_affected": 1,
-      "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=104-43"
-     },
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-09",
+   "status": "open",
+   "severity": "soon",
+   "title": "Тексты ниже порога контраста WCAG AA",
+   "problem": "Текстовые узлы не добирают контраста к своему фону. Порог 4.5 для обычного текста и 3.0 для крупного (>=18 pt или >=14 pt полужирный).",
+   "rule": "contrast",
+   "metric": "text_below_aa",
+   "history": [
+    109,
+    110,
+    110,
+    110,
+    3
+   ],
+   "current": 3,
+   "inconsistency": {
+    "observed_values": {
+     "4.13": 1
+    },
+    "node_count": 1
+   },
+   "converge_to": {
+    "min_ratio": 4.5,
+    "min_ratio_large_text": 3.0
+   },
+   "requires_decision": "Остаток после F-09A: Account / IBAN, #747875 на #F5F6F1, коэффициент 4,13 против нужных 4,5. Недобор 0,37 — притемнять текст или осветлять фон, решает дизайнер. Автоматически цель не выводится.",
+   "action": {
+    "op": "decide_then_set",
+    "property": "fills",
+    "edit_count": 1,
+    "edits": [
      {
       "node_id": "212:748",
       "node_name": "Account / IBAN",
@@ -18219,6 +18191,76 @@
       "link": "https://www.figma.com/design/lKdFEoJiOwWMaUpjTHBl6N/Invoice-Maker?node-id=182-34"
      }
     ]
+   }
+  },
+  {
+   "id": "F-29",
+   "status": "open",
+   "severity": "now",
+   "title": "Онбординг не проходится: первые семь экранов без переходов",
+   "problem": "У экранов 01–07 основного потока нет исходящих переходов. Прототип стартует на Welcome и обрывается: пройти онбординг нельзя ни при тестировании, ни при показе.",
+   "rule": "prototype",
+   "metric": "onboarding_screens_no_inbound",
+   "history": [
+    18,
+    45,
+    45,
+    44,
+    44
+   ],
+   "current": 44,
+   "inconsistency": {
+    "screens_without_outgoing": [
+     "01 Welcome",
+     "02 ATT permission",
+     "03 Business name",
+     "04 Industry",
+     "05 Upload logo",
+     "06 Logo source",
+     "07 Photo access"
+    ],
+    "outgoing_nodes_onboarding": 23,
+    "outgoing_nodes_product": 213
+   },
+   "converge_to": "каждый экран имеет исходящий переход к следующему",
+   "requires_decision": null,
+   "action": {
+    "op": "connect_prototype",
+    "property": "interactions",
+    "edit_count": 6,
+    "edits": [],
+    "steps": [
+     {
+      "from": "01 Welcome",
+      "to": "02 ATT permission"
+     },
+     {
+      "from": "02 ATT permission",
+      "to": "03 Business name"
+     },
+     {
+      "from": "03 Business name",
+      "to": "04 Industry"
+     },
+     {
+      "from": "04 Industry",
+      "to": "05 Upload logo"
+     },
+     {
+      "from": "05 Upload logo",
+      "to": "06 Logo source"
+     },
+     {
+      "from": "06 Logo source",
+      "to": "07 Photo access"
+     },
+     {
+      "from": "07 Photo access",
+      "to": "08 AI Estimate"
+     }
+    ],
+    "trigger": "ON_CLICK на основной кнопке экрана",
+    "animation": "INSTANT"
    }
   },
   {
