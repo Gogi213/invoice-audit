@@ -147,7 +147,7 @@
         <tr><td><b>Что проверяется по шкалам</b></td><td>Радиус, обводка, ширина мастера, цель нажатия, контраст, палитра — были с самого начала. <b>Отступы и кегль добавлены на этом прогоне</b>: обе шкалы объявлены в тех же foundations, но не проверялись ни разу.</td></tr>
         <tr><td><b>Срочность</b></td><td><span class="chip st-now">сейчас</span> сломанный артефакт либо цена растёт каждый день · <span class="chip st-soon">скоро</span> чинится дёшево и один раз · <span class="chip st-later">потом</span> гигиена файла</td></tr>
         <tr><td><b>Заглушка</b></td><td>Секция AI Estimates, 13 экранов, из метрик исключена. Её объём на 3 августа: 0 радиусов вне шкалы, 77 обводок ≠ 1, 14 отступов, 263 кегля.</td></tr>
-        <tr><td><b>Вне охвата</b></td><td>Страница Onboarding, 45 экранов, в тренд не входила ни разу. Её объём: <b>291 радиус вне шкалы</b> (457 по строгому счёту, но 166 из них — капсулы, записанные как 871,22 — это <code>radius/full</code>, а не нарушение), 155 обводок ≠ 1, <b>657 отступов</b> auto-layout, <b>876 кеглей</b>. Это находка F-26, а не примечание.</td></tr>
+        <tr><td><b>Вне охвата</b></td><td>Страница Onboarding, 45 экранов, в тренд не входила ни разу. Её объём: <b>291 радиус вне шкалы</b> (457 по строгому счёту, но 166 из них — капсулы, записанные как 871,22 — это <code>radius/full</code>, а не нарушение), 155 обводок ≠ 1, <b>657 отступов</b> auto-layout, <b>876 кеглей</b>. Это находка F-26. И граф прототипа там не проверялся ни разу — из чего выросла <b>F-29</b>.</td></tr>
       </tbody>
     </table></div>
     <p><small>Каждую находку в реестре можно развернуть: внутри — где смотреть, доказательство числами и что делать.</small></p>
@@ -182,7 +182,7 @@
         <tr><td>Доля целых радиусов</td><td><small>из узлов, у которых радиус есть. <b>Больше — лучше</b></small></td><td class="n">0 %</td><td class="n">27,7 % <span class="arrow down">▲27,7</span></td><td class="n">28,1 % <span class="arrow down">▲0,4</span></td><td class="n">29,2 % <span class="arrow down">▲1,1</span></td><td class="n"><b>100 %</b> <span class="arrow down">▲70,8</span></td><td><small>прежде называлась «доля целой сетки» — имя обещало всю геометрию</small></td></tr>
         <tr><td>Обводок ≠ 1 pt</td><td><small>узлов с обводкой другой толщины</small></td><td class="n">209</td><td class="n">172 <span class="arrow down">▼37</span></td><td class="n">172 <span class="arrow flat">—</span></td><td class="n">172 <span class="arrow flat">—</span></td><td class="n"><b>0</b> <span class="arrow down">▼172</span></td><td><small></small></td></tr>
         <tr><td>Отступов вне шкалы</td><td><small>padding и gap в auto-layout, не из 4/8/12/16/24/32/40</small></td><td class="n">64</td><td class="n">70 <span class="arrow up">▲6</span></td><td class="n">70 <span class="arrow flat">—</span></td><td class="n">70 <span class="arrow flat">—</span></td><td class="n"><b>70</b> <span class="arrow flat">—</span></td><td><small><b>не улучшалось ни разу</b> · это только 124 контейнера из 860</small></td></tr>
-        <tr><td>Ручных зазоров вне шкалы</td><td><small>просветы между вручную расставленными соседями</small></td><td class="n">772</td><td class="n">910 <span class="arrow up">▲138</span></td><td class="n">917 <span class="arrow up">▲7</span></td><td class="n">917 <span class="arrow flat">—</span></td><td class="n"><b>911</b> <span class="arrow down">▼6</span></td><td><small><b>измерено впервые · остальные 736 контейнеров</b></small></td></tr>
+        <tr><td>Ручных зазоров вне шкалы</td><td><small>просветы между вручную расставленными соседями, обе оси</small></td><td class="n">1152</td><td class="n">1360 <span class="arrow up">▲208</span></td><td class="n">1371 <span class="arrow up">▲11</span></td><td class="n">1371 <span class="arrow flat">—</span></td><td class="n"><b>1365</b> <span class="arrow down">▼6</span></td><td><small><b>остальные 736 контейнеров</b></small></td></tr>
         <tr><td>Кеглей вне шкалы</td><td><small>текстов, чей размер не из объявленных восьми</small></td><td class="n">994</td><td class="n">1278 <span class="arrow up">▲284</span></td><td class="n">1294 <span class="arrow up">▲16</span></td><td class="n">1294 <span class="arrow flat">—</span></td><td class="n"><b>1294</b> <span class="arrow flat">—</span></td><td><small><b>не улучшалось ни разу · выросло на 30 %</b></small></td></tr>
         <tr><td>Покрытие типошкалы</td><td><small>доля текстов, попадающих в объявленную шкалу. <b>Больше — лучше</b></small></td><td class="n">0 %</td><td class="n">9,9 % <span class="arrow down">▲9,9</span></td><td class="n">10,1 % <span class="arrow down">▲0,2</span></td><td class="n">10,1 % <span class="arrow flat">—</span></td><td class="n"><b>10,1 %</b> <span class="arrow flat">—</span></td><td><small><b>объявленная шкала описывает десятую часть продукта</b></small></td></tr>
         <tr><td>Текстов без запаса по ширине</td><td><small>однострочных текстов на ≥90 % ширины контейнера</small></td><td class="n">139</td><td class="n">171 <span class="arrow up">▲32</span></td><td class="n">171 <span class="arrow flat">—</span></td><td class="n">171 <span class="arrow flat">—</span></td><td class="n"><b>171</b> <span class="arrow flat">—</span></td><td><small><b>правило объявлено заново · не улучшалось ни разу</b></small></td></tr>
@@ -190,10 +190,11 @@
         <tr><td>Пар размер×начертание</td><td><small>различных сочетаний кегля и насыщенности. Политика требует 7–9</small></td><td class="n">72</td><td class="n">113 <span class="arrow up">▲41</span></td><td class="n">118 <span class="arrow up">▲5</span></td><td class="n">118 <span class="arrow flat">—</span></td><td class="n"><b>117</b> <span class="arrow down">▼1</span></td><td><small></small></td></tr>
         <tr><td>Текстов ниже WCAG AA</td><td><small>читаемых текстов, не добирающих контраста к фону</small></td><td class="n">109</td><td class="n">110 <span class="arrow up">▲1</span></td><td class="n">110 <span class="arrow flat">—</span></td><td class="n">110 <span class="arrow flat">—</span></td><td class="n"><b>3</b> <span class="arrow down">▼107</span></td><td><small>порог 4,5 · глифы вынесены в строку ниже</small></td></tr>
         <tr><td>Глифов ниже порога 3:1</td><td><small>иконок и разделителей, нарисованных текстом — WCAG 1.4.11</small></td><td class="n">5</td><td class="n">5 <span class="arrow flat">—</span></td><td class="n">5 <span class="arrow flat">—</span></td><td class="n">5 <span class="arrow flat">—</span></td><td class="n"><b>5</b> <span class="arrow flat">—</span></td><td><small>держать их к текстовому порогу было неверно</small></td></tr>
-        <tr><td>Целей нажатия &lt; 44 pt</td><td><small>интерактивных узлов ниже минимума Apple HIG</small></td><td class="n">25</td><td class="n">30 <span class="arrow up">▲5</span></td><td class="n">26 <span class="arrow down">▼4</span></td><td class="n">26 <span class="arrow flat">—</span></td><td class="n"><b>0</b> <span class="arrow down">▼26</span></td><td><small></small></td></tr>
+        <tr><td>Целей нажатия &lt; 44 pt</td><td><small>интерактивных узлов ниже минимума Apple HIG</small></td><td class="n">25</td><td class="n">30 <span class="arrow up">▲5</span></td><td class="n">31 <span class="arrow up">▲1</span></td><td class="n">31 <span class="arrow flat">—</span></td><td class="n"><b>0</b> <span class="arrow down">▼31</span></td><td><small></small></td></tr>
         <tr><td>CTA за краем экрана</td><td><small>экранов, где кнопка не помещается по высоте устройства</small></td><td class="n">0</td><td class="n">4 <span class="arrow up">▲4</span></td><td class="n">2 <span class="arrow down">▼2</span></td><td class="n">2 <span class="arrow flat">—</span></td><td class="n"><b>2</b> <span class="arrow flat">—</span></td><td><small></small></td></tr>
         <tr><td>Ширин CTA на 390 pt</td><td><small>сколько разных ширин у кнопки на одном устройстве. Норма — одна</small></td><td class="n">0</td><td class="n">3 <span class="arrow up">▲3</span></td><td class="n">2 <span class="arrow down">▼1</span></td><td class="n">3 <span class="arrow up">▲1</span></td><td class="n"><b>2</b> <span class="arrow down">▼1</span></td><td><small></small></td></tr>
-        <tr><td>Экранов без входящих</td><td><small>экранов, на которые в прототипе нельзя попасть</small></td><td class="n">14</td><td class="n">15 <span class="arrow up">▲1</span></td><td class="n">15 <span class="arrow flat">—</span></td><td class="n">15 <span class="arrow flat">—</span></td><td class="n"><b>3</b> <span class="arrow down">▼12</span></td><td><small></small></td></tr>
+        <tr><td>Экранов без входящих · Product</td><td><small>экранов, на которые в прототипе нельзя попасть</small></td><td class="n">14</td><td class="n">15 <span class="arrow up">▲1</span></td><td class="n">15 <span class="arrow flat">—</span></td><td class="n">15 <span class="arrow flat">—</span></td><td class="n"><b>3</b> <span class="arrow down">▼12</span></td><td><small></small></td></tr>
+        <tr><td>Экранов без входящих · Onboarding</td><td><small>то же по онбордингу — граф там не проверялся ни разу</small></td><td class="n">18</td><td class="n">45 <span class="arrow up">▲27</span></td><td class="n">45 <span class="arrow flat">—</span></td><td class="n">44 <span class="arrow down">▼1</span></td><td class="n"><b>44</b> <span class="arrow flat">—</span></td><td><small><b>измерено впервые · см. F-29</b></small></td></tr>
       </tbody>
     </table></div>
     <p><small>«н/д» за 24 июля — та выгрузка сделана плагином и не содержит связей прототипа,
@@ -231,7 +232,7 @@
         <tr><td>1 авг · 09:16</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
         <tr><td>1 авг · 11:11</td><td class="n">5</td><td class="n">10</td><td class="n">5</td><td class="n">20</td><td class="n">5</td></tr>
         <tr><td>1 авг · 19:02</td><td class="n">4</td><td class="n">7</td><td class="n">5</td><td class="n">16</td><td class="n">9</td></tr>
-        <tr><td><b>3 авг · 13:07</b></td><td class="n">2</td><td class="n">10</td><td class="n">3</td><td class="n"><b>15</b></td><td class="n">13</td></tr>
+        <tr><td><b>3 авг · 13:07</b></td><td class="n">3</td><td class="n">10</td><td class="n">3</td><td class="n"><b>16</b></td><td class="n">13</td></tr>
       </tbody>
     </table></div>
     <p><small>Прочерки за 24 июля и 09:16 — реестр с постоянными номерами появился только
@@ -260,6 +261,7 @@
       <tbody>
         <tr><td class="id">F-26</td><td><details class="f" open><summary><strong>Онбординг вне охвата метрик</strong> — 291 радиус вне шкалы никогда не попадал в тренд</summary><div class="det"><span><b>Где смотреть.</b> Страница <code>01 — Onboarding</code>, 45 экранов. Особенно доска <code>Responsive QA outputs · iPhone 8/SE + iPhone 13</code>.</span><span class="ev">291 радиус вне шкалы, 155 обводок ≠ 1 pt, 657 отступов, 876 кеглей. Строгий счёт радиусов даёт 457, но 166 из них — капсулы, записанные как 871,22 или 40,12: это <code>radius/full</code>, а не нарушение. Прошлая публикация этой поправки не делала</span><span><b>Чинить.</b> Сначала решить, входит ли онбординг в предмет аудита. Если да — расширить охват и принять, что числа тренда разово вырастут; это не регресс, а конец слепой зоны. Если нет — объявить страницу черновой, как объявлена заглушка, и не считать её экраны продуктовыми.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">291</td><td>Открыта на этом прогоне</td></tr>
 
+        <tr><td class="id">F-29</td><td><details class="f" open><summary><strong>Онбординг не проходится</strong> — из первых семи экранов нет ни одного перехода</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · Main flow, экраны слева направо.</span><span class="ev">01 · Welcome — 0 исходящих · 02 · ATT — 0 · 03 · Business name — 0 · 04 · Industry — 0 · 05 · Upload logo — 0 · 06 · Logo source — 0 · 07 · Photo access — 0. Переходы появляются только с 08: AI Estimate 2, Reviews 2, Creating account 1, Account created 1, Push permission 2, Paywall 1. Во всём онбординге 23 узла с исходящими и 5 различных целей; у Product — 213 и 50</span><span><b>Почему это не поймали раньше.</b> Граф прототипа считался только по странице Product. Онбординг не проверялся ни разу — та же дыра охвата, что была с отступами. А <b>F-14</b> закрыли на том, что объявлена точка входа <code>flowStartingPoints = «Onboarding · 01 Welcome»</code>. Точка входа действительно объявлена. Прототип стартует — и упирается в тупик на первом же шаге.</span><span><b>Чинить.</b> Связать 01→02→…→08. Это шесть переходов, и без них весь онбординг непроходим ни для тестирования, ни для показа.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">18</td><td class="n">45</td><td class="n">45</td><td class="n">44</td><td class="n">44</td><td>Открыта на этом прогоне · связана с F-14</td></tr>
         <tr><td class="id">F-01</td><td><details class="f"><summary>Компоненты шире объявленного мастера — осталось два набора из семи</summary><div class="det"><span><b>Где смотреть.</b> Foundations, наборы компонентов.</span><span class="ev">было 41 вариант шире 375, стало 5: <code>Choice Row</code> 378×58 ×2 и <code>Paywall Benefit Row</code> 378×42 ×3. Сведены к 375: Button, Text Field, Upload Card, Paywall Plan Card, Provider Auth (был 382), Invoice Template Selector (был 390)</span><span><b>Чинить.</b> Те же 3 pt снять с двух оставшихся наборов. Блокирующая роль исчерпана — F-02, F-03, F-04 закрыты.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">41</td><td class="n">41</td><td class="n">41</td><td class="n">41</td><td class="n">5</td><td>Больше ничего не блокирует</td></tr>
         <tr><td class="id">F-02</td><td><details class="f"><summary>Эталонный блок не мигрирован — осталось 14 узлов из 214</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · Main flow — блок, из которого выводятся нормы поля, зазора и кнопки.</span><span class="ev">дробных радиусов 214 → 14 при 156 узлах с радиусом. Мода кнопки 329,7 × 59,3 r 17,4 больше не доминирует</span><span><b>Чинить.</b> Добить оставшиеся 14. После этого выведенные из блока нормы снова можно применять.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">214</td><td class="n">214</td><td class="n">214</td><td class="n">214</td><td class="n">14</td><td>Мигрирован на 93 %</td></tr>
 
@@ -484,11 +486,18 @@
    15,
    3
   ],
+  "onboarding_screens_no_inbound": [
+   18,
+   45,
+   45,
+   44,
+   44
+  ],
   "touch_under_44": [
    25,
    30,
-   26,
-   26,
+   31,
+   31,
    0
   ],
   "text_below_aa": [
@@ -513,11 +522,11 @@
    70
   ],
   "manual_gaps_off_scale": [
-   772,
-   910,
-   917,
-   917,
-   911
+   1152,
+   1360,
+   1371,
+   1371,
+   1365
   ],
   "type_size_off_scale": [
    994,
@@ -600,6 +609,35 @@
     "type_size_off_scale": 876,
     "worst_board": "Responsive QA outputs · iPhone 8/SE + iPhone 13",
     "headline": "291 радиус вне шкалы (457 по строгому счёту, 166 из них — капсулы)"
+   }
+  },
+  {
+   "id": "F-29",
+   "severity": "now",
+   "title": "Онбординг не проходится: первые семь экранов без переходов",
+   "evidence": {
+    "screens_without_outgoing": [
+     "01 · Welcome",
+     "02 · Welcome / ATT",
+     "03 · Business name",
+     "04 · Industry",
+     "05 · Upload logo",
+     "06 · Logo source sheet",
+     "07 · Photo access"
+    ],
+    "outgoing_nodes_onboarding": 23,
+    "outgoing_nodes_product": 213,
+    "distinct_destinations_onboarding": 5,
+    "distinct_destinations_product": 50,
+    "screens_no_inbound": [
+     18,
+     45,
+     45,
+     44,
+     44
+    ],
+    "relates_to": "F-14",
+    "note": "F-14 закрыта на том, что объявлена flowStartingPoints = «Onboarding · 01 Welcome». Точка входа действительно объявлена, но из Welcome нет ни одного исходящего перехода — прототип стартует и упирается в тупик на первом же шаге. Переходы существуют только на экранах 08–13"
    }
   },
   {
@@ -776,6 +814,28 @@
    }
   },
   {
+   "id": "F-19",
+   "severity": "soon",
+   "title": "Нет запаса на длинные данные",
+   "evidence": {
+    "count": [
+     139,
+     171,
+     171,
+     171,
+     171
+    ],
+    "rule": "TEXT внутри экрана, без переноса строки, вне галереи шаблонов, занимающий ≥90 % ширины непосредственного родителя",
+    "rule_note": "правило объявлено на этом прогоне; прежнее не воспроизводилось",
+    "by_block": {
+     "Overview": 28,
+     "Clients": 18,
+     "Documents": 22,
+     "Alternative": 15
+    }
+   }
+  },
+  {
    "id": "F-27",
    "severity": "soon",
    "title": "Экран вне секций не попадает в аудит",
@@ -903,28 +963,6 @@
     ],
     "note": "галерея шаблонов подключена, осталось три"
    }
-  },
-  {
-   "id": "F-19",
-   "severity": "soon",
-   "title": "Нет запаса на длинные данные",
-   "evidence": {
-    "count": [
-     139,
-     171,
-     171,
-     171,
-     171
-    ],
-    "rule": "TEXT внутри экрана, без переноса строки, вне галереи шаблонов, занимающий ≥90 % ширины непосредственного родителя",
-    "rule_note": "правило объявлено на этом прогоне; прежнее не воспроизводилось",
-    "by_block": {
-     "Overview": 28,
-     "Clients": 18,
-     "Documents": 22,
-     "Alternative": 15
-    }
-   }
   }
  ],
  "closed": [
@@ -1032,10 +1070,10 @@
   },
   {
    "run": "2026-08-03T13:07Z",
-   "now": 2,
+   "now": 3,
    "soon": 10,
    "later": 3,
-   "open": 15,
+   "open": 16,
    "closed_total": 13,
    "opened_this_run": {
     "regressions": [],
@@ -1044,7 +1082,10 @@
      "F-27",
      "F-28"
     ],
-    "note": "ни одна новая находка не является поломкой макета. Все три — измерения или части файла, которых аудит не касался"
+    "note": "F-26, F-27, F-28 — дыры охвата, а не поломки макета. F-29 — настоящая: сломан путь пользователя, а не значение токена",
+    "real_defects": [
+     "F-29"
+    ]
    }
   }
  ],
@@ -1088,7 +1129,10 @@
    "контраст разделён на текст (порог 4,5 / 3,0) и глифы-иконки (порог 3,0, WCAG 1.4.11): разделитель из символов, галочка, значки валюты и монограмма логотипа — это TEXT-узлы, но не текст для чтения",
    "правки адресуются мастер-компоненту: узел вида I404:690;24:3 починить нельзя, правка на нём создаёт оверрайд одного инстанса, остальные копии остаются сломанными",
    "отступы: метрика читала только padding и itemSpacing, которые есть лишь у auto-layout — это 124 контейнера из 860. Остальные 736 расставлены руками, и их зазоры были невидимы. Добавлена отдельная метрика ручных зазоров: 911 против 70 у auto-layout",
-   "палитра: градиентные заливки метрика не видит вовсе — их 7, отмечено явно"
+   "палитра: градиентные заливки метрика не видит вовсе — их 7, отмечено явно",
+   "граф прототипа: цель перехода теперь разрешается до экрана, который её содержит. Онбординг заворачивает каждый экран 375×812 в обёртку 375×837, прототип указывает на внутренний фрейм — сравнение сырых id помечало 49 экранов из 50 недостижимыми, хотя переход просто адресован на уровень глубже",
+   "цель нажатия: проверяются обе стороны, а не только высота. HIG требует 44×44. Сегодня это ничего не меняет (ноль и там и там), но правило, верное по случайности, перестаёт быть верным без предупреждения",
+   "ручные зазоры считаются по обеим осям, а не только по вертикали: 911 → 1365"
   ]
  },
  "trend_as_published": {
