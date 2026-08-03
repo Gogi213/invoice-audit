@@ -121,15 +121,20 @@
       <div class="eyebrow">Живой документ · дописывается каждым прогоном</div>
       <h1>Реестр находок по макету</h1>
     </div>
-    <p class="lede"><b>Прогон 3 августа, 13:07.</b> Открытых 16 → 14: закрыто четыре, открыто две.
-      Геометрия в охвате закрыта целиком — радиусов вне шкалы 477 → 0, обводок ≠ 1 pt 172 → 0,
-      мелких целей нажатия 26 → 0, доля целой сетки 29,4 % → 100 %.<br><br>
-      Ровно поэтому открыта <b>F-26</b>. Тренд всегда считался по секциям страницы Product.
-      Пока Product был грязным, это не мешало; теперь он чист, а 457 радиусов вне шкалы
-      просто стоят в онбординге, куда метрика никогда не смотрела. Достижение реально,
-      но оно уже́е, чем выглядит по таблице.<br><br>Одна строка — одна находка с постоянным
-      номером. Номер живёт, пока находка не закрыта, поэтому «стало лучше» видно, а не
-      декларируется. Секция AI Estimates исключена из всех чисел как заглушка.</p>
+    <p class="lede"><b>Прогон 3 августа, 13:07.</b> Открытых 16 → 15. Четыре находки закрыты
+      по факту, три открыты — и <b>ни одна из трёх не является новой поломкой макета</b>.
+      Все три — измерения и части файла, которых аудит не касался.<br><br>
+      В том, что аудит считал, дизайнер закрыл геометрию целиком: радиусов вне шкалы
+      477 → 0, обводок ≠ 1 pt 172 → 0, мелких целей нажатия 26 → 0. Это настоящая работа.
+      Но аудит покрывал четыре измерения из шести объявленных. Два недостающих
+      измерены впервые сейчас, и оба <b>не сдвинулись за одиннадцать дней ни разу</b>:
+      отступов вне шкалы 64 → 70, кеглей вне шкалы 994 → 1294. Объявленная типошкала
+      покрывает <b>10 %</b> текстов продукта.<br><br>
+      Весь тренд пересчитан заново одним сборщиком по историческим версиям файла.
+      Прежде первые четыре колонки считал инструмент, которого больше нет, — сравнивать
+      их с пятой было нельзя. Прежний ряд сохранён рядом, в <code>trend_as_published</code>.
+      <br><br>Одна строка — одна находка с постоянным номером. Номер живёт, пока находка
+      не закрыта, поэтому «стало лучше» видно, а не декларируется.</p>
   </header>
 
   <section style="border-top:0;margin-top:24px;padding-top:0">
@@ -138,10 +143,11 @@
       <tbody>
         <tr><td style="width:190px"><b>Что проверяется</b></td><td>Макет мобильного приложения в Figma: три страницы, шестнадцать блоков, около сорока пяти продуктовых экранов вне заглушки.</td></tr>
         <tr><td><b>По каким правилам</b></td><td>Три среза с разными эталонами. <b>Консистентность</b> — против токенов, объявленных на странице Foundations. <b>Дизайн</b> — против порогов платформы: Apple HIG и WCAG 2.1 AA. <b>Путь пользователя</b> — против связей прототипа.</td></tr>
-        <tr><td><b>Откуда числа</b></td><td>Полный обход дерева файла через REST, по свойствам узлов. По скриншотам не измеряется ничего. Сборщик прогона 3 августа сверен против исторических версий файла: из 27 опубликованных ячеек прошлых прогонов он воспроизводит 24 точно.</td></tr>
+        <tr><td><b>Откуда числа</b></td><td>Полный обход дерева файла через REST, по свойствам узлов. По скриншотам не измеряется ничего. Все пять колонок пересчитаны одним сборщиком по историческим версиям файла — там, где определения не менялись, он воспроизводит прежде опубликованное точно (обводки 209, цвета 52 за первый прогон).</td></tr>
+        <tr><td><b>Что проверяется по шкалам</b></td><td>Радиус, обводка, ширина мастера, цель нажатия, контраст, палитра — были с самого начала. <b>Отступы и кегль добавлены на этом прогоне</b>: обе шкалы объявлены в тех же foundations, но не проверялись ни разу.</td></tr>
         <tr><td><b>Срочность</b></td><td><span class="chip st-now">сейчас</span> сломанный артефакт либо цена растёт каждый день · <span class="chip st-soon">скоро</span> чинится дёшево и один раз · <span class="chip st-later">потом</span> гигиена файла</td></tr>
-        <tr><td><b>Заглушка</b></td><td>Секция AI Estimates, 13 экранов, из метрик исключена. Её объём на 3 августа: 0 радиусов вне шкалы, 77 обводок ≠ 1, 0 мелких целей нажатия — было 172 / 100 / 5.</td></tr>
-        <tr><td><b>Вне охвата</b></td><td>Страница Onboarding, 45 экранов, в тренд не входила ни разу. Её объём: <b>457 радиусов вне шкалы</b>, 155 обводок ≠ 1. Из них 424 радиуса — на доске <code>Responsive QA outputs</code>. Это находка F-26, а не примечание.</td></tr>
+        <tr><td><b>Заглушка</b></td><td>Секция AI Estimates, 13 экранов, из метрик исключена. Её объём на 3 августа: 0 радиусов вне шкалы, 77 обводок ≠ 1, 14 отступов, 263 кегля.</td></tr>
+        <tr><td><b>Вне охвата</b></td><td>Страница Onboarding, 45 экранов, в тренд не входила ни разу. Её объём: <b>291 радиус вне шкалы</b> (457 по строгому счёту, но 166 из них — капсулы, записанные как 871,22 — это <code>radius/full</code>, а не нарушение), 155 обводок ≠ 1, <b>657 отступов</b>, <b>876 кеглей</b>. Это находка F-26, а не примечание.</td></tr>
       </tbody>
     </table></div>
     <p><small>Каждую находку в реестре можно развернуть: внутри — где смотреть, доказательство числами и что делать.</small></p>
@@ -167,77 +173,50 @@
     </div>
     <div class="scroller"><table class="trend">
       <thead><tr>
-        <th>Метрика</th><th>Что за число</th><th class="n">24 июля</th><th class="n">1 авг · 09:16</th>
-        <th class="n">1 авг · 11:11</th><th class="n">1 авг · 19:02</th><th class="n">3 авг · 13:07</th><th class="n">с 24 июля</th>
+        <th>Метрика</th><th>Что за число</th><th class="n">23 июля</th><th class="n">1 авг · 09:16</th>
+        <th class="n">1 авг · 11:11</th><th class="n">1 авг · 19:02</th><th class="n">3 авг · 13:07</th><th>Комментарий</th>
       </tr></thead>
       <tbody>
-        <tr><td>Радиусов вне объявленной шкалы</td>
-            <td><small>узлов, у которых радиус не 12, 20, 28 или капсула</small></td>
-            <td class="n">522</td><td class="n">481</td>
-            <td class="n">484 <span class="arrow up">▲3</span></td><td class="n">477 <span class="arrow down">▼7</span></td>
-            <td class="n"><b>0</b> <span class="arrow down">▼477</span></td><td class="n"><span class="arrow down">−522 · −100 %</span></td></tr>
-        <tr><td>Дробных радиусов</td>
-            <td><small>узлов с нецелым радиусом вроде 17,4 — след масштабирования руками</small></td>
-            <td class="n">515</td><td class="n">446</td>
-            <td class="n">447 <span class="arrow up">▲1</span></td><td class="n">440 <span class="arrow down">▼7</span></td>
-            <td class="n"><b>0</b> <span class="arrow down">▼440</span></td><td class="n"><span class="arrow down">−515 · −100 %</span></td></tr>
-        <tr><td>Доля целой сетки</td>
-            <td><small>доля узлов с целым радиусом. <b>Здесь больше — лучше</b>, норма 100 %</small></td>
-            <td class="n">1,3 %</td><td class="n">27,8 %</td>
-            <td class="n">28,3 % <span class="arrow down">▲0,5</span></td><td class="n">29,4 % <span class="arrow down">▲1,1</span></td>
-            <td class="n"><b>100 %</b> <span class="arrow down">▲70,6</span></td><td class="n"><span class="arrow down">+98,7 п.п.</span></td></tr>
-        <tr><td>Обводок ≠ 1 pt</td>
-            <td><small>узлов с обводкой другой толщины: 0,87 · 1,31 · 2,0 и прочие</small></td>
-            <td class="n">209</td><td class="n">172</td>
-            <td class="n">172 <span class="arrow flat">—</span></td><td class="n">172 <span class="arrow flat">—</span></td>
-            <td class="n"><b>0</b> <span class="arrow down">▼172</span></td><td class="n"><span class="arrow down">−209 · −100 %</span></td></tr>
-        <tr><td>Цветов вне палитры</td>
-            <td><small>различных цветов сверх шести объявленных токенов</small></td>
-            <td class="n">52</td><td class="n">60</td>
-            <td class="n">63 <span class="arrow up">▲3</span></td><td class="n">63 <span class="arrow flat">—</span></td>
-            <td class="n">54 <span class="arrow down">▼9</span></td><td class="n"><span class="arrow up">+2 · хуже старта</span></td></tr>
-        <tr><td>Пар размер×начертание</td>
-            <td><small>различных сочетаний кегля и насыщенности. Политика требует 7–9</small></td>
-            <td class="n">83</td><td class="n">124</td>
-            <td class="n">130 <span class="arrow up">▲6</span></td><td class="n">130 <span class="arrow flat">—</span></td>
-            <td class="n">129 <span class="arrow down">▼1</span></td><td class="n"><span class="arrow up">+46 · +55 %</span></td></tr>
-        <tr><td>CTA за краем экрана</td>
-            <td><small>экранов, где кнопка не помещается по высоте устройства</small></td>
-            <td class="n">н/д</td><td class="n">4</td>
-            <td class="n">2 <span class="arrow down">▼2</span></td><td class="n">2 <span class="arrow flat">—</span></td>
-            <td class="n">2 <span class="arrow flat">—</span></td><td class="n"><span class="arrow flat">н/д</span></td></tr>
-        <tr><td>Ширин CTA на 390 pt</td>
-            <td><small>сколько разных ширин у кнопки на одном устройстве. Норма — одна</small></td>
-            <td class="n">н/д</td><td class="n">4</td>
-            <td class="n">2 <span class="arrow down">▼2</span></td><td class="n">3 <span class="arrow up">▲1</span></td>
-            <td class="n">2 <span class="arrow down">▼1</span></td><td class="n"><span class="arrow flat">н/д</span></td></tr>
-        <tr><td>Экранов без входящих</td>
-            <td><small>экранов, на которые в прототипе нельзя попасть ни одним переходом</small></td>
-            <td class="n">н/д</td><td class="n">14</td>
-            <td class="n">15 <span class="arrow up">▲1</span></td><td class="n">15 <span class="arrow flat">—</span></td>
-            <td class="n">3 <span class="arrow down">▼12</span></td><td class="n"><span class="arrow flat">н/д</span></td></tr>
+        <tr><td>Радиусов вне объявленной шкалы</td><td><small>узлов, у которых радиус не 12, 20, 28 и не капсула</small></td><td class="n">515</td><td class="n">481 <span class="arrow down">▼34</span></td><td class="n">484 <span class="arrow up">▲3</span></td><td class="n">477 <span class="arrow down">▼7</span></td><td class="n"><b>0</b> <span class="arrow down">▼477</span></td><td><small></small></td></tr>
+        <tr><td>&nbsp;&nbsp;из них не капсулы</td><td><small>строгий счёт минус пилюли, записанные как 871,22</small></td><td class="n">334</td><td class="n">363 <span class="arrow up">▲29</span></td><td class="n">376 <span class="arrow up">▲13</span></td><td class="n">369 <span class="arrow down">▼7</span></td><td class="n"><b>0</b> <span class="arrow down">▼369</span></td><td><small>уточнение к строке выше</small></td></tr>
+        <tr><td>Дробных радиусов</td><td><small>узлов с нецелым радиусом вроде 17,4 — след масштабирования руками</small></td><td class="n">515</td><td class="n">446 <span class="arrow down">▼69</span></td><td class="n">447 <span class="arrow up">▲1</span></td><td class="n">440 <span class="arrow down">▼7</span></td><td class="n"><b>0</b> <span class="arrow down">▼440</span></td><td><small></small></td></tr>
+        <tr><td>Доля целых радиусов</td><td><small>из узлов, у которых радиус есть. <b>Больше — лучше</b></small></td><td class="n">0 %</td><td class="n">27,8 % <span class="arrow down">▲27,8</span></td><td class="n">28,3 % <span class="arrow down">▲0,5</span></td><td class="n">29,4 % <span class="arrow down">▲1,1</span></td><td class="n"><b>100 %</b> <span class="arrow down">▲70,6</span></td><td><small>прежде называлась «доля целой сетки» — имя обещало всю геометрию</small></td></tr>
+        <tr><td>Обводок ≠ 1 pt</td><td><small>узлов с обводкой другой толщины</small></td><td class="n">209</td><td class="n">172 <span class="arrow down">▼37</span></td><td class="n">172 <span class="arrow flat">—</span></td><td class="n">172 <span class="arrow flat">—</span></td><td class="n"><b>0</b> <span class="arrow down">▼172</span></td><td><small></small></td></tr>
+        <tr><td>Отступов вне шкалы</td><td><small>узлов, где padding или gap не 4/8/12/16/24/32/40</small></td><td class="n">64</td><td class="n">70 <span class="arrow up">▲6</span></td><td class="n">70 <span class="arrow flat">—</span></td><td class="n">70 <span class="arrow flat">—</span></td><td class="n"><b>70</b> <span class="arrow flat">—</span></td><td><small><b>измерено впервые · не улучшалось ни разу</b></small></td></tr>
+        <tr><td>Кеглей вне шкалы</td><td><small>текстов, чей размер не из объявленных восьми</small></td><td class="n">994</td><td class="n">1278 <span class="arrow up">▲284</span></td><td class="n">1294 <span class="arrow up">▲16</span></td><td class="n">1294 <span class="arrow flat">—</span></td><td class="n"><b>1294</b> <span class="arrow flat">—</span></td><td><small><b>измерено впервые · выросло на 30 %</b></small></td></tr>
+        <tr><td>Покрытие типошкалы</td><td><small>доля текстов, попадающих в объявленную шкалу. <b>Больше — лучше</b></small></td><td class="n">0 %</td><td class="n">10,1 % <span class="arrow down">▲10,1</span></td><td class="n">10,2 % <span class="arrow down">▲0,1</span></td><td class="n">10,2 % <span class="arrow flat">—</span></td><td class="n"><b>10,2 %</b> <span class="arrow flat">—</span></td><td><small><b>объявленная шкала описывает десятую часть продукта</b></small></td></tr>
+        <tr><td>Цветов вне палитры</td><td><small>различных цветов сверх шести токенов</small></td><td class="n">52</td><td class="n">60 <span class="arrow up">▲8</span></td><td class="n">63 <span class="arrow up">▲3</span></td><td class="n">63 <span class="arrow flat">—</span></td><td class="n"><b>54</b> <span class="arrow down">▼9</span></td><td><small></small></td></tr>
+        <tr><td>Пар размер×начертание</td><td><small>различных сочетаний кегля и насыщенности. Политика требует 7–9</small></td><td class="n">72</td><td class="n">113 <span class="arrow up">▲41</span></td><td class="n">118 <span class="arrow up">▲5</span></td><td class="n">118 <span class="arrow flat">—</span></td><td class="n"><b>117</b> <span class="arrow down">▼1</span></td><td><small></small></td></tr>
+        <tr><td>Текстов ниже WCAG AA</td><td><small>текстов, не добирающих контраста к своему фону</small></td><td class="n">120</td><td class="n">121 <span class="arrow up">▲1</span></td><td class="n">121 <span class="arrow flat">—</span></td><td class="n">121 <span class="arrow flat">—</span></td><td class="n"><b>14</b> <span class="arrow down">▼107</span></td><td><small></small></td></tr>
+        <tr><td>Целей нажатия < 44 pt</td><td><small>интерактивных узлов ниже минимума Apple HIG</small></td><td class="n">25</td><td class="n">30 <span class="arrow up">▲5</span></td><td class="n">26 <span class="arrow down">▼4</span></td><td class="n">26 <span class="arrow flat">—</span></td><td class="n"><b>0</b> <span class="arrow down">▼26</span></td><td><small></small></td></tr>
+        <tr><td>CTA за краем экрана</td><td><small>экранов, где кнопка не помещается по высоте устройства</small></td><td class="n">0</td><td class="n">4 <span class="arrow up">▲4</span></td><td class="n">2 <span class="arrow down">▼2</span></td><td class="n">2 <span class="arrow flat">—</span></td><td class="n"><b>2</b> <span class="arrow flat">—</span></td><td><small></small></td></tr>
+        <tr><td>Ширин CTA на 390 pt</td><td><small>сколько разных ширин у кнопки на одном устройстве. Норма — одна</small></td><td class="n">0</td><td class="n">3 <span class="arrow up">▲3</span></td><td class="n">2 <span class="arrow down">▼1</span></td><td class="n">3 <span class="arrow up">▲1</span></td><td class="n"><b>2</b> <span class="arrow down">▼1</span></td><td><small></small></td></tr>
+        <tr><td>Экранов без входящих</td><td><small>экранов, на которые в прототипе нельзя попасть</small></td><td class="n">14</td><td class="n">15 <span class="arrow up">▲1</span></td><td class="n">15 <span class="arrow flat">—</span></td><td class="n">15 <span class="arrow flat">—</span></td><td class="n"><b>3</b> <span class="arrow down">▼12</span></td><td><small></small></td></tr>
       </tbody>
     </table></div>
     <p><small>«н/д» за 24 июля — та выгрузка сделана плагином и не содержит связей прототипа,
       поэтому метрики сценария за тот прогон посчитать не из чего.</small></p>
 
     <h3 style="margin-top:14px">Что в тренд не входит</h3>
-    <p><small>Обе части ниже измерены тем же обходом, но в числа таблицы выше не попадают.
-      Их объём приведён, чтобы «ноль» нельзя было прочитать как «в файле чисто».</small></p>
+    <p><small>Всё ниже измерено тем же обходом и в числа таблицы выше не попадает.
+      Приведено, чтобы «ноль» нельзя было прочитать как «в файле чисто».</small></p>
     <div class="scroller"><table>
-      <thead><tr><th>Часть файла</th><th class="n">Экранов</th><th class="n">Радиусов вне шкалы</th><th class="n">Обводок ≠ 1</th><th>Почему не в тренде</th></tr></thead>
+      <thead><tr><th>Часть файла</th><th class="n">Экранов</th><th class="n">Радиусов</th><th class="n">Обводок</th><th class="n">Отступов</th><th class="n">Кеглей</th><th>Почему не в тренде</th></tr></thead>
       <tbody>
-        <tr><td><b>Секции страницы Product</b> — это и есть тренд</td><td class="n">44</td><td class="n"><b>0</b></td><td class="n"><b>0</b></td><td>предмет аудита</td></tr>
-        <tr><td><code>Section / AI Estimates</code></td><td class="n">13</td><td class="n">0</td><td class="n">77</td><td>заглушка, объявлена исключённой с первого прогона</td></tr>
-        <tr><td><code>01 — Onboarding</code></td><td class="n">45</td><td class="n"><b>457</b></td><td class="n">155</td><td>никогда не входила. Это находка <b>F-26</b>, а не правило</td></tr>
-        <tr><td><code>02.3E — Invoice send failed</code></td><td class="n">1</td><td class="n">—</td><td class="n">—</td><td>лежит вне секций, поэтому не измерялся ни разу — <b>F-27</b></td></tr>
+        <tr><td><b>Секции страницы Product</b> — это и есть тренд</td><td class="n">44</td><td class="n"><b>0</b></td><td class="n"><b>0</b></td><td class="n">70</td><td class="n">1294</td><td>предмет аудита</td></tr>
+        <tr><td><code>01 — Onboarding</code></td><td class="n">45</td><td class="n"><b>291</b></td><td class="n">155</td><td class="n"><b>657</b></td><td class="n"><b>876</b></td><td>не входила ни разу — находка <b>F-26</b></td></tr>
+        <tr><td><code>Section / AI Estimates</code></td><td class="n">13</td><td class="n">0</td><td class="n">77</td><td class="n">14</td><td class="n">263</td><td>заглушка, объявлена исключённой с первого прогона</td></tr>
+        <tr><td><code>Foundations</code> — эталон</td><td class="n">—</td><td class="n">8</td><td class="n">14</td><td class="n">30</td><td class="n">449</td><td>меряется отдельно — находка <b>F-06</b></td></tr>
+        <tr><td><code>02.3E — Invoice send failed</code></td><td class="n">1</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>лежит вне секций, не измерялся ни разу — <b>F-27</b></td></tr>
       </tbody>
     </table></div>
-    <p>Коротко: за десять дней страница Product приведена к объявленным шкалам полностью,
-      и это настоящий результат. Но <b>457 радиусов вне шкалы никуда не делись</b> — они
-      в онбординге, на который метрика не смотрела ни разу. И две метрики за то же время
-      стали хуже, чем были на старте: палитра выросла с 52 цветов до 54, а типографика
-      с 83 пар до 129.</p>
+    <p>Коротко. Из того, что аудит считал, дизайнер закрыл всё: радиусы, обводки, цели
+      нажатия, контраст — с 477, 172, 26 и 121 до нулей и четырнадцати. Это одиннадцать
+      дней настоящей работы, и по этим строкам придраться не к чему.</p>
+    <p>Но <b>отступы и кегль не сдвинулись ни на одном прогоне</b>: 64 → 70 → 70 → 70 → 70
+      и 994 → 1278 → 1294 → 1294 → 1294. Не потому, что их не чинили из упрямства —
+      потому что их не считали, и в отчёте они не появлялись. Метрика определяет,
+      что чинят. Одиннадцать дней внимания ушли туда, где было измерение.</p>
   </section>
 
   <section>
@@ -250,19 +229,23 @@
         <tr><td>1 авг · 09:16</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
         <tr><td>1 авг · 11:11</td><td class="n">5</td><td class="n">10</td><td class="n">5</td><td class="n">20</td><td class="n">5</td></tr>
         <tr><td>1 авг · 19:02</td><td class="n">4</td><td class="n">7</td><td class="n">5</td><td class="n">16</td><td class="n">9</td></tr>
-        <tr><td><b>3 авг · 13:07</b></td><td class="n">1</td><td class="n">8</td><td class="n">5</td><td class="n"><b>14</b></td><td class="n">13</td></tr>
+        <tr><td><b>3 авг · 13:07</b></td><td class="n">2</td><td class="n">9</td><td class="n">4</td><td class="n"><b>15</b></td><td class="n">13</td></tr>
       </tbody>
     </table></div>
     <p><small>Прочерки за 24 июля и 09:16 — реестр с постоянными номерами появился только
       на прогоне 11:11. Раньше находки переименовывались от отчёта к отчёту, и восстановить
       счёт по срочности задним числом нельзя без подгонки. Тренд метрик выше за те прогоны
       считается по данным файла и приведён полностью.</small></p>
-    <p>Второе падение подряд: <strong>16 → 14</strong>. Закрыты четыре — F-03, F-04, F-08, F-12,
-      все по факту, а не по формулировке. Открыты две: F-26 и F-27.</p>
-    <p>В категории «сейчас» осталась одна находка, и это не остаток прежних, а новая.
-      Четыре прежних блокера ушли: компоненты сведены к 375, эталонный блок мигрирован,
-      радиус-шкала соблюдена, миграция сделана. Их место заняла <b>F-26</b> — не потому,
-      что стало хуже, а потому, что теперь видно: метрика смотрела не на весь файл.</p>
+    <p><strong>16 → 15.</strong> Закрыты четыре — F-03, F-04, F-08, F-12, все по факту,
+      а не по формулировке. Открыты три — F-26, F-27, F-28.</p>
+    <p>Эти три стоит читать отдельно от остальных. <b>Ни одна из них не является
+      регрессией.</b> F-26 — страница, которую метрика не считала. F-27 — экран, лежащий
+      вне секций и потому невидимый. F-28 — шкала отступов, объявленная в тех же
+      foundations и не проверявшаяся ни разу. Все три существовали всё это время
+      и просто не имели номера.</p>
+    <p>Поэтому счёт «открыто три» здесь не значит «стало хуже». Он значит, что аудит
+      стал видеть больше, чем видел. Если этого не разделять, любое расширение охвата
+      будет выглядеть провалом — и его перестанут делать.</p>
   </section>
 
   <section>
@@ -273,21 +256,22 @@
         <th class="n">24 июл</th><th class="n">09:16</th><th class="n">11:11</th><th class="n">19:02</th><th class="n">3 авг</th><th>Комментарий</th>
       </tr></thead>
       <tbody>
-        <tr><td class="id">F-26</td><td><details class="f" open><summary><strong>Онбординг вне охвата метрик</strong> — 457 радиусов вне шкалы никогда не попадали в тренд</summary><div class="det"><span><b>Где смотреть.</b> Страница <code>01 — Onboarding</code>, 45 экранов. Особенно доска <code>Responsive QA outputs · iPhone 8/SE + iPhone 13</code>.</span><span class="ev">457 радиусов вне шкалы (424 из них на доске QA), 155 обводок ≠ 1 pt. Чаще всего: 3,5×66 · 6,1×64 · 17,4×30 · 7,0×29 · 15,7×28 · 40,1×26</span><span><b>Чинить.</b> Сначала решить, входит ли онбординг в предмет аудита. Если да — расширить охват и принять, что числа тренда разово вырастут; это не регресс, а конец слепой зоны. Если нет — объявить страницу черновой, как объявлена заглушка, и не считать её экраны продуктовыми.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">457</td><td>Открыта на этом прогоне</td></tr>
+        <tr><td class="id">F-26</td><td><details class="f" open><summary><strong>Онбординг вне охвата метрик</strong> — 457 радиусов вне шкалы никогда не попадали в тренд</summary><div class="det"><span><b>Где смотреть.</b> Страница <code>01 — Onboarding</code>, 45 экранов. Особенно доска <code>Responsive QA outputs · iPhone 8/SE + iPhone 13</code>.</span><span class="ev">291 радиус вне шкалы, 155 обводок ≠ 1 pt, 657 отступов, 876 кеглей. Строгий счёт радиусов даёт 457, но 166 из них — капсулы, записанные как 871,22 или 40,12: это <code>radius/full</code>, а не нарушение. Прошлая публикация этой поправки не делала</span><span><b>Чинить.</b> Сначала решить, входит ли онбординг в предмет аудита. Если да — расширить охват и принять, что числа тренда разово вырастут; это не регресс, а конец слепой зоны. Если нет — объявить страницу черновой, как объявлена заглушка, и не считать её экраны продуктовыми.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">291</td><td>Открыта на этом прогоне</td></tr>
 
         <tr><td class="id">F-01</td><td><details class="f"><summary>Компоненты шире объявленного мастера — осталось два набора из семи</summary><div class="det"><span><b>Где смотреть.</b> Foundations, наборы компонентов.</span><span class="ev">было 41 вариант шире 375, стало 5: <code>Choice Row</code> 378×58 ×2 и <code>Paywall Benefit Row</code> 378×42 ×3. Сведены к 375: Button, Text Field, Upload Card, Paywall Plan Card, Provider Auth (был 382), Invoice Template Selector (был 390)</span><span><b>Чинить.</b> Те же 3 pt снять с двух оставшихся наборов. Блокирующая роль исчерпана — F-02, F-03, F-04 закрыты.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td class="n">41</td><td class="n">5</td><td>Больше ничего не блокирует</td></tr>
         <tr><td class="id">F-02</td><td><details class="f"><summary>Эталонный блок не мигрирован — осталось 14 узлов из 214</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · Main flow — блок, из которого выводятся нормы поля, зазора и кнопки.</span><span class="ev">дробных радиусов 214 → 14 при 156 узлах с радиусом. Мода кнопки 329,7 × 59,3 r 17,4 больше не доминирует</span><span><b>Чинить.</b> Добить оставшиеся 14. После этого выведенные из блока нормы снова можно применять.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">—</td><td class="n">—</td><td class="n">214</td><td class="n">214</td><td class="n">14</td><td>Мигрирован на 93 %</td></tr>
 
         <tr><td class="id">F-06</td><td><details class="f"><summary>Эталон нарушает собственные шкалы — радиусы не тронуты, обводки почти сведены</summary><div class="det"><span><b>Где смотреть.</b> Сам эталон против собственного примечания.</span><span class="ev">вне шкалы 8 узлов: 16×4, 18×3, 24×1 — примечание «no ad-hoc 24» по-прежнему нарушается в том же файле, где написано. Обводки: было девять значений (1,5 · 1,7 · 1,8 · 1,83 · 2,0 · 2,33 · 2,57 · 4,5), осталось одно — 2,0×14</span><span><b>Чинить.</b> Либо расширить объявленную шкалу до реально нужной, либо свести восемь оставшихся узлов к четырём значениям. Пока эталон нарушает себя, ссылаться на него в спорах нельзя.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/п</td><td class="n">н/п</td><td class="n">17</td><td class="n">17</td><td class="n">8</td><td>Обводки почти закрыты, радиусы стоят</td></tr>
         <tr><td class="id">F-07</td><td><details class="f"><summary>Полноширинный примитив всё ещё не один — 382 ушёл, 378 остался</summary><div class="det"><span><b>Где смотреть.</b> Наборы компонентов Choice Row и Paywall Benefit Row.</span><span class="ev">382 сведён к 375 (Provider Auth Button). 378 остался у двух наборов из семи</span><span><b>Чинить.</b> Свести к одному примитиву. Это те же пять вариантов, что и в F-01 — одна правка закрывает обе.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">есть</td><td class="n">есть</td><td class="n">есть</td><td class="n">378, 382</td><td class="n">378</td><td>Одна правка закроет вместе с F-01</td></tr>
-        <tr><td class="id">F-09</td><td><details class="f"><summary>Тексты ниже WCAG AA — доминирующая пара устранена</summary><div class="det"><span><b>Где смотреть.</b> Продуктовые секции, фон берётся по порядку отрисовки.</span><span class="ev">121 → 22. Пара #747875 на белом (96 узлов) и #747875 на #F5F6F1 (11 узлов) исчезла целиком. Из оставшихся 22 четыре — текст #101211 на заливке того же цвета в галерее шаблонов</span><span><b>Чинить.</b> Разобрать остаток поимённо: это уже не один цвет, а разрозненные случаи. Начать с четырёх, где текст и фон совпадают — там читаемость нулевая, а не пограничная.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">133</td><td class="n">133</td><td class="n">121</td><td class="n">121</td><td class="n">22</td><td>Один цвет закрыл 107 узлов</td></tr>
+        <tr><td class="id">F-09</td><td><details class="f"><summary>Тексты ниже WCAG AA — доминирующая пара устранена</summary><div class="det"><span><b>Где смотреть.</b> Продуктовые секции, фон берётся по порядку отрисовки.</span><span class="ev">121 → 14. Пара #747875 на белом (96 узлов) и #747875 на #F5F6F1 (11 узлов) исчезла целиком. Прежде публиковалось 22 — шесть из них были ложными: за фон принимался текстовый узел, чья рамка накрывает мелкий текст, и коэффициент выходил 1,0</span><span><b>Чинить.</b> Разобрать остаток поимённо: это уже не один цвет, а разрозненные случаи. Начать с четырёх, где текст и фон совпадают — там читаемость нулевая, а не пограничная.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">133</td><td class="n">133</td><td class="n">121</td><td class="n">121</td><td class="n">14</td><td>Один цвет закрыл 107 узлов</td></tr>
         <tr><td class="id">F-10</td><td><details class="f"><summary>CTA за нижним краем экрана на QA-доске — не тронуто четвёртый прогон</summary><div class="det"><span><b>Где смотреть.</b> Onboarding · QA outputs, экраны iPhone 8/SE.</span><span class="ev">01 Welcome и 02 ATT permission: кнопка выходит за низ фрейма на 9,0 pt. На iPhone 13 исправлено ещё на прогоне 11:11</span><span><b>Чинить.</b> Перекомпоновать два фрейма: композиция с высокого экрана перенесена на 667 pt без перестановки. Правка на два экрана, висит с 1 августа.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">4</td><td class="n">2</td><td class="n">2</td><td class="n">2</td><td>Три прогона без движения</td></tr>
         <tr><td class="id">F-11</td><td><details class="f"><summary>Разные ширины CTA на одном устройстве — на 390 стало лучше, на 375 хуже</summary><div class="det"><span><b>Где смотреть.</b> QA outputs, оба устройства.</span><span class="ev">390 pt: 344,7 (7 экранов) и 344,6 (3) — было три ширины, стало две. 375 pt: 329,6 (6 экранов) и 329,7 (4) — разнобой в одну десятую там, где раньше была одна ширина</span><span><b>Чинить.</b> Одна ширина на устройство, заданная как «ширина минус поля», а не проставленная руками. Разница в 0,1 pt невидима глазом и именно поэтому воспроизводится бесконечно.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">4</td><td class="n">2</td><td class="n">3</td><td class="n">2</td><td>Разнобой переехал с 390 на 375</td></tr>
         <tr><td class="id">F-27</td><td><details class="f"><summary>Экран вне секций не попадает в аудит</summary><div class="det"><span><b>Где смотреть.</b> <code>02.3E — Invoice send failed</code> — лежит на странице Product сам по себе, вне всех блоков-секций.</span><span class="ev">метрики консистентности считаются по секциям страницы. Узлы этого экрана не измерялись ни разу с момента его создания</span><span><b>Чинить.</b> Перенести экран в <code>Section / Invoice sharing</code>. Числа при этом корректно вырастут — это не регресс, а появление экрана в поле зрения.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">н/д</td><td class="n">1 экран</td><td>Открыта на этом прогоне</td></tr>
 
+        <tr><td class="id">F-28</td><td><details class="f"><summary>Отступы вне объявленной шкалы — измерено впервые</summary><div class="det"><span><b>Где смотреть.</b> <code>padding</code> и <code>itemSpacing</code> во всех продуктовых секциях.</span><span class="ev">70 узлов, 198 значений вне шкалы, 15 различных. Чаще всего: 8,72×42 · 10,47×30 · 12,21×26 · 4,36×24. Объявлено: 4 · 8 · 12 · 16 · 24 · 32 · 40</span><span><b>Что это значит.</b> Шкала объявлена в тех же foundations, что радиус и обводка, но не проверялась ни одним прогоном. За одиннадцать дней метрика не сдвинулась: 64 → 70 → 70 → 70 → 70. Дробные значения того же происхождения, что и дробные радиусы, — масштабирование композиции руками.</span><span><b>Чинить.</b> Снап к ближайшему шагу шкалы. Ровно та же по форме правка, что уже сделана для радиусов, и на порядок меньший объём.</span></div></details></td><td class="n"><span class="chip st-soon">скоро</span></td><td class="n">64</td><td class="n">70</td><td class="n">70</td><td class="n">70</td><td class="n">70</td><td>Открыта на этом прогоне</td></tr>
         <tr><td class="id">F-15</td><td><details class="f"><summary>Product не инстанцирует поля ввода из эталона</summary><div class="det"><span><b>Где смотреть.</b> Поля ввода в продуктовых секциях против компонента Text Field.</span><span class="ev">инстансов Text Field в Product по-прежнему 0. Радиусы локальных полей сведены к одному значению — 12,0; было три на одну сущность: 13,1 в листах, 14,0 в опциях оплаты, 10,5 в настройках</span><span><b>Чинить.</b> Заменить локальные <code>Input / …</code> на инстансы. Симптом (разные радиусы) вылечен вручную, причина осталась: следующее поле снова нарисуют локально.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">0 инст.</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td>Радиусы сведены, инстансов нет</td></tr>
         <tr><td class="id">F-16</td><td><details class="f"><summary>Почти-дубли цветов — палитра впервые сократилась</summary><div class="det"><span><b>Где смотреть.</b> Перепись заливок по всем секциям.</span><span class="ev">54 цвета вне палитры из шести токенов — впервые ниже старта (было 52 на 24 июля, пик 63). Неразличимые пары никуда не делись: #C7F36B против #C7F26B (41 применение), #C9CEC8 против #C9CFC7, #EEF0EB против #EFF0EC, #F5F6F1 против #F5F7F2</span><span><b>Чинить.</b> Поиск-замена по парам. Приоритет — #C7F26B: 41 применение на один пункт разницы с лаймом палитры.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">52</td><td class="n">60</td><td class="n">63</td><td class="n">63</td><td class="n">54</td><td>Впервые падение</td></tr>
-        <tr><td class="id">F-17</td><td><details class="f"><summary>Типографика без шкалы — за десять дней хуже в полтора раза</summary><div class="det"><span><b>Где смотреть.</b> Все текстовые узлы продуктовых секций.</span><span class="ev">129 пар размер×начертание при 7–9 объявленных. На 24 июля было 83 — то есть с начала аудита метрика выросла на 55 %, а не упала</span><span><b>Чинить.</b> Завести текстовые стили и привязать. Единственная метрика, которая за всё время ни разу не улучшилась содержательно.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">83</td><td class="n">124</td><td class="n">130</td><td class="n">130</td><td class="n">129</td><td>Хуже, чем на старте аудита</td></tr>
+        <tr><td class="id">F-17</td><td><details class="f" open><summary><strong>Типографика без шкалы</strong> — объявленная шкала покрывает 10 % текстов продукта</summary><div class="det"><span><b>Где смотреть.</b> Все текстовые узлы продуктовых секций, кроме галереи шаблонов.</span><span class="ev">1294 текста из 1441 вне объявленной шкалы. Чаще всего: 14,0×183 · 11,0×135 · 10,5×79 · 12,0×72. Объявлено: 13 · 15 · 16 · 18 · 19 · 34 · 42 · 54 — из них 54/42/34 живут только в онбординге</span><span><b>Что это значит.</b> Самый частый кегль интерфейса — 14 pt, и его в шкале нет. Шкала описывает не продукт, а заголовки онбординга. Свести 1294 текста к объявленным восьми значениям — значит сломать макет, а метрика при этом покажет ноль.</span><span><b>Чинить.</b> Сначала объявить шкалу заново, из реального употребления: кластеры 10 / 10,5 / 11 / 12 / 13 / 14 / 15,7 — это уже семь значений, ровно требуемые «7–9 стилей». Утвердить, положить в эталон, и только потом сводить.</span></div></details></td><td class="n"><span class="chip st-now">сейчас</span></td><td class="n">994</td><td class="n">1278</td><td class="n">1294</td><td class="n">1294</td><td class="n">1294</td><td>Не улучшалась ни разу, выросла на 30 %</td></tr>
         <tr><td class="id">F-18</td><td><details class="f"><summary>Экраны без входящих переходов — осталось три</summary><div class="det"><span><b>Где смотреть.</b> Граф прототипа продуктовой страницы.</span><span class="ev">15 → 3. Галерея шаблонов подключена. Осталось: <code>02.3C — Send invoice actions</code>, <code>02.3E — Invoice send failed</code> и обложка страницы</span><span><b>Чинить.</b> 02.3C и 02.3E подключить или удалить. Обложка — не экран, её честнее вывести из счёта отдельным типом блока.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">н/д</td><td class="n">14</td><td class="n">15</td><td class="n">15</td><td class="n">3</td><td>Галерея подключена</td></tr>
         <tr><td class="id">F-19</td><td><details class="f"><summary>Нет запаса на длинные данные — за этот прогон не считалась</summary><div class="det"><span><b>Где смотреть.</b> Однострочный текст в контейнерах фиксированной ширины.</span><span class="ev">н/д. Исходное правило не воспроизводится: «текст на ≥ 90 % ширины родителя» даёт поблочно Overview 28 и Clients 18 — ровно как опубликовано, — но в сумме 97 против 64. Значит в прежнем счёте были исключения, которые не записали</span><span><b>Чинить.</b> Сначала объявить правило явно (какие блоки входят, что считать контейнером), затем пересчитать строку с нуля. Подгонять число под 64 нельзя — это ровно тот случай, когда молча переопределённая метрика хуже отсутствующей.</span></div></details></td><td class="n"><span class="chip st-later">потом</span></td><td class="n">н/д</td><td class="n">н/д</td><td class="n">64</td><td class="n">64</td><td class="n">н/д</td><td>Правило не воспроизводится</td></tr>
       </tbody>
@@ -325,20 +309,24 @@
     <div class="note good">
       <h3><a href="findings.json"><code>findings.json</code></a> — рабочий список, а не отчёт</h3>
       <p>Таблицы выше отвечают человеку на вопрос «стало ли лучше». Агенту нужен другой
-        ответ, и он в отдельном файле: каждая находка там несёт <code>problem</code>
+        ответ, и он в отдельном файле: каждая находка несёт <code>problem</code>
         (что не так), <code>inconsistency</code> (какие значения расходятся и сколько
         узлов на каждом), <code>converge_to</code> (к чему сводить) и
-        <code>action.edits</code> — по одной записи на узел, с <code>node_id</code>,
-        текущим значением, целевым и прямой ссылкой в Figma.</p>
-      <p>На этот прогон: <b>8 находок, 564 правки</b>, из них <b>82 применимы сразу</b>
-        без чьего-либо решения — F-01 (5), F-06 (8), F-10 (2), F-16 (67).
-        Остальные помечены <code>requires_decision</code> с текстом, что именно надо
-        решить: охват аудита (F-26), направление правки контраста (F-09), судьба
-        недостижимых экранов (F-18), определение правила (F-19). Такие находки агент
-        не применяет молча.</p>
+        <code>action.edits</code> — по записи на узел, с <code>node_id</code>, текущим
+        значением, целевым и прямой ссылкой в Figma.</p>
+      <p>На этот прогон: 10 находок. <b><code>edits_safe_to_apply</code> = 152</b> —
+        столько правок можно применить не спрашивая никого: F-01 (5), F-06 (8),
+        F-10 (2), F-16 (67), F-28 (70).</p>
+      <p><b>Всего правок в файле 1920, и это число специально не вынесено в заголовок.</b>
+        Разница — 1768 правок за <code>requires_decision</code>, из них 1294 приходятся
+        на F-17. Их поле <code>expected</code> заполнено снапом к ближайшему объявленному
+        кеглю, и применить его — значит сломать макет: объявленная шкала описывает
+        заголовки онбординга, а не продуктовые экраны. Поэтому в <code>summary</code>
+        headline-число — только безопасные правки, а у каждой заблокированной находки
+        стоит, сколько правок удержано и почему.</p>
       <p><small>Схема 2.0. Нормы вынесены в <code>rules</code>, находка ссылается на
-        норму по имени вместо повтора прозой. Значения <code>null</code> означают
-        «не измерялось» и нигде не смешаны с нулём.</small></p>
+        норму по имени вместо повтора прозой. <code>null</code> означает «не измерялось»
+        и нигде не смешан с нулём.</small></p>
     </div>
   </section>
 
@@ -357,14 +345,17 @@
   "volume": {
    "radius_off_scale": 0,
    "stroke_off": 77,
+   "spacing_off_scale": 14,
+   "type_size_off_scale": 263,
    "touch_under_44": 0
   }
  },
  "runs": [
   {
-   "id": "2026-07-24",
-   "source": "figwright",
-   "prototype_data": false
+   "id": "2026-07-23T01:24Z",
+   "source": "rest",
+   "prototype_data": true,
+   "note": "состояние под прогон 24 июля; сам тот прогон делался плагином figwright"
   },
   {
    "id": "2026-08-01T09:16Z",
@@ -384,9 +375,7 @@
   {
    "id": "2026-08-03T13:07Z",
    "source": "rest",
-   "prototype_data": true,
-   "file_version": "2383487596576305773",
-   "note": "сборщик пересобран и сверен по историческим версиям файла: 24 из 27 опубликованных ячеек воспроизведены точно"
+   "prototype_data": true
   }
  ],
  "declared_tokens": {
@@ -401,14 +390,40 @@
   ],
   "stroke": 1,
   "touch_target_min": 44,
-  "type_styles": "7-9"
+  "type_styles": "7-9",
+  "spacing": [
+   4,
+   8,
+   12,
+   16,
+   24,
+   32,
+   40
+  ],
+  "type_sizes": [
+   13,
+   15,
+   16,
+   18,
+   19,
+   34,
+   42,
+   54
+  ]
  },
  "trend": {
   "radius_off_scale": [
-   522,
+   515,
    481,
    484,
    477,
+   0
+  ],
+  "radius_off_scale_excl_capsules": [
+   334,
+   363,
+   376,
+   369,
    0
   ],
   "radius_fractional": [
@@ -418,8 +433,8 @@
    440,
    0
   ],
-  "integer_grid_share_pct": [
-   1.3,
+  "integer_radius_share_pct": [
+   0.0,
    27.8,
    28.3,
    29.4,
@@ -440,45 +455,127 @@
    54
   ],
   "type_pairs": [
-   83,
-   124,
-   130,
-   130,
-   129
+   72,
+   113,
+   118,
+   118,
+   117
   ],
   "cta_off_screen": [
-   null,
+   0,
    4,
    2,
    2,
    2
   ],
   "cta_widths_at_390": [
-   null,
-   4,
+   0,
+   3,
    2,
    3,
    2
   ],
   "screens_no_inbound": [
-   null,
    14,
    15,
    15,
+   15,
    3
+  ],
+  "touch_under_44": [
+   25,
+   30,
+   26,
+   26,
+   0
+  ],
+  "text_below_aa": [
+   120,
+   121,
+   121,
+   121,
+   14
+  ],
+  "spacing_off_scale": [
+   64,
+   70,
+   70,
+   70,
+   70
+  ],
+  "type_size_off_scale": [
+   994,
+   1278,
+   1294,
+   1294,
+   1294
+  ],
+  "type_scale_coverage_pct": [
+   0.0,
+   10.1,
+   10.2,
+   10.2,
+   10.2
   ]
  },
  "open": [
+  {
+   "id": "F-17",
+   "severity": "now",
+   "title": "Типографика без шкалы",
+   "evidence": {
+    "type_size_off_scale": [
+     994,
+     1278,
+     1294,
+     1294,
+     1294
+    ],
+    "type_scale_coverage_pct": [
+     0.0,
+     10.1,
+     10.2,
+     10.2,
+     10.2
+    ],
+    "type_pairs": [
+     72,
+     113,
+     118,
+     118,
+     117
+    ],
+    "declared": [
+     13,
+     15,
+     16,
+     18,
+     19,
+     34,
+     42,
+     54
+    ],
+    "most_used_off_scale": {
+     "14.0": 183,
+     "11.0": 135,
+     "10.5": 79,
+     "12.0": 72
+    },
+    "note": "объявленная шкала покрывает 10 % текстов продукта. Самый частый кегль интерфейса — 14 pt, его в шкале нет. Метрика не улучшилась ни разу и выросла на 30 % с начала аудита"
+   }
+  },
   {
    "id": "F-26",
    "severity": "now",
    "title": "Онбординг вне охвата метрик",
    "evidence": {
-    "radius_off_scale": 457,
+    "radius_off_scale": 291,
+    "radius_off_scale_strict": 457,
+    "correction": "прежде публиковалось 457; 166 из них — капсулы, записанные как 871.22 или 40.12, то есть radius/full, а не нарушение",
     "stroke_off": 155,
-    "worst_board": "Responsive QA outputs · iPhone 8/SE + iPhone 13",
-    "worst_board_radii": 424,
-    "note": "тренд всегда считался по секциям страницы Product. Пока Product был грязным, это было незаметно; теперь он чист, и весь остаток нарушений оказался в невидимой для метрики части файла"
+    "spacing_off_scale": 657,
+    "type_size_off_scale": 876,
+    "worst_board": "Responsive QA outputs · iPhone 8/SE + iPhone 13"
    }
   },
   {
@@ -553,13 +650,14 @@
    "title": "Тексты ниже WCAG AA",
    "evidence": {
     "count": [
-     133,
-     133,
+     120,
      121,
      121,
-     22
+     121,
+     14
     ],
-    "note": "пара #747875 на белом (107 узлов) устранена; из оставшихся 22 четыре — текст на заливке того же цвета в галерее шаблонов"
+    "correction": "прежде публиковалось 22; 6 из них были ложными — за фон принимался текстовый узел, чья рамка накрывает мелкий текст",
+    "note": "пара #747875 на белом (107 узлов) устранена полностью"
    }
   },
   {
@@ -608,6 +706,38 @@
    }
   },
   {
+   "id": "F-28",
+   "severity": "soon",
+   "title": "Отступы вне объявленной шкалы",
+   "evidence": {
+    "count": [
+     64,
+     70,
+     70,
+     70,
+     70
+    ],
+    "declared": [
+     4,
+     8,
+     12,
+     16,
+     24,
+     32,
+     40
+    ],
+    "values_off_scale": 198,
+    "distinct": 15,
+    "top": {
+     "8.72": 42,
+     "10.47": 30,
+     "12.21": 26,
+     "4.36": 24
+    },
+    "note": "шкала объявлена в тех же foundations, что радиус и обводка, но не проверялась ни одним прогоном. За 11 дней не улучшилась ни разу"
+   }
+  },
+  {
    "id": "F-15",
    "severity": "later",
    "title": "Поля ввода не инстанцируются из эталона",
@@ -638,9 +768,10 @@
     ],
     "pairs": [
      [
-      "#C7F36B",
       "#C7F26B",
-      1
+      "#C7F36B",
+      1,
+      41
      ],
      [
       "#C9CEC8",
@@ -657,23 +788,7 @@
       "#F5F7F2",
       1
      ]
-    ],
-    "note": "#C7F26B — 41 применение на один пункт разницы с лаймом палитры"
-   }
-  },
-  {
-   "id": "F-17",
-   "severity": "later",
-   "title": "Типографика без шкалы",
-   "evidence": {
-    "pairs": [
-     83,
-     124,
-     130,
-     130,
-     129
-    ],
-    "declared_styles": "7-9"
+    ]
    }
   },
   {
@@ -808,6 +923,23 @@
    "later": 5,
    "open": 14,
    "closed_total": 13
+  },
+  {
+   "run": "2026-08-03T13:07Z",
+   "now": 2,
+   "soon": 9,
+   "later": 4,
+   "open": 15,
+   "closed_total": 13,
+   "opened_this_run": {
+    "regressions": [],
+    "scope_gaps": [
+     "F-26",
+     "F-27",
+     "F-28"
+    ],
+    "note": "ни одна новая находка не является поломкой макета. Все три — измерения или части файла, которых аудит не касался"
+   }
   }
  ],
  "out_of_scope": {
@@ -816,13 +948,100 @@
   "screens": 45,
   "volume": {
    "radius_off_scale": 457,
+   "radius_off_scale_excl_capsules": 291,
    "stroke_off": 155,
-   "touch_under_44": 0
+   "spacing_off_scale": 657,
+   "type_size_off_scale": 876
   },
   "worst_board": {
    "name": "Responsive QA outputs · iPhone 8/SE + iPhone 13",
    "radius_off_scale": 424
   }
+ },
+ "schema_version": "2.0",
+ "methodology": {
+  "recomputed_at": "2026-08-03T13:07Z",
+  "note": "Все пять колонок пересчитаны одним сборщиком по историческим версиям файла Figma. Прежде первые четыре считал инструмент, которого больше нет, и сравнивать их с пятой было нельзя.",
+  "collector": "tools/figma-audit/audit.py",
+  "figma_versions": {
+   "23 июл": "2379204091503015435",
+   "09:16": "2382659070572094965",
+   "11:11": "2382685279529870695",
+   "19:02": "2382795033095366744",
+   "3 авг": "2383487596576305773"
+  },
+  "corrections": [
+   "контраст: текстовый узел больше не принимается за фон — 6 ложных срабатываний с коэффициентом 1.0 убраны",
+   "типопары: галерея шаблонов исключена, как и в целях нажатия — её 12 пар это масштаб превью, а не типографика",
+   "радиусы: добавлен счёт без капсул — 871.22 на пилюле это radius/full, а не нарушение",
+   "«доля целой сетки» переименована в «долю целых радиусов»: она всегда считалась по узлам с радиусом, а не по всей геометрии"
+  ]
+ },
+ "trend_as_published": {
+  "note": "то, что публиковалось прежним инструментом. Оставлено, чтобы правки методики были видны, а не потеряны.",
+  "radius_off_scale": [
+   522,
+   481,
+   484,
+   477,
+   0
+  ],
+  "radius_fractional": [
+   515,
+   446,
+   447,
+   440,
+   0
+  ],
+  "integer_grid_share_pct": [
+   1.3,
+   27.8,
+   28.3,
+   29.4,
+   100.0
+  ],
+  "stroke_not_1pt": [
+   209,
+   172,
+   172,
+   172,
+   0
+  ],
+  "colors_off_palette": [
+   52,
+   60,
+   63,
+   63,
+   54
+  ],
+  "type_pairs": [
+   83,
+   124,
+   130,
+   130,
+   129
+  ],
+  "cta_off_screen": [
+   null,
+   4,
+   2,
+   2,
+   2
+  ],
+  "cta_widths_at_390": [
+   null,
+   4,
+   2,
+   3,
+   2
+  ],
+  "screens_no_inbound": [
+   null,
+   14,
+   15,
+   15,
+   3
+  ]
  }
 }
 </script>
@@ -844,13 +1063,7 @@
         457 радиусов вне шкалы никуда не делись, они в онбординге, куда метрика
         не смотрела ни разу. Отсюда F-26: находка не про макет, а про сам аудит.</p>
     </div>
-    <p class="footnote">Прогоны: 24 июля (плагин figwright), 1 августа 09:16 · 11:11 · 19:02
-      и 3 августа 13:07 (REST). Метрики считаются по секциям страницы Product без заглушки,
-      полным обходом дерева. Сборщик прогона 3 августа пересобран с нуля и сверен против
-      исторических версий файла Figma: из 27 опубликованных ячеек прошлых прогонов он
-      воспроизводит 24 точно, включая объём заглушки 172 / 100 / 5. Три расхождения — на
-      выгрузке 09:16, где блоки назывались иначе. Следующий прогон дописывает колонку,
-      а не создаёт новый документ.</p>
+    <p class="footnote">Прогоны: 23 июля, 1 августа 09:16 · 11:11 · 19:02 и 3 августа 13:07. Все пять посчитаны одним сборщиком по историческим версиям файла Figma, вытащенным через <code>/v1/files/{key}/versions</code>. Прежде первые четыре колонки считал другой инструмент, и сравнивать их с пятой было нельзя; прежний ряд сохранён в <code>trend_as_published</code>. Прогон 24 июля делался плагином figwright — под него взято ближайшее состояние файла, 23 июля. Там, где определения не менялись, пересчёт воспроизводит опубликованное точно: обводки 209, цвета 52. Метрики считаются по секциям страницы Product без заглушки. Следующий прогон дописывает колонку, а не создаёт новый документ.</p>
   </section>
 
 </div>
