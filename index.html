@@ -202,7 +202,7 @@ footer{margin-top:48px;padding-top:22px;border-top:1px solid var(--rule);font-si
 <section><h2>Ломает продукт · 20 мин</h2>
 <div class="task broken">
 <div class="head"><h3>Онбординг нельзя пройти — он обрывается на первом экране</h3><span class="min">≈15 мин</span></div>
-<p>У экранов 01–07 нет ни одного перехода. Прототип стартует на Welcome и дальше не идёт: ни протестировать, ни показать клиенту.</p>
+<p>Связаны только экраны 08–13 — их сорок переходов видно на канвасе, и по ним кажется, что прототип собран. У экранов 01–07 переходов нет: на 01–05 лежит кнопка Continue без interactions, на 06–07 кнопок нет вовсе. Вдобавок точка входа названа «01 Welcome», а ведёт на всю доску 6444×1320 — play показывает не телефон, а всю раскладку сразу.</p>
 <div class="plabel">Промпт агенту</div>
 <pre>Файл Figma lKdFEoJiOwWMaUpjTHBl6N. Узлы названы ниже поимённо — правь только их.
 Контекст находки F-29: https://gogi213.github.io/invoice-audit/findings.json
@@ -211,8 +211,10 @@ footer{margin-top:48px;padding-top:22px;border-top:1px solid var(--rule);font-si
 
 Проставь цепочку: 01 Welcome → 02 ATT permission → 03 Business name → 04 Industry → 05 Upload logo → 06 Logo source → 07 Photo access → 08 AI Estimate. Триггер On tap на основной кнопке экрана, анимация Instant.
 
-Меняй только interactions. Экраны 08–13 уже связаны — их не трогай.</pre>
-<div class="check"><b>Проверить после:</b> Запустить прототип с точки входа «Onboarding · 01 Welcome» и дойти до Paywall, не выходя из режима презентации.</div>
+Меняй только interactions. Экраны 08–13 уже связаны — их не трогай.
+
+Отдельно: точка входа прототипа сейчас указывает на узел 12:2 — это вся доска 6444×1320, а не экран. Переставь её на сам экран 01 Welcome.</pre>
+<div class="check"><b>Проверить после:</b> Нажать play: должен открыться телефонный экран Welcome, а не вся доска. Пройти до Paywall, не выходя из режима презентации.</div>
 <div class="meta"><span>Onboarding · Main flow, первые семь экранов слева</span><span>6 переходов</span><span>6 в findings.json</span></div>
 </div>
 <div class="task broken">

@@ -1,6 +1,6 @@
 {
  "schema_version": "2.0",
- "generated_at": "2026-08-03T19:49Z",
+ "generated_at": "2026-08-03T20:06Z",
  "run": "2026-08-03T12-00Z",
  "audience": "agent",
  "human_document": "https://gogi213.github.io/invoice-audit/",
@@ -18197,7 +18197,7 @@
    "status": "open",
    "severity": "now",
    "title": "Онбординг не проходится: первые семь экранов без переходов",
-   "problem": "У экранов 01–07 основного потока нет исходящих переходов. Прототип стартует на Welcome и обрывается: пройти онбординг нельзя ни при тестировании, ни при показе.",
+   "problem": "Точка входа прототипа названа «Onboarding · 01 Welcome», но указывает на узел 12:2 — доску 6444×1320 целиком, а не на экран. Нажатие play показывает всю раскладку из тринадцати экранов сразу. При этом у экранов 01–07 нет ни одного исходящего перехода: на 01–05 лежит инстанс Button / Continue без interactions, на 06–07 кнопок нет вовсе. Связаны только 08–13.",
    "rule": "prototype",
    "metric": "onboarding_screens_no_inbound",
    "history": [
@@ -18219,7 +18219,12 @@
      "07 Photo access"
     ],
     "outgoing_nodes_onboarding": 23,
-    "outgoing_nodes_product": 213
+    "outgoing_nodes_product": 213,
+    "entry_point_node": "12:2",
+    "entry_point_size": "6444x1320",
+    "entry_point_note": "названа «01 Welcome», ведёт на всю доску",
+    "wired_range": "08-13 связаны, 40 переходов",
+    "inherited_from_masters": "нет: единственный мастер с переходами — AI Input Option на странице Product"
    },
    "converge_to": "каждый экран имеет исходящий переход к следующему",
    "requires_decision": null,
