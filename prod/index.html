@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<title>Invoice World — путь до ревью Apple</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--background:#fafaf7;--foreground:#1d1d1b;--muted:#ececE6;--muted-foreground:#6b6b66;--surface-raised:#fff;--border:#e3e3dc;--radius:12px;--success:#3aa65b;--brand:#b5e61d;--warning:#f0a020;--font-sans:-apple-system,system-ui,sans-serif}
+  body{max-width:760px;margin:32px auto;padding:0 16px;background:var(--background);color:var(--foreground);font-size:14px}
+    body{font-family:var(--font-sans)}
+  .lead{color:var(--muted-foreground);margin:0 0 14px}
+  .sum{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+  .tile{background:var(--surface-raised);border-radius:var(--radius);padding:12px 16px;min-width:120px}
+  .tile b{display:block;font-size:20px}
+  .tile span{color:var(--muted-foreground);font-size:12px}
+  h3{margin:20px 0 8px;font-size:15px}
+  table{width:100%;border-collapse:collapse}
+  td{padding:7px 6px;border-top:1px solid var(--border);vertical-align:top}
+  td.n{width:22px;color:var(--muted-foreground)}
+  td.h{width:48px;text-align:right;color:var(--muted-foreground);white-space:nowrap}
+  td.s{width:86px}
+  .st{font-size:11px;padding:2px 7px;border-radius:999px;white-space:nowrap}
+  .done{background:color-mix(in srgb,var(--success) 22%,transparent)}
+  .work{background:color-mix(in srgb,var(--brand) 22%,transparent)}
+  .todo{background:var(--muted)}
+  .wait{background:color-mix(in srgb,var(--warning) 25%,transparent)}
+  .sub{color:var(--muted-foreground);font-size:12px}
+  ul{margin:4px 0 0 18px;padding:0}
+  li{margin:3px 0}
+</style></head><body>
+<p class="lead">До отправки версии 1.0 на ревью Apple · обновлено 18.11.2026 17:10 · main e510c6fa+, TestFlight 2224 у Internal</p>
+
+<div class="sum">
+  <div class="tile"><b>~19 ч</b><span>наша работа</span></div>
+  <div class="tile"><b>3–5 ч</b><span>время Георгия</span></div>
+  <div class="tile"><b>2–3 дня</b><span>до Submit в нашем темпе</span></div>
+  <div class="tile"><b>сутки+</b><span>круг ревью Apple</span></div>
+</div>
+
+<h3>Путь</h3>
+<table>
+<tr><td class="n">1</td><td>Баги: адрес на карточке клиента (В-297), тень Choose template (В-299), логотип — Crop под статус-баром и окно выбора над шторкой (В-298/300)</td><td class="s"><span class="st work">в работе</span></td><td class="h">4 ч</td></tr>
+<tr><td class="n">2</td><td>Георгий проходит баги своим путём на TestFlight — цвет счёта, логотип, Custom</td><td class="s"><span class="st wait">Георгий</span></td><td class="h">1–2 ч</td></tr>
+<tr><td class="n">3</td><td>Согласие на AI (Apple 5.1.2(i)): чек-лист app-store-review; рекомендация — «Before you dictate» обязательный, подпись на форме не возвращать<div class="sub">решение Георгия — 5 мин</div></td><td class="s"><span class="st todo">ждёт</span></td><td class="h">1,5 ч</td></tr>
+<tr><td class="n">4</td><td>Прогон на живом iPhone с Георгием: покупка и Restore в песочнице, вход Apple, удаление аккаунта, диктовка на микрофоне, закрытие после Email/Messages<div class="sub">Георгий: Sandbox-тестер в ASC, телефон</div></td><td class="s"><span class="st todo">ждёт</span></td><td class="h">4 ч</td></tr>
+<tr><td class="n">5</td><td>VoiceOver: порядок на форме и превью, нижний бар под формой (Apple не режет, но до магазина)</td><td class="s"><span class="st todo">ждёт</span></td><td class="h">2 ч</td></tr>
+<tr><td class="n">6</td><td>Переснять 5 скриншотов 6.9″ (UI сильно менялся с 10.11) → Георгий одобряет → залить в ASC</td><td class="s"><span class="st todo">ждёт</span></td><td class="h">2 ч</td></tr>
+<tr><td class="n">7</td><td>Заметки для ревьюера (текст от 24.10) сверить с нынешним UI и лимитами, обновить в ASC</td><td class="s"><span class="st todo">ждёт</span></td><td class="h">1 ч</td></tr>
+<tr><td class="n">8</td><td>Один полный прогон тестов на финальной версии + разбор нестабильных</td><td class="s"><span class="st todo">ждёт</span></td><td class="h">2 ч</td></tr>
+<tr><td class="n">9</td><td>Релизные проверки на финальной сборке: архив, бандл, privacy manifest, check-asc-privacy</td><td class="s"><span class="st todo">ждёт</span></td><td class="h">1,5 ч</td></tr>
+<tr><td class="n">10</td><td>Финальная сборка → TestFlight → привязать к версии 1.0 (сейчас билда у 1.0 нет)</td><td class="s"><span class="st todo">ждёт</span></td><td class="h">1 ч</td></tr>
+<tr><td class="n">11</td><td>Георгий в ASC: App Privacy опубликована и совпадает с манифестом; Agreements/налоги активны; обе подписки прикреплены к 1.0; способ релиза; <b>Submit for Review</b></td><td class="s"><span class="st wait">Георгий</span></td><td class="h">30 мин</td></tr>
+<tr><td class="n">12</td><td>Ответы Apple, если вернут (1–3 круга)</td><td class="s"><span class="st todo">потом</span></td><td class="h">—</td></tr>
+</table>
+
+<h3>Уже готово (проверено 18.11)</h3>
+<ul>
+  <li>Пачка В-278…294 + хвосты В-280…290 влиты, TestFlight 2224 у группы Internal</li>
+  <li>Версия 1.0 в ASC — PREPARE_FOR_SUBMISSION; подписки weekly и annual — READY_TO_SUBMIT</li>
+  <li>Карточка: описание, ключевые слова, Support/Privacy URL, рейтинг, контакт ревью</li>
+  <li>Прод и staging: health ok, база ok; политика, условия, поддержка открываются</li>
+  <li>check-release-config --release — OK; entitlements, строки доступа, шифрование, только iPhone</li>
+</ul>
+
+<h3>Не держит ревью, но до рекламы</h3>
+<ul>
+  <li>Apple Private Relay для invoiceworld.net (Никита) — иначе письма на скрытые адреса</li>
+  <li>Adapty → Meta: убрать Sandbox, продления в Purchase не уходят</li>
+  <li>Amplitude по ТЗ Никиты — проверить полноту</li>
+  <li>Хвосты: парсер «at 80 dollars», конфликт при pull воскрешает документ, мелочи макета</li>
+</ul>
+</body></html>
