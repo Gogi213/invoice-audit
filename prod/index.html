@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Invoice World — до ревью Apple</title>
+<title>Invoice World — оставшиеся задачи</title>
 <style>
   :root{
     --bg:#0e0e0d; --line:#262624; --text:#ecebe6; --dim:#8a8984; --faint:#55554f;
@@ -46,47 +46,57 @@
   @media (max-width:520px){h1{font-size:24px}.facts b{font-size:18px}}
 </style></head><body><main>
 
-<div class="eyebrow">INVOICE WORLD · ВЕРСИЯ 1.0 · 22.11.2026</div>
-<h1>Версия 1.0 <em>на ревью Apple</em> с 22.11 — ждём ответа (до 48 ч).</h1>
+<div class="eyebrow">INVOICE WORLD · 25.11.2026, 02:00</div>
+<h1>1.0 ждёт ревью Apple. <em>Код 1.0.1 готов</em>, сборки нет. Осталось 13 задач.</h1>
 
 <div class="facts">
-  <div><b>103</b><span>из 109 задач готовы</span></div>
-  <div><b>4</b><span>пункта на ревью</span></div>
-  <div><b>1+ сут</b><span>круг ревью Apple</span></div>
+  <div><b>1.0</b><span>сборка 2230, на ревью с 22.11</span></div>
+  <div><b>1.0.1</b><span>правки в main, сборки ещё нет</span></div>
+  <div><b>13</b><span>открытых задач, 3 из них — решения</span></div>
 </div>
 
-<h2>До ревью</h2>
+<h2>1.0 — до магазина</h2>
 <ol>
-  <li><span class="n">01</span><div class="t">Сборка 2230 вместо 2229<div class="d">В 2229 нет исправлений низа PDF: в Editorial, Itemized и Signature не печатались условия, реквизиты ужимались до 70 %, лишняя шапка таблицы на листе итогов A4. Исправления в main; низы всех 8 шаблонов на превью проверены (72 из 72 кадров). Релизные 122/0 (26.5) и 115/0 (18.6), validate чистый, 2230 привязана к 1.0 (VALID)</div><span class="who">команда</span></div><span class="r">готово</span></li>
-  <li><span class="n">02</span><div class="t">Чек-лист app-store-review<div class="d">24 пройдено / 3 мелких / 6 не проверено; App Privacy 17 из 17 типов сходится. Блокер — фраза о согласии на AI в описании — исправлен в ASC</div><span class="who">команда</span></div><span class="r">готово</span></li>
-  <li><span class="n">03</span><div class="t">R-03 Отправлено на ревью 22.11<div class="d">1.0 (2230) + группа Invoice Subs + annual + weekly; статус Waiting for Review (В-331)</div><span class="who">Георгий</span></div><span class="r">—</span></li>
-  <li class="now"><span class="n">04</span><div class="t">R-04, R-05 Ответы Apple и выпуск<div class="d">Если вернут — 1–3 круга (оценка)</div><span class="who">по факту</span></div><span class="r">—</span></li>
+  <li class="now"><span class="n">01</span><div class="t">Ответ Apple (R-04)<div class="d">Статус на 25.11 02:00 — Waiting for Review. Вернут — отвечаем; сколько кругов, заранее неизвестно</div><span class="who">Apple</span></div><span class="r">ждём</span></li>
+  <li><span class="n">02</span><div class="t">Выпуск и проверка в магазине (R-05)<div class="d">После одобрения выйдет автоматически; проверить, что скачивается</div><span class="who">Георгий</span></div><span class="r">после 01</span></li>
+  <li class="owner"><span class="n">03</span><div class="t">Restore и удаление аккаунта на одноразовой учётке (V-08)<div class="d">Решено: после ревью</div><span class="who">Георгий</span></div><span class="r">после 01</span></li>
 </ol>
 
-<h2>Открыто, ревью не держит</h2>
-<ul>
-  <li>M-08 домены invoiceworld.net и send.invoiceworld.net для писем на скрытую почту Apple — у учётки Георгия «Access Unavailable»; Никита даёт доступ к Certificates, Identifiers &amp; Profiles или добавляет сам (~5 мин)</li>
-  <li>V-09 письмо о регистрации на скрытую почту — после M-08</li>
-  <li>V-08 Restore и удаление аккаунта на одноразовой учётке — после ревью (В-330)</li>
-  <li>INV-0001 на проде ушёл из Sent в Draft 21.11 — в коде пути без тапа нет, вероятно случайный тап; ждёт ответа Георгия</li>
-</ul>
+<h2>1.0.1 — следующая версия</h2>
+<ol>
+  <li class="owner"><span class="n">04</span><div class="t">Выложить сервер на прод (В-338)<div class="d">Предел тела синка 2 МБ, проверка владельца строки документа, почта профиля строкой. Проверено на локальном сервере, не на проде. Нужно «да»</div><span class="who">Георгий → команда</span></div><span class="r">ждёт «да»</span></li>
+  <li class="owner"><span class="n">05</span><div class="t">Сборка 1.0.1 в TestFlight<div class="d">Код в main. Перед заливкой — релизный набор UI-тестов на 26.5 и 18.6. Нужна команда</div><span class="who">Георгий → команда</span></div><span class="r">ждёт команды</span></li>
+  <li><span class="n">06</span><div class="t">Проверка 1.0.1 на телефоне<div class="d">Вход Apple и Google, новое имя в окне Google, склейка клиентов при входе гостя: на настоящем входе не проверялась</div><span class="who">Георгий</span></div><span class="r">после 05</span></li>
+  <li><span class="n">07</span><div class="t">Отправить 1.0.1 на ревью<div class="d">Когда 1.0 выйдет, а проверка на телефоне пройдена</div><span class="who">Георгий</span></div><span class="r">после 02, 06</span></li>
+  <li class="owner"><span class="n">08</span><div class="t">Опубликовать библиотеку Figma<div class="d">Менялись Client option и строка профиля</div><span class="who">Георгий</span></div><span class="r">можно сейчас</span></li>
+</ol>
 
-<h2>После подачи, до рекламы</h2>
-<ul>
-  <li>Adapty → Meta: убрать Sandbox, продления не уходят в Purchase</li>
-  <li>Синк: конфликт при pull воскрешает удалённый документ (не проверено)</li>
-  <li>PDF A4: у Blueprint и Contractor итоги наезжают на FROM / BILL TO при заметке от ~560 знаков; у Editorial и Itemized последняя строка условий в ~8–10 pt от подвала</li>
-  <li>Долгое нажатие у левого края на вложенных экранах может не открыть меню — проверить руками</li>
-  <li>Мелочи вида: заголовок согласия AI, подписи Repeat на 4–5 pt ниже, размытие под шапкой</li>
-  <li>Диктовка: пустая строка «Service» на одиночное «service» в конце фразы</li>
-</ul>
+<h2>Нужно твоё решение</h2>
+<ol>
+  <li class="owner"><span class="n">09</span><div class="t">Номера на втором телефоне<div class="d">Счётчик номеров только на телефоне: на втором снова будет INV-0001. Видно по коду, на двух телефонах не воспроизводили</div><span class="who">Георгий</span></div><span class="r">решить</span></li>
+  <li class="owner"><span class="n">10</span><div class="t">Профиль гостя при входе<div class="d">Название, валюта, налог, логотип гостя заменяют данные аккаунта. Решить, чьи остаются</div><span class="who">Георгий</span></div><span class="r">решить</span></li>
+  <li class="owner"><span class="n">11</span><div class="t">Log out с неотправленными данными<div class="d">Стирает телефон без проверки и обещает «They stay in your account». Было и до 1.0.1; найдено чтением кода, не воспроизведено</div><span class="who">Георгий</span></div><span class="r">решить</span></li>
+</ol>
 
-<h2>Готово с 21.11</h2>
+<h2>Внешнее</h2>
+<ol>
+  <li><span class="n">12</span><div class="t">Домены для писем на скрытую почту Apple (M-08), затем письмо о регистрации (V-09)<div class="d">Никита даёт доступ в Apple Developer или добавляет сам (~5 мин). Ревью и разработку не держит</div><span class="who">Никита</span></div><span class="r">открыто</span></li>
+  <li><span class="n">13</span><div class="t">Adapty → Meta<div class="d">Убрать Sandbox до рекламы; Meta получает только первую оплату, продления не уходят</div><span class="who">команда</span></div><span class="r">до рекламы</span></li>
+</ol>
+
+<h2>Уже в 1.0.1</h2>
 <ul class="ok">
-  <li>Реестр v3.10: 103 из 109 (S-02 покупка, S-06 скриншоты 5/5, S-08 заметки ревьюеру, L-06 политика, V-01/03/05 сеанс на iPhone, R-01/R-02 сборка 2229 привязана, R-06 «да» Георгия)</li>
-  <li>В-326 футеры шаблонов, В-329 свой цвет возвращается вместе с шаблоном</li>
-  <li>Низ PDF: условия во всех 8 шаблонах, реквизиты переносятся без ужатия, лист итогов A4 без шапки</li>
+  <li>При входе гостя одноимённые клиенты склеиваются сами, похожие — вопрос «Same client?» (В-345)</li>
+  <li>Settings: «Signed in» вместо Guest после входа (В-344)</li>
+  <li>Счета в карточке клиента выглядят как в Invoices (В-343)</li>
+  <li>Синк, форма и скидка суммой — правки по ревью кода (В-338); окно «Move back to Draft?» убрано (В-340)</li>
+  <li>Дизайн-система: отступы строк, размытие под шапкой, ставка без лишних .00</li>
 </ul>
 
-<footer>обновлено 22.11.2026 (реестр v3.10, В-330)</footer>
+<h2>Закрыто 25.11, вне сборки</h2>
+<ul class="ok">
+  <li>Имя «Invoice World» в окне входа Google: бренд проверен и показывается пользователям (В-342)</li>
+</ul>
+
+<footer>обновлено 25.11.2026 02:00 · мелкие хвосты и нестабильные тесты сюда не входят</footer>
 </main></body></html>
