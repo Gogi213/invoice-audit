@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>AI Estimate — Chat</title>
+<style>
+  :root{--lime:#C7F36B;--lime50:#F4FAE8;--ink:#101211;--muted:#646A65;--plate:#F8F8F4;--violet:#6B5BD2;--teal:#1F8A80;--line:#E6E8E3}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;color:var(--ink);background:var(--plate);display:flex;flex-direction:column;max-width:500px;margin:0 auto}
+  header{padding:calc(env(safe-area-inset-top) + 10px) 16px 10px;display:flex;align-items:center;justify-content:space-between;background:rgba(248,248,244,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:2}
+  header h1{font-size:18px;font-weight:700}
+  header button{background:none;border:0;font:inherit;font-size:16px;color:var(--violet)}
+  .msgs{flex:1;overflow-y:auto;padding:12px 14px 16px;display:flex;flex-direction:column;gap:10px}
+  .b{max-width:84%;padding:10px 13px;border-radius:18px;font-size:16px;line-height:22px}
+  .b.me{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:6px}
+  .b.ai{align-self:flex-start;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);border-bottom-left-radius:6px}
+  .b.full{max-width:100%;width:100%}
+  .in{animation:in .4s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .pop{animation:pop .3s cubic-bezier(.2,1.4,.4,1) both}
+  @keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+  .dots span{display:inline-block;width:7px;height:7px;border-radius:4px;background:#aaa;margin-right:3px;animation:dot 1s infinite}
+  .dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+  @keyframes dot{0%,80%,100%{opacity:.3}40%{opacity:1}}
+  .qr{display:flex;gap:8px;flex-wrap:wrap;align-self:flex-start;max-width:100%}
+  .qr button{font:inherit;font-size:15px;border:1px solid #cfd3cd;border-radius:18px;padding:8px 14px;background:#fff;color:var(--ink)}
+  .qr button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .qr .send{background:var(--lime);border-color:var(--lime);font-weight:600}
+  .qr .send:disabled{opacity:.4}
+  .ln{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .ln:last-child{border-bottom:0}
+  .ln .t{font-weight:600}
+  .ln .d{font-size:13px;color:var(--muted)}
+  .ln .p{margin-left:auto;font-weight:600;white-space:nowrap}
+  .tag{display:inline-block;font-size:11px;font-weight:600;border-radius:6px;padding:1px 6px;margin-top:4px}
+  .tag.hist{background:var(--lime50);color:#3C5C14;border:1px solid #C7E59A}
+  .tag.data{background:#E6F4F2;color:var(--teal);border:1px solid #B9E0DB}
+  .tag.ai{background:#EFEDFB;color:var(--violet);border:1px solid #D6D1F5}
+  .ln.ai .p{border-bottom:1px dashed var(--violet)}
+  .tot{display:flex;justify-content:space-between;font-weight:700;font-size:17px;padding-top:10px;margin-top:4px;border-top:1px solid var(--line)}
+  .acts{display:flex;gap:8px;margin-top:12px}
+  .acts button{flex:1;height:44px;border-radius:22px;border:0;font:inherit;font-size:15px;font-weight:600;background:var(--lime);color:var(--ink)}
+  .acts button.sec{background:#F0F1EE}
+  .bar{padding:8px 12px calc(env(safe-area-inset-bottom) + 10px);display:flex;gap:8px;align-items:flex-end;background:var(--plate);border-top:1px solid var(--line)}
+  .bar textarea{flex:1;min-height:40px;max-height:120px;border:1px solid #d7dad4;border-radius:20px;padding:9px 14px;font:inherit;font-size:16px;line-height:20px;resize:none;outline:none;background:#fff}
+  .bar button{width:40px;height:40px;border-radius:20px;border:0;background:var(--ink);color:#fff;font-size:18px;flex:none}
+  .bar button:disabled{opacity:.3}
+  .hint{font-size:13px;color:var(--muted);text-align:center;padding:4px 20px}
+  .legend{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+</style>
+</head>
+<body>
+<header><button onclick="location.reload()">Restart</button><h1>AI Estimate</h1><span style="width:58px"></span></header>
+<div class="msgs" id="msgs">
+  <div class="hint">Describe the job — what, for whom, how big.<br>Prices come from your invoices, then market data, then an AI guess.
+    <div class="legend"><span class="tag hist">Your price</span><span class="tag data">Market</span><span class="tag ai">AI guess</span></div></div>
+</div>
+<div class="bar"><textarea id="inp" rows="1">Bathroom remodel for Anna Lee: replace tiles, new vanity, paint ceiling</textarea><button id="send">↑</button></div>
+
+<script>
+(function () {
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const money = v => "$" + Math.round(v).toLocaleString("en-US");
+  const M = document.getElementById("msgs"), INP = document.getElementById("inp"), SEND = document.getElementById("send");
+  const scroll = () => M.scrollTo({top: M.scrollHeight, behavior: "smooth"});
+  const add = (html, cls) => { const d = document.createElement("div"); d.className = cls + " in"; d.innerHTML = html; M.appendChild(d); scroll(); return d; };
+  const typing = async ms => { const t = add(`<span class="dots"><span></span><span></span><span></span></span>`, "b ai"); await sleep(ms); return t; };
+  const TAG = {hist: "Your price", data: "Market", ai: "AI guess · tap to check"};
+  let state = 0, answers = {size: null, tiles: null};
+
+  INP.addEventListener("input", () => { SEND.disabled = INP.value.trim().length < 10; INP.style.height = "auto"; INP.style.height = INP.scrollHeight + "px"; });
+  SEND.addEventListener("click", start);
+
+  async function start() {
+    if (state !== 0) return; state = 1;
+    add(INP.value.trim().replace(/</g, "&lt;"), "b me"); INP.value = ""; SEND.disabled = true;
+    const t = await typing(900);
+    t.innerHTML = "Got it. Two quick questions so the numbers aren't guessed:";
+    await sleep(300);
+    ask("How big is the floor to tile?", "size", ["40 sq ft", "60 sq ft", "80 sq ft"], async () => {
+      ask("Who buys the tiles?", "tiles", ["I buy them", "Client supplies"], build);
+    });
+  }
+
+  function ask(q, key, opts, next) {
+    add(q, "b ai");
+    const qr = add(opts.map(o => `<button>${o}</button>`).join("") + `<button class="skip" style="color:var(--muted)">Skip</button>`, "qr");
+    qr.querySelectorAll("button").forEach(b => b.addEventListener("click", async () => {
+      if (qr.dataset.done) return; qr.dataset.done = 1;
+      b.classList.add("on");
+      const v = b.classList.contains("skip") ? null : b.textContent;
+      answers[key] = v;
+      await sleep(250); qr.remove();
+      add(v || "Skip", "b me");
+      await sleep(200); next();
+    }));
+  }
+
+  async function build() {
+    const t = await typing(1300);
+    const sq = parseInt(answers.size) || 60, own = answers.tiles === "Client supplies";
+    const lines = [
+      {t: "Tile removal", d: `${sq} sq ft × $3.50`, v: sq * 3.5, src: "hist", n: "INV-0014"},
+      {t: "Tile installation", d: `${sq} sq ft × $12`, v: sq * 12, src: "hist", n: "INV-0014"},
+      ...(own ? [] : [{t: "Porcelain tiles", d: `${Math.round(sq * 1.1)} sq ft × $6.20 (+10% waste)`, v: Math.round(sq * 1.1) * 6.2, src: "data", n: "avg 94110"}]),
+      {t: "Vanity installation", d: "1 × $450", v: 450, src: "data", n: "range $300–600"},
+      {t: "Ceiling paint", d: "1 room", v: 280, src: "hist", n: "INV-0009"},
+      {t: "Debris disposal", d: "1 load", v: 150, src: "ai", n: ""},
+    ];
+    t.classList.add("full");
+    t.innerHTML = `<div style="font-weight:700;margin-bottom:2px">Estimate · Anna Lee</div><div style="font-size:13px;color:var(--muted)">Client matched from your message</div><div data-l></div><div class="tot"><span>Total</span><span data-t>$0</span></div><div class="acts" style="display:none"><button class="sec" data-p>Preview PDF</button><button data-s>Save</button></div>`;
+    const L = t.querySelector("[data-l]"), T = t.querySelector("[data-t]");
+    let sum = 0;
+    for (const l of lines) {
+      L.insertAdjacentHTML("beforeend", `<div class="ln in ${l.src}"><div><div class="t">${l.t}</div><div class="d">${l.d}</div><span class="tag ${l.src}">${TAG[l.src]}${l.n ? " · " + l.n : ""}</span></div><div class="p">${money(l.v)}</div></div>`);
+      const from = sum; sum += l.v;
+      for (let i = 1; i <= 10; i++) { T.textContent = money(from + (sum - from) * i / 10); await sleep(25); }
+      scroll(); await sleep(220);
+    }
+    const acts = t.querySelector(".acts"); acts.style.display = "flex"; acts.classList.add("pop"); scroll();
+    const aiRow = L.querySelector(".ln.ai");
+    aiRow.addEventListener("click", async () => {
+      if (aiRow.dataset.asked) return; aiRow.dataset.asked = 1;
+      add("How much do you charge for disposal?", "b me");
+      const r = await typing(800);
+      r.innerHTML = "No disposal in your invoices and no market data for this zip. $150 is a guess for one load. Tap a price:";
+      const qr = add(["$100", "$150", "$200", "$250"].map(v => `<button>${v}</button>`).join(""), "qr");
+      qr.querySelectorAll("button").forEach(b => b.addEventListener("click", async () => {
+        if (qr.dataset.done) return; qr.dataset.done = 1;
+        const v = parseInt(b.textContent.slice(1));
+        qr.remove(); add(b.textContent, "b me");
+        const old = 150; sum += v - old;
+        aiRow.querySelector(".p").textContent = money(v);
+        aiRow.className = "ln pop hist"; aiRow.querySelector(".tag").className = "tag hist"; aiRow.querySelector(".tag").textContent = "Your price · saved for next time";
+        T.textContent = money(sum);
+        const k = await typing(600); k.innerHTML = `Updated. Total ${money(sum)}. I'll remember ${b.textContent} for disposal.`;
+      }));
+    });
+    t.querySelector("[data-s]").addEventListener("click", async e => { e.target.textContent = "Saved ✓"; const k = await typing(500); k.innerHTML = "Saved as EST-0007 draft. Preview and send it when ready."; });
+    t.querySelector("[data-p]").addEventListener("click", async () => { const k = await typing(400); k.innerHTML = "Opens the same PDF preview as a manual estimate."; });
+    await sleep(500);
+    add("1 price is an AI guess — tap “Debris disposal” to check it.", "b ai");
+  }
+})();
+</script>
+</body>
+</html>
