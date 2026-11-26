@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Estimate — 5 concepts</title>
+<style>
+  :root{--lime:#C7F36B;--lime50:#F4FAE8;--ink:#101211;--muted:#646A65;--plate:#F8F8F4;--violet:#6B5BD2;--teal:#1F8A80;--line:#E6E8E3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;color:var(--ink);padding:16px 0 32px}
+  header.page{max-width:1700px;margin:0 auto 18px;padding:0 16px}
+  header.page h1{font-size:22px;margin-bottom:6px}
+  header.page p{font-size:14px;color:var(--muted);max-width:900px;line-height:20px}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--muted);align-items:center}
+  .grid{display:flex;flex-wrap:wrap;gap:28px;justify-content:center}
+  .col{width:300px}
+  .col h2{font-size:15px;margin-bottom:2px}
+  .col .what{font-size:12px;color:var(--muted);line-height:16px;min-height:48px;margin-bottom:10px}
+  .phone{width:300px;height:620px;background:var(--plate);border-radius:38px;box-shadow:0 0 0 8px #1b1d1c,0 20px 40px rgba(0,0,0,.2);overflow:hidden;position:relative;display:flex;flex-direction:column}
+  .sb{height:34px;display:flex;justify-content:space-between;align-items:center;padding:0 24px;font-size:12px;font-weight:600;flex:none}
+  .scr{flex:1;overflow:hidden;padding:4px 14px 14px;position:relative;display:flex;flex-direction:column}
+  .ttl{font-size:17px;font-weight:700;margin:4px 0 8px}
+  .replay{margin-top:10px;width:100%;height:36px;border-radius:18px;border:1px solid #ccc;background:#fff;font:inherit;font-size:13px;cursor:pointer}
+  .card{background:#fff;border-radius:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:10px 12px}
+  .tag{display:inline-block;font-size:10px;font-weight:600;border-radius:5px;padding:1px 5px;margin-top:3px;white-space:nowrap}
+  .tag.hist{background:var(--lime50);color:#3C5C14;border:1px solid #C7E59A}
+  .tag.data{background:#E6F4F2;color:var(--teal);border:1px solid #B9E0DB}
+  .tag.ai{background:#EFEDFB;color:var(--violet);border:1px solid #D6D1F5}
+  .ln{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .ln:last-child{border-bottom:0}
+  .ln .t{font-weight:600}
+  .ln .d{font-size:11px;color:var(--muted)}
+  .ln .p{margin-left:auto;font-weight:600;white-space:nowrap}
+  .in{animation:in .45s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .pop{animation:pop .35s cubic-bezier(.2,1.4,.4,1) both}
+  @keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+  .tot{display:flex;justify-content:space-between;font-weight:700;font-size:15px;padding-top:8px;margin-top:4px;border-top:1px solid var(--line)}
+  .btn{height:44px;border-radius:22px;border:0;background:var(--lime);font:inherit;font-weight:600;font-size:15px;width:100%}
+  /* 1 chat */
+  .msgs{display:flex;flex-direction:column;gap:8px;overflow:hidden;flex:1;justify-content:flex-end}
+  .b{max-width:85%;padding:8px 11px;border-radius:16px;font-size:13px;line-height:18px}
+  .b.me{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:5px}
+  .b.ai{align-self:flex-start;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);border-bottom-left-radius:5px}
+  .qr{display:flex;gap:6px;flex-wrap:wrap}
+  .qr span{font-size:12px;border:1px solid #ccc;border-radius:14px;padding:5px 10px;background:#fff;transition:all .2s}
+  .qr span.hit{background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.05)}
+  .dots span{display:inline-block;width:6px;height:6px;border-radius:3px;background:#aaa;margin-right:3px;animation:dot 1s infinite}
+  .dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+  @keyframes dot{0%,80%,100%{opacity:.3}40%{opacity:1}}
+  /* 2 live */
+  .typing{min-height:92px;font-size:14px;line-height:20px}
+  .typing mark{background:var(--lime);border-radius:4px;padding:0 2px;transition:background .4s}
+  .caret{display:inline-block;width:2px;height:16px;background:var(--ink);vertical-align:-3px;animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .clientchip{display:inline-flex;gap:6px;align-items:center;background:#fff;border-radius:16px;padding:4px 10px 4px 4px;font-size:12px;font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,.1);margin:8px 0}
+  .av{width:24px;height:24px;border-radius:12px;background:#E8F5CF;display:grid;place-items:center;font-size:10px;font-weight:700}
+  /* 3 sources */
+  .src{display:flex;gap:4px;margin-top:4px}
+  .src i{font-style:normal;font-size:10px;border-radius:5px;padding:1px 5px;background:#F0F1EE;color:#999;transition:all .25s}
+  .src i.look{background:#FFF6D6;color:#8A6D00}
+  .src i.miss{text-decoration:line-through;opacity:.5}
+  .src i.hit.hist{background:var(--lime50);color:#3C5C14}
+  .src i.hit.data{background:#E6F4F2;color:var(--teal)}
+  .src i.hit.ai{background:#EFEDFB;color:var(--violet)}
+  .ln .p.wait{color:#bbb}
+  /* 4 tiers */
+  .tier{border-radius:16px;background:#fff;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:8px;border:2px solid transparent;transition:all .35s}
+  .tier.sel{border-color:var(--ink)}
+  .tier .h{display:flex;justify-content:space-between;font-weight:700;font-size:14px}
+  .tier .s{font-size:11px;color:var(--muted);margin-top:2px}
+  .range{position:relative;height:6px;border-radius:3px;background:linear-gradient(90deg,#E6F4F2,#1F8A80);margin:18px 4px 6px}
+  .range .mk{position:absolute;top:-6px;width:18px;height:18px;border-radius:9px;background:var(--ink);border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);transition:left .8s cubic-bezier(.2,.8,.2,1);transform:translateX(-50%)}
+  .rl{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+  .exp{overflow:hidden;max-height:0;transition:max-height .6s ease}
+  .tier.sel .exp{max-height:260px}
+  /* 5 deck */
+  .deck{position:relative;height:200px;margin:6px 0 10px}
+  .dc{position:absolute;inset:0;background:#fff;border-radius:20px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:16px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .5s cubic-bezier(.3,.7,.3,1),opacity .5s}
+  .dc .t{font-size:17px;font-weight:700}
+  .dc .p{font-size:24px;font-weight:700}
+  .dc .stamp{position:absolute;top:16px;right:16px;font-weight:800;font-size:15px;border:3px solid;border-radius:8px;padding:2px 8px;opacity:0;transform:rotate(12deg);transition:opacity .2s}
+  .dc.keep .stamp.k{opacity:1;color:#3C8C14}
+  .dc.drop .stamp.x{opacity:1;color:#D9473F}
+  .hint{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:6px}
+  .kept{flex:1;overflow:hidden}
+  .tap{cursor:pointer;border-bottom:1px dashed #999}
+  .alts{flex-basis:100%;display:flex;flex-wrap:wrap;gap:5px}
+  .alts:not(:empty){padding-top:6px}
+  .alt{font:inherit;font-size:11px;border:1px solid #ddd;background:#fff;border-radius:10px;padding:4px 8px;cursor:pointer}
+  .alt.on{border-color:var(--ink);background:var(--ink);color:#fff}
+  .alt.hist b{color:#3C8C14}.alt.data b{color:var(--teal)}.alt.ai b{color:var(--violet)}.alt.on b{color:inherit}
+  .btn{cursor:pointer}.btn:disabled{opacity:.45;cursor:default}
+  .rb{width:52px;height:52px;border-radius:26px;border:0;font-size:22px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12);background:#fff}
+  .rb.k{background:var(--lime)}.rb.x{color:#D9473F}
+  .dc{cursor:grab;touch-action:none;user-select:none}
+</style>
+</head>
+<body>
+<header class="page">
+  <h1>AI Estimate — 5 concepts</h1>
+  <p>One job for all five: “Bathroom remodel for Anna Lee: replace tiles, new vanity, paint ceiling”. Every price comes from one of three sources, in this order: the user's own past invoices → market datasets for their region → AI guess (marked “check”). 1–2 play on their own; 3–5 wait for your taps (3: “Find prices”, then tap a price; 4: tap an option; 5: drag the card or use ✕ / ✓). “Replay” restarts.</p>
+  <div class="legend"><span class="tag hist">Your price</span> past invoices <span class="tag data">Market</span> dataset, zip 94110 <span class="tag ai">AI guess</span> no data — check</div>
+</header>
+<div class="grid" id="grid"></div>
+
+<script>
+(function () {
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const money = v => "$" + Math.round(v).toLocaleString("en-US");
+  const LINES = [
+    {t: "Tile removal", d: "60 sq ft × $3.50", v: 210, src: "hist", note: "INV-0014"},
+    {t: "Tile installation", d: "60 sq ft × $12", v: 720, src: "hist", note: "INV-0014"},
+    {t: "Porcelain tiles", d: "66 sq ft × $6.20", v: 409, src: "data", note: "avg 94110"},
+    {t: "Vanity installation", d: "1 × $450", v: 450, src: "data", note: "range $300–600"},
+    {t: "Ceiling paint", d: "1 room", v: 280, src: "hist", note: "INV-0009"},
+    {t: "Debris disposal", d: "1 load", v: 150, src: "ai", note: "check"},
+  ];
+  const TAG = {hist: "Your price", data: "Market", ai: "AI guess · check"};
+  const tag = l => `<span class="tag ${l.src}">${TAG[l.src]}${l.src === "ai" ? "" : " · " + l.note}</span>`;
+  const row = (l, extra = "") => `<div class="ln in" ${extra}><div><div class="t">${l.t}</div><div class="d">${l.d}</div>${tag(l)}</div><div class="p">${money(l.v)}</div></div>`;
+
+  async function countTo(el, from, to, ms = 500) {
+    const n = 14;
+    for (let i = 1; i <= n; i++) { el.textContent = money(from + (to - from) * i / n); await sleep(ms / n); }
+  }
+
+  const concepts = [];
+  function concept(title, what, run) { concepts.push({title, what, run}); }
+
+  // 1. Chat
+  concept("1 · Chat", "Talk it through. AI asks only what's missing, then the estimate grows inside the chat.", async (s, alive) => {
+    s.innerHTML = `<div class="ttl">AI Estimate</div><div class="msgs" data-m></div>`;
+    const m = s.querySelector("[data-m]");
+    const add = async (html, cls) => { const d = document.createElement("div"); d.className = cls + " in"; d.innerHTML = html; m.appendChild(d); return d; };
+    await add("Bathroom remodel for Anna Lee: replace tiles, new vanity, paint ceiling", "b me"); await sleep(700); if (!alive()) return;
+    let t = await add(`<span class="dots"><span></span><span></span><span></span></span>`, "b ai"); await sleep(900); if (!alive()) return;
+    t.innerHTML = "How big is the floor? Who buys the tiles?";
+    const q = await add(`<span>40 sq ft</span><span>60 sq ft</span><span>80 sq ft</span><span>I buy tiles</span><span>Client buys</span>`, "qr"); await sleep(900); if (!alive()) return;
+    q.children[1].classList.add("hit"); await sleep(350); q.children[3].classList.add("hit"); await sleep(600); if (!alive()) return;
+    q.remove(); await add("60 sq ft, I buy tiles", "b me"); await sleep(500);
+    t = await add(`<span class="dots"><span></span><span></span><span></span></span>`, "b ai"); await sleep(900); if (!alive()) return;
+    t.innerHTML = `<div style="font-weight:600;margin-bottom:4px">Estimate for Anna Lee</div><div data-l></div><div class="tot"><span>Total</span><span data-t>$0</span></div>`;
+    t.style.maxWidth = "100%"; t.style.width = "100%";
+    const L = t.querySelector("[data-l]"), T = t.querySelector("[data-t]"); let sum = 0;
+    for (const l of LINES) { if (!alive()) return; L.insertAdjacentHTML("beforeend", row(l)); await countTo(T, sum, sum += l.v, 300); await sleep(200); }
+    await sleep(400); await add("1 price is an AI guess — tap to check", "b ai");
+  });
+
+  // 2. Live build
+  concept("2 · Live build", "Lines appear while you type or dictate. Keywords light up, the client is matched from the phrase.", async (s, alive) => {
+    s.innerHTML = `<div class="ttl">Describe the job</div><div class="card typing" data-x></div><div data-c></div><div class="card" style="flex:1;overflow:hidden"><div data-l></div><div class="tot"><span>Total</span><span data-t>$0</span></div></div>`;
+    const X = s.querySelector("[data-x]"), C = s.querySelector("[data-c]"), L = s.querySelector("[data-l]"), T = s.querySelector("[data-t]");
+    const text = "Bathroom remodel for Anna Lee: replace tiles 60 sq ft, new vanity, paint ceiling";
+    const triggers = [
+      {at: "Anna Lee", fn: () => { C.innerHTML = `<span class="clientchip pop"><span class="av">AL</span>Anna Lee · client</span>`; }},
+      {at: "60 sq ft", lines: [0, 1, 2]},
+      {at: "vanity", lines: [3]},
+      {at: "ceiling", lines: [4, 5]},
+    ];
+    let sum = 0, shown = "";
+    for (let i = 1; i <= text.length; i++) {
+      if (!alive()) return;
+      shown = text.slice(0, i);
+      let html = shown;
+      for (const tr of triggers) if (shown.includes(tr.at)) html = html.replace(tr.at, `<mark>${tr.at}</mark>`);
+      X.innerHTML = html + `<span class="caret"></span>`;
+      for (const tr of triggers) {
+        if (!tr.done && shown.endsWith(tr.at)) {
+          tr.done = true;
+          if (tr.fn) tr.fn();
+          for (const k of tr.lines || []) { L.insertAdjacentHTML("beforeend", row(LINES[k])); countTo(T, sum, sum += LINES[k].v, 300); await sleep(250); }
+        }
+      }
+      await sleep(45);
+    }
+  });
+
+  // 3. Source lookup — interactive
+  const ALTS = [
+    {hist: 210, data: 240, ai: 300},
+    {hist: 720, data: 780, ai: 900},
+    {data: 409, ai: 450},
+    {data: 450, ai: 520},
+    {hist: 280, data: 320, ai: 350},
+    {ai: 150},
+  ];
+  const SRCNAME = {hist: "Your price", data: "Market", ai: "AI guess"};
+  concept("3 · Where the price comes from", "AI looks up each price: your history → market → guess. Tap any price to see the other sources and switch.", async (s, alive) => {
+    s.innerHTML = `<div class="ttl">Pricing 6 services</div><div class="card" style="flex:1;overflow:auto"><div data-l></div><div class="tot"><span>Total</span><span data-t>$0</span></div><div data-n style="font-size:11px;color:var(--muted);margin-top:6px"></div></div>
+      <button class="btn" data-go style="margin-top:10px">Find prices</button>`;
+    const L = s.querySelector("[data-l]"), T = s.querySelector("[data-t]"), N = s.querySelector("[data-n]"), GO = s.querySelector("[data-go]");
+    const pick = LINES.map(l => l.src);
+    L.innerHTML = LINES.map((l, i) => `<div class="ln" data-i="${i}" style="flex-wrap:wrap"><div><div class="t">${l.t}</div><div class="d">${l.d}</div><div class="src"><i data-s="hist">Your history</i><i data-s="data">Market</i><i data-s="ai">AI</i></div></div><div class="p wait">—</div><div class="alts" data-a></div></div>`).join("");
+    const total = () => LINES.reduce((a, l, i) => a + ALTS[i][pick[i]], 0);
+    const counts = () => { const c = {hist: 0, data: 0, ai: 0}; pick.forEach(p => c[p]++); return `${c.hist} from your invoices · ${c.data} market · ${c.ai} AI guess`; };
+    const render = i => {
+      const r = L.querySelector(`[data-i="${i}"]`), p = r.querySelector(".p"), k = pick[i];
+      p.classList.remove("wait"); p.innerHTML = `<span class="tap">${money(ALTS[i][k])} ▾</span>`;
+      r.querySelectorAll(".src i").forEach(c => { c.className = c.dataset.s === k ? "hit " + k : (ALTS[i][c.dataset.s] == null ? "miss" : ""); });
+    };
+    GO.addEventListener("click", async () => {
+      GO.disabled = true; GO.textContent = "Looking up…";
+      let sum = 0;
+      for (let i = 0; i < LINES.length; i++) {
+        const r = L.querySelector(`[data-i="${i}"]`);
+        for (const k of ["hist", "data", "ai"]) {
+          if (!alive()) return;
+          const chip = r.querySelector(`[data-s="${k}"]`);
+          chip.classList.add("look"); await sleep(260); chip.classList.remove("look");
+          if (k === LINES[i].src) break;
+          chip.classList.add("miss");
+        }
+        render(i); r.querySelector(".p").classList.add("pop");
+        await countTo(T, sum, sum += ALTS[i][pick[i]], 200);
+      }
+      N.textContent = counts() + " · tap a price to change";
+      GO.textContent = "Save estimate"; GO.disabled = false; GO.onclick = () => { GO.textContent = "Saved ✓"; };
+      L.querySelectorAll(".ln").forEach(r => r.querySelector(".p").addEventListener("click", () => {
+        const i = +r.dataset.i, A = r.querySelector("[data-a]");
+        if (A.innerHTML) { A.innerHTML = ""; return; }
+        L.querySelectorAll("[data-a]").forEach(x => x.innerHTML = "");
+        A.innerHTML = ["hist", "data", "ai"].filter(k => ALTS[i][k] != null).map(k => `<button class="alt ${k} ${pick[i] === k ? "on" : ""}" data-k="${k}">${SRCNAME[k]} <b>${money(ALTS[i][k])}</b></button>`).join("") + `<button class="alt" data-k="own">Type my own</button>`;
+        A.querySelectorAll("button").forEach(b => b.addEventListener("click", e => {
+          e.stopPropagation();
+          if (b.dataset.k === "own") { const v = prompt("Your price, $", ALTS[i][pick[i]]); if (!v || isNaN(+v)) return; ALTS[i].hist = +v; pick[i] = "hist"; }
+          else pick[i] = b.dataset.k;
+          A.innerHTML = ""; render(i); T.textContent = money(total()); N.textContent = counts() + " · tap a price to change";
+        }));
+      }));
+    });
+  });
+
+  // 4. Tiers — interactive
+  concept("4 · Three options", "AI builds Basic / Standard / Premium. Tap an option: see its lines and where it sits on the market.", async (s, alive) => {
+    const tiers = [
+      {n: "Basic", v: 1659, s: "Ceramic tiles, keep vanity top", lines: [0, 1, 4]},
+      {n: "Standard", v: 2219, s: "Porcelain tiles, new vanity", lines: [0, 1, 2, 3, 4, 5]},
+      {n: "Premium", v: 3480, s: "Large-format tiles, stone vanity, heated floor", lines: [0, 1, 2, 3, 4, 5]},
+    ];
+    s.innerHTML = `<div class="ttl">Choose an option</div><div class="card" style="margin-bottom:8px"><div style="font-size:12px;font-weight:600">Market for this job · zip 94110</div>
+      <div class="range"><div class="mk" data-mk style="left:0%;opacity:0"></div></div><div class="rl"><span>$1,400</span><span>$2,600</span><span>$4,200</span></div></div>
+      <div data-w style="flex:1;overflow:auto"></div><button class="btn" data-go disabled style="margin-top:8px">Pick an option</button>`;
+    const W = s.querySelector("[data-w]"), MK = s.querySelector("[data-mk]"), GO = s.querySelector("[data-go]");
+    W.innerHTML = tiers.map((t, i) => `<div class="tier in" data-i="${i}" style="animation-delay:${i * .15}s;cursor:pointer"><div class="h"><span>${t.n}</span><span>${money(t.v)}</span></div><div class="s">${t.s}</div><div class="exp">${t.lines.map(k => row(LINES[k])).join("")}</div></div>`).join("");
+    const pos = v => ((v - 1400) / (4200 - 1400) * 100) + "%";
+    W.querySelectorAll(".tier").forEach(el => el.addEventListener("click", () => {
+      const i = +el.dataset.i;
+      W.querySelectorAll(".tier").forEach((x, j) => x.classList.toggle("sel", j === i));
+      MK.style.opacity = 1; MK.style.left = pos(tiers[i].v);
+      GO.disabled = false; GO.textContent = `Use ${tiers[i].n} · ${money(tiers[i].v)}`;
+    }));
+    GO.addEventListener("click", () => { GO.textContent = "Saved ✓"; });
+  });
+
+  // 5. Deck — interactive
+  concept("5 · Swipe to keep", "AI suggests line by line. Drag the card right to keep, left to drop — or tap the buttons.", async (s, alive) => {
+    s.innerHTML = `<div class="ttl">Review suggestions</div><div class="hint"><span>← drop</span><span data-c>1 / 6</span><span>keep →</span></div><div class="deck" data-d></div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-bottom:10px"><button class="rb x" data-x>✕</button><button class="rb k" data-k>✓</button></div>
+      <div class="card kept"><div style="font-size:12px;font-weight:600;margin-bottom:2px">Estimate · Anna Lee</div><div data-l></div><div class="tot"><span>Total</span><span data-t>$0</span></div></div>`;
+    const D = s.querySelector("[data-d]"), L = s.querySelector("[data-l]"), T = s.querySelector("[data-t]"), Cn = s.querySelector("[data-c]");
+    const stack = j => `translateY(${Math.min(j, 2) * 8}px) scale(${1 - Math.min(j, 2) * .04})`;
+    D.innerHTML = LINES.map((l, i) => `<div class="dc" data-i="${i}" style="z-index:${10 - i};transform:${stack(i)}">
+      <div><div class="t">${l.t}</div><div class="d" style="font-size:13px;color:var(--muted);margin-top:4px">${l.d}</div>${tag(l)}</div><div class="p">${money(l.v)}</div>
+      <span class="stamp k">KEEP</span><span class="stamp x">DROP</span></div>`).join("");
+    const cards = [...D.querySelectorAll(".dc")]; let cur = 0, sum = 0, kept = 0;
+    const decide = keep => {
+      if (cur >= cards.length) return;
+      const c = cards[cur], i = cur;
+      c.classList.add(keep ? "keep" : "drop");
+      c.style.transition = ""; c.style.transform = `translateX(${keep ? 360 : -360}px) rotate(${keep ? 18 : -18}deg)`; c.style.opacity = 0; c.style.pointerEvents = "none";
+      cur++;
+      cards.slice(cur).forEach((n, j) => n.style.transform = stack(j));
+      Cn.textContent = `${Math.min(cur + 1, 6)} / 6`;
+      if (keep) { kept++; L.insertAdjacentHTML("beforeend", row(LINES[i])); countTo(T, sum, sum += LINES[i].v, 300); }
+      if (cur === cards.length) setTimeout(() => {
+        D.innerHTML = `<div class="dc pop" style="align-items:center;justify-content:center;text-align:center"><div class="t">${kept} kept · ${6 - kept} dropped</div><div class="d" style="font-size:13px;color:var(--muted);margin-top:6px">Ready to save</div></div>`;
+      }, 400);
+    };
+    s.querySelector("[data-x]").addEventListener("click", () => decide(false));
+    s.querySelector("[data-k]").addEventListener("click", () => decide(true));
+    cards.forEach((c, i) => {
+      let x0 = null, dx = 0;
+      c.addEventListener("pointerdown", e => { if (i !== cur) return; x0 = e.clientX; dx = 0; c.style.transition = "none"; c.setPointerCapture(e.pointerId); });
+      c.addEventListener("pointermove", e => {
+        if (x0 === null) return; dx = e.clientX - x0;
+        c.style.transform = `translateX(${dx}px) rotate(${dx / 15}deg)`;
+        c.classList.toggle("keep", dx > 40); c.classList.toggle("drop", dx < -40);
+      });
+      c.addEventListener("pointerup", () => {
+        if (x0 === null) return; x0 = null; c.style.transition = "";
+        if (Math.abs(dx) > 80) decide(dx > 0); else { c.style.transform = stack(0); c.classList.remove("keep", "drop"); }
+      });
+    });
+  });
+  const grid = document.getElementById("grid");
+  concepts.forEach(c => {
+    const col = document.createElement("div"); col.className = "col";
+    col.innerHTML = `<h2>${c.title}</h2><div class="what">${c.what}</div><div class="phone"><div class="sb"><span>9:41</span><span>▮▮▮</span></div><div class="scr"></div></div><button class="replay">↻ Replay</button>`;
+    grid.appendChild(col);
+    const scr = col.querySelector(".scr");
+    let gen = 0;
+    const play = () => { const my = ++gen; c.run(scr, () => my === gen); };
+    col.querySelector(".replay").addEventListener("click", play);
+    play();
+  });
+  window.__concepts = concepts.length;
+})();
+</script>
+</body>
+</html>
